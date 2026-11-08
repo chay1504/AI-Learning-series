@@ -39,7 +39,7 @@ scripts/
 
 ## Notes & caveats
 
-- **Transcripts:** the transcripts come from YouTube's auto-generated captions, so expect some speech-recognition errors. **Days 6, 7 and 8** are included. Days 1–4 could not be downloaded because YouTube blocked automated access from the cloud server ("confirm you're not a bot"). The style analysis is therefore based on the three most recent episodes.
+- **Transcripts:** the transcripts come from YouTube's auto-generated captions, so expect some speech-recognition errors. **Days 3, 6, 7 and 8** are included. Days 1, 2 and 4 could not be downloaded because YouTube blocked automated access from the cloud server ("confirm you're not a bot"). The Day 3 transcript only came through on a later retry, so the style analysis is based on Days 6–8, and Day 3 was used to check the scripts' callbacks.
 - **Numbers:** every number in the scripts was checked with Python.
 - **Unconfirmed claims:** facts the research couldn't confirm are tagged **[verify]** and kept out of the scripts.
 - **Episode numbers:** episodes are numbered Day 9 and Day 10 to follow the channel. Renumber them if you're following the plan's Day 21+ numbering.

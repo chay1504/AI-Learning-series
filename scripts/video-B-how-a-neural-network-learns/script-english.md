@@ -35,7 +35,7 @@
 ⏱ **00:21 – 02:02**
 
 🎙
-> First, let's recap once. In the last video we entered deep learning. On Day 2 we drew circles, right? AI, inside it ML, inside that DL. Last video we went into that innermost circle.
+> First, let's recap once. In the last video we entered deep learning. Last video we drew the circles, right? AI, inside it ML, inside that DL. Last video we went into that innermost circle.
 >
 > Then we saw what an artificial neuron is. Inputs come in, it multiplies each input by a weight, adds them all, adds a bias, passes that through an activation, and gives one output. Inputs × weights + bias → activation → output. That simple. And the Student D calculation from Day 7 (4 hours of study, 80% attendance, z = 2.4, 91.7% pass) was already one neuron. We saw that last time.
 >

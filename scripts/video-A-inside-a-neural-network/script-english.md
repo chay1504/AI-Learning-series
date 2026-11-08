@@ -35,7 +35,7 @@ This is a faithful English rendering of `script-telugu.md`. It uses the **same s
 ### ⏱ 00:45–01:47 · [B] Recap: taxonomy walk + catch-up + comment prompt
 
 **🎙 Spoken**
-> First, let's do a quick recap. As always, let's walk down the map from the top. Remember the three circles we drew in Day 2? The big outer circle is AI, inside it is ML, and inside ML is DL. Until now we were in the middle circle, ML. In ML we saw supervised learning and unsupervised learning. In supervised: classification and regression. Day 7: decision tree, logistic regression, SVM. Day 8, in unsupervised: K-means, hierarchical clustering, DBSCAN. And who was our hero in all of this? Our student pass/fail model. Study hours, sleep hours, attendance... we built it and kept extending it a little in every video. Today too, that same student comes with us. Especially Student D from Day 7, remember him? He studied 4 hours, 80% attendance, 91.7% pass. Keep him in mind, he's very important today. Whoever hasn't watched Day 1 to Day 8, please watch them, especially Day 7. It'll really help with today's video. And whoever remembers what Student D's z value was, tell me in the comments. Let's see who remembers how much.
+> First, let's do a quick recap. As always, let's walk down the map from the top. Remember the AI vs ML vs DL difference we saw in Day 2? If I draw it as three circles, it looks like this. The big outer circle is AI, inside it is ML, and inside ML is DL. Until now we were in the middle circle, ML. In ML we saw supervised learning and unsupervised learning. In supervised: classification and regression. Day 7: decision tree, logistic regression, SVM. Day 8, in unsupervised: K-means, hierarchical clustering, DBSCAN. And who was our hero in all of this? Our student pass/fail model. Study hours, sleep hours, attendance... we built it and kept extending it a little in every video. Today too, that same student comes with us. Especially Student D from Day 7, remember him? He studied 4 hours, 80% attendance, 91.7% pass. Keep him in mind, he's very important today. Whoever hasn't watched Day 1 to Day 8, please watch them, especially Day 7. It'll really help with today's video. And whoever remembers what Student D's z value was, tell me in the comments. Let's see who remembers how much.
 
 **🖊 Board / on-screen**
 1. Draw three nested circles: **AI** ⊃ **ML** ⊃ **DL**. Shade ML lightly ("we were here").
@@ -77,7 +77,7 @@ This is a faithful English rendering of `script-telugu.md`. It uses the **same s
 >
 > *"Deep learning is a subset of machine learning that uses artificial neural networks with many layers to learn patterns, and even the useful features themselves, directly from large amounts of data such as images, audio and text."*
 >
-> So what does this mean? First it says "a subset of machine learning". That means deep learning isn't some separate new thing. It sits inside ML: the inner circle we drew in Day 2. It also learns from data. There's training, there's testing, just like we saw from Day 3 to Day 8.
+> So what does this mean? First it says "a subset of machine learning". That means deep learning isn't some separate new thing. It sits inside ML: the inner circle I just drew in the recap. It also learns from data. There's training, there's testing, just like we saw in the earlier videos.
 >
 > It's right there in the name, isn't it? Deep Learning. What does "deep" mean? Many layers. Like a building with many floors. And what does it use? "Artificial neural networks". That's in the name too: a neural network means a network made of neurons, lots of small neurons connected together. What a neuron is, I'll tell you in the second topic. For now just remember this: deep means many layers.
 
@@ -352,7 +352,7 @@ This is a faithful English rendering of `script-telugu.md`. It uses the **same s
 >
 > Second: so now, what does "deep" mean? If I add more hidden-layer columns here, 3, 10, 100, that's a deep network. That's all deep means.
 >
-> Third: "More layers is always better?" No. More layers need more data and more computation, and there's also a chance they mug up the training data and then fail on the testing data. We saw training vs testing in Day 3, right?
+> Third: "More layers is always better?" No. More layers need more data and more computation, and there's also a chance they mug up the training data and then fail on the testing data. We saw training vs testing in the earlier videos, right?
 >
 > Fourth: "Does the network look up the answer in some database?" No. Every time, it calculates the answer fresh using the weights.
 >
@@ -363,7 +363,7 @@ This is a faithful English rendering of `script-telugu.md`. It uses the **same s
 **🖊 Board / on-screen**
 1. Write over h1 / h2: "'study' / 'rest' = OUR labels for the story. Real hidden neurons ≠ neat meaning".
 2. **Erase and redraw** with 3 hidden columns between input and output: "**Deep** = many hidden layers".
-3. Myth list: ❌ "More layers always better" (more data, more compute, can overfit, Day 3) · ❌ "Looks up a database" → ✅ "calculates fresh every time".
+3. Myth list: ❌ "More layers always better" (more data, more compute, can overfit: training vs testing) · ❌ "Looks up a database" → ✅ "calculates fresh every time".
 4. Count on the board: "4 weights + 2 biases + 2 weights + 1 bias = **9 parameters**" vs a big number card: "**GPT-3 (2020): 175,000,000,000**".
 5. One-liner box: **Input → Hidden (patterns) → Output (answer)**.
 

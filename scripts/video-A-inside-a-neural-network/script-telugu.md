@@ -36,7 +36,7 @@
 ### ⏱ 00:45–01:47 · [B] Recap: taxonomy walk + catch-up + comment prompt
 
 **🎙 Spoken**
-> ఫస్ట్ ఒక్కసారి రీక్యాప్ చేసుకుందాం. ఎప్పుడూ చేసినట్టే map లో పై నుంచి కిందకి వద్దాం. Day 2 లో మూడు circles గీసినం, గుర్తుందా? బయట ఉండే పెద్ద circle వచ్చేసి AI, దాని లోపల ML, ML లోపల DL. ఇప్పటిదాకా మనం మధ్యలో ఉండే ML circle లో ఉన్నాం అన్నమాట. ML లో supervised learning చూసినం, unsupervised learning చూసినం. సో supervised లో classification, regression ఉంటాయి అన్నమాట. Day 7 లో decision tree, logistic regression, SVM. Day 8 లో unsupervised లో K-means, hierarchical clustering, DBSCAN. ఇవన్నిట్లో మన hero ఎవరు అంటే, మన student pass/fail model అన్నమాట. Study hours, sleep hours, attendance... దాన్ని build చేసినం, ప్రతి video లో కొంచెం కొంచెం పెంచుకుంటూ వచ్చినం. సో ఈరోజు కూడా అదే student మనతో పాటు వస్తడు అన్నమాట. ముఖ్యంగా Day 7 లో Student D గుర్తుందా? 4 hours చదివిండు, 80% attendance, 91.7% pass. అతన్ని గుర్తుపెట్టుకోండి, ఈరోజు అతను చాలా important. ఎవరైతే Day 1 నుంచి Day 8 వరకు చూడలేదో, ప్లీజ్ చూడండి, ముఖ్యంగా Day 7. ఈరోజు video కి చాలా హెల్ప్ అవుతది. అండ్ Student D ది z value ఎంత వచ్చిందో ఎవరికైతే గుర్తుందో, కామెంట్స్ లో చెప్పండి. ఎవరు ఎంత గుర్తుపెట్టుకున్నారో ఒకసారి చూద్దాం.
+> ఫస్ట్ ఒక్కసారి రీక్యాప్ చేసుకుందాం. ఎప్పుడూ చేసినట్టే map లో పై నుంచి కిందకి వద్దాం. Day 2 లో AI, ML, DL difference చూసినం, గుర్తుందా? దాన్ని మూడు circles లాగా గీస్తే ఇట్లా ఉంటది. బయట ఉండే పెద్ద circle వచ్చేసి AI, దాని లోపల ML, ML లోపల DL. ఇప్పటిదాకా మనం మధ్యలో ఉండే ML circle లో ఉన్నాం అన్నమాట. ML లో supervised learning చూసినం, unsupervised learning చూసినం. సో supervised లో classification, regression ఉంటాయి అన్నమాట. Day 7 లో decision tree, logistic regression, SVM. Day 8 లో unsupervised లో K-means, hierarchical clustering, DBSCAN. ఇవన్నిట్లో మన hero ఎవరు అంటే, మన student pass/fail model అన్నమాట. Study hours, sleep hours, attendance... దాన్ని build చేసినం, ప్రతి video లో కొంచెం కొంచెం పెంచుకుంటూ వచ్చినం. సో ఈరోజు కూడా అదే student మనతో పాటు వస్తడు అన్నమాట. ముఖ్యంగా Day 7 లో Student D గుర్తుందా? 4 hours చదివిండు, 80% attendance, 91.7% pass. అతన్ని గుర్తుపెట్టుకోండి, ఈరోజు అతను చాలా important. ఎవరైతే Day 1 నుంచి Day 8 వరకు చూడలేదో, ప్లీజ్ చూడండి, ముఖ్యంగా Day 7. ఈరోజు video కి చాలా హెల్ప్ అవుతది. అండ్ Student D ది z value ఎంత వచ్చిందో ఎవరికైతే గుర్తుందో, కామెంట్స్ లో చెప్పండి. ఎవరు ఎంత గుర్తుపెట్టుకున్నారో ఒకసారి చూద్దాం.
 
 **🖊 Board / on-screen**
 1. Draw three nested circles: **AI** ⊃ **ML** ⊃ **DL**. Shade ML lightly ("we were here").
@@ -78,7 +78,7 @@
 >
 > *"Deep learning is a subset of machine learning that uses artificial neural networks with many layers to learn patterns, and even the useful features themselves, directly from large amounts of data such as images, audio and text."*
 >
-> సో దీని అర్థం ఏంటి అంటే, ఫస్ట్ "a subset of machine learning" అని ఉంది కదా. అంటే deep learning అనేది వేరే ఏదో కొత్త విషయం కాదు. ML లోపలే ఉంటది: Day 2 లో గీసిన లోపలి circle అన్నమాట. ఇది కూడా data నుంచే నేర్చుకుంటది. Training ఉంటది, testing ఉంటది, Day 3 నుంచి Day 8 వరకు చూసినట్టే అన్నమాట.
+> సో దీని అర్థం ఏంటి అంటే, ఫస్ట్ "a subset of machine learning" అని ఉంది కదా. అంటే deep learning అనేది వేరే ఏదో కొత్త విషయం కాదు. ML లోపలే ఉంటది: ఇందాక recap లో గీసిన లోపలి circle అన్నమాట. ఇది కూడా data నుంచే నేర్చుకుంటది. Training ఉంటది, testing ఉంటది, ముందు వీడియోస్ లో చూసినట్టే అన్నమాట.
 >
 > పేర్లోనే ఉంది కదా: Deep Learning. Deep అంటే ఏంటిది? Many layers. ఒక building కి చాలా floors ఉంటాయి కదా, అలా అన్నమాట. ఇంకా ఏం use చేస్తది? "Artificial neural networks". ఇది కూడా పేర్లోనే ఉంది: neural network అంటే neurons తో చేసిన ఒక network, చాలా చిన్న చిన్న neurons ని కలిపితే వచ్చేది. Neuron అంటే ఏంటో సెకండ్ topic లో చెప్తా. సో ఇప్పటికి ఇది గుర్తుపెట్టుకోండి: deep అంటే many layers అన్నమాట.
 
@@ -353,7 +353,7 @@
 >
 > సెకండ్: ఇప్పుడు 'deep' అంటే ఏంటి? ఇక్కడ ఇంకా hidden layer columns add చేస్తే, 3, 10, 100, అదే deep network. Deep అంటే అంతే.
 >
-> థర్డ్: "Layers ఎక్కువ ఉంటే ఎప్పుడూ better ఆ?" కాదు. ఎక్కువ layers కి ఎక్కువ data కావాలి, ఎక్కువ computation కావాలి, అండ్ అవి training data ని బట్టీ పట్టి testing data లో fail అయ్యే chance కూడా ఉంటది. Day 3 లో training vs testing చూసినం కదా.
+> థర్డ్: "Layers ఎక్కువ ఉంటే ఎప్పుడూ better ఆ?" కాదు. ఎక్కువ layers కి ఎక్కువ data కావాలి, ఎక్కువ computation కావాలి, అండ్ అవి training data ని బట్టీ పట్టి testing data లో fail అయ్యే chance కూడా ఉంటది. ముందు వీడియోస్ లో training vs testing చూసినం కదా.
 >
 > ఫోర్త్: "Network answer ని ఏదైనా database లో వెతుకుతదా?" లేదు. ప్రతిసారి weights తో answer ని fresh గా calculate చేస్తది అన్నమాట.
 >
@@ -364,7 +364,7 @@
 **🖊 Board / on-screen**
 1. Write over h1 / h2: "'study' / 'rest' = OUR labels for the story. Real hidden neurons ≠ neat meaning".
 2. **Erase and redraw** with 3 hidden columns between input and output: "**Deep** = many hidden layers".
-3. Myth list: ❌ "More layers always better" (more data, more compute, can overfit, Day 3) · ❌ "Looks up a database" → ✅ "calculates fresh every time".
+3. Myth list: ❌ "More layers always better" (more data, more compute, can overfit: training vs testing) · ❌ "Looks up a database" → ✅ "calculates fresh every time".
 4. Count on the board: "4 weights + 2 biases + 2 weights + 1 bias = **9 parameters**" vs a big number card: "**GPT-3 (2020): 175,000,000,000**".
 5. One-liner box: **Input → Hidden (patterns) → Output (answer)**.
 

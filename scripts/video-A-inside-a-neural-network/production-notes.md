@@ -280,3 +280,7 @@ Independent review, 2026-11-08. Every number was recomputed in Python (σ, ReLU,
 - B's F5 repeats the Day 7 sigmoid correction ("Day 7 లో నేను… అన్నట్టు చెప్పిన"). Video A already made this correction (T15), so B should frame it as "last video లో clear చేసిన కదా" or keep it short.
 - B's outro reuses the **"took me 2–3 days"** humility beat that Video A also uses. Two consecutive episodes would repeat it, so vary one of them.
 - B's own §7.4 assumptions all hold against Video A: the 9-parameter network, Ravi/Sita/Kiran values, ReLU in one line, Student D = one neuron, and the closing "where do the weights come from?". B's "Day 2 circles" callback carries the same unverified risk as item 9.
+
+### Post-review fix (main session)
+- **Day 2 circles callback resolved:** Day 2's transcript still can't be downloaded, so the script no longer claims Deepak *drew circles* on Day 2. It now says "Day 2 లో AI, ML, DL difference చూసినం" and draws the three circles fresh in this recap. Video B's recap now says the circles were drawn "last video", which is true.
+- **Day 3 checked:** the Day 3 transcript became available on a later retry. It covers features, label, model, training and supervised learning (labeled data, apples vs mangoes). It does **not** cover *testing* (the Day 6 recap confirms that was taught in an earlier episode), so the script's three "Day 3 training vs testing" callbacks now say "ముందు వీడియోస్ లో" ("in the earlier videos").

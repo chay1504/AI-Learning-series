@@ -47,7 +47,7 @@
 ⏱ **00:21 – 02:02**
 
 🎙
-> సో ఫస్ట్ ఒక్కసారి recap చేసుకుందాం. లాస్ట్ వీడియోలో మనం deep learning లోకి enter అయినం. Day 2 లో మనం circles గీసినం కదా — AI, దాంట్లో ML, దాంట్లో DL. ఆ లోపల ఉండే circle లోకి లాస్ట్ వీడియోలో వెళ్ళినం.
+> సో ఫస్ట్ ఒక్కసారి recap చేసుకుందాం. లాస్ట్ వీడియోలో మనం deep learning లోకి enter అయినం. లాస్ట్ వీడియోలో మనం circles గీసినం కదా — AI, దాంట్లో ML, దాంట్లో DL. ఆ లోపల ఉండే circle లోకి లాస్ట్ వీడియోలో వెళ్ళినం.
 >
 > తర్వాత artificial neuron అంటే ఏంటిది చూసినం. Inputs వస్తాయి, ప్రతి input ని ఒక weight తోని multiply చేస్తది, అన్నీ add చేస్తది, ఒక bias add చేస్తది, దాన్ని ఒక activation గుండా పంపి ఒక్క output ఇస్తది. Inputs × weights + bias → activation → output. అంతే సింపుల్. And Day 7 లో మనం Student D ది calculate చేసినం కదా — 4 hours చదివిండు, 80% attendance, z వచ్చేసి 2.4, 91.7% pass — అది already ఒక neuron ఏ అన్నమాట. లాస్ట్ టైం చూసినం.
 >
