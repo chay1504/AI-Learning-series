@@ -14,8 +14,11 @@ Companion files: `script-telugu.md` (recording script) · `script-english.md` (r
 | Mid-roll CTA | 08:40, at **35.5%** of runtime (template: 35–45%). Like D7, it cuts in mid-thought, right before the "logistic regression = 1 neuron" reveal, as a cliff-hanger |
 | Minutes per concept | DL ≈ 4.9 · Neuron ≈ 5.4 (incl. mid-roll) · Layers ≈ 5.4 · Weights & biases ≈ 3.7 |
 | "Write it down" prompts | 01:47 agenda · 02:19 · 02:54 DL def · 05:43 three reasons · 07:50 neuron def · 11:11 terminology · 13:12 NN def · ~16:10 forward pass · 18:34 W&B def · 22:55 notes. Max gap is ≈ 3 min |
-| Worked examples | One per concept, all calculator-checkable: Student D neuron (+ Student A) · Sita's forward pass (+ Ravi/Kiran shown as a table) · "turn the knobs" on Student D |
+| Worked examples | One per concept, all calculator-checkable: Student D neuron (+ new Student F) · Sita's forward pass (+ Ravi/Kiran shown as a table) · "turn the knobs" on Student D |
 | Deliberately NOT covered (Video B) | Why activation is needed / ReLU in depth, loss, gradient descent, backprop, learning rate. Sigmoid is only "the squashing function from Day 7". ReLU is only a one-line "negative → 0" rule (needed so that Sita's h2 = 0 matches Video B) |
+
+### Segment key (Tnn)
+These notes refer to segments as **T01–T30**: Tnn is the nn-th ⏱ segment in both scripts, in order. T01 [A0] cold open · T02 [A] welcome · T03 [B] recap · T04 [C] agenda · T05 [E] reassurance · T06 DL definition · T07 learning features · T08 everyday analogy · T09 why now · T10 real examples · T11 DL doubts · T12 neuron definition · T13 [G] mid-roll · T14 Student D neuron · T15 Day 7 clarification · T16 Student F + terminology · T17 cricket selector · T18 neuron doubts · T19 NN definition + layers · T20 fully connected · T21 Sita forward pass · T22 Ravi & Kiran + twist · T23 layer doubts + 9 parameters · T24 W&B definition · T25 knobs · T26 turn the knobs · T27 W&B doubts · T28 [J] quiz · T29 [K] recap · T30 [L] outro.
 
 ### Renumbering note
 The script says **"Day 9"** to follow the channel's numbering. If you renumber to match the plan ("Day 21"), change exactly these lines in both scripts:
@@ -100,14 +103,14 @@ An artificial neuron is a small mathematical unit that takes one or more inputs,
 • σ output = probability between 0 and 1; threshold 50% → Pass / Fail
 • Student D: x1 = 4 hrs, x2 = 80%, w1 = 0.8, w2 = 0.04, b = −4
   z = 3.2 + 3.2 − 4 = 2.4 → σ(2.4) = 0.917 → 91.7% → PASS
-• Student A: 1 hr, 50% → z = 0.8 + 2 − 4 = −1.2 → σ = 0.231 → FAIL
+• Student F (new): 1 hr, 50% → z = 0.8 + 2 − 4 = −1.2 → σ = 0.231 → FAIL
 • Logistic regression = a neural network with exactly ONE neuron.
 • "Bias" here is just a number, NOT unfair bias!
 
 ▶ Neural Network (layers)
 A neural network is a set of artificial neurons arranged in layers (an input layer, one or more hidden layers, and an output layer), where the outputs of one layer become the inputs of the next.
 • Input layer: just holds the data (no calculation)
-• Hidden layer(s): build intermediate patterns (we don't see their values)
+• Hidden layer(s): build intermediate patterns (their values aren't in our data; the network works them out itself)
 • Output layer: final answer (pass/fail → 1 neuron with sigmoid)
 • Fully connected: every neuron connects to every neuron in the next layer; each line = one weight
 • Forward pass = input → hidden → output = how the network makes a prediction
@@ -122,7 +125,7 @@ A neural network is a set of artificial neurons arranged in layers (an input lay
 ▶ Weights & Biases
 Weights are numbers that decide how strongly, and in which direction, each input affects a neuron's output. A bias is a number added to the weighted sum that shifts how easily the neuron activates, whatever the inputs are. Together, weights and biases are the parameters that a neural network learns during training.
 • + weight pushes up, − weight pulls down, ≈0 ignored
-• Bias = starting point / cutoff (like the 36-marks pass mark)
+• Bias = starting point / cutoff (like the 35-marks pass mark)
 • Turning the knobs on Student D (4 hrs, 80%):
   Original → z 2.4 → 91.7% Pass
   w2 = 0 → z −0.8 → 31.0% Fail
@@ -131,7 +134,7 @@ Weights are numbers that decide how strongly, and in which direction, each input
   + Instagram 3 hrs × (−0.5) → z 0.9 → 71.1% Pass (less sure)
 • Weight size depends on input scale: 0.04 × 80 = 3.2 = 0.8 × 4 (or 4 × 0.8 if attendance is written as 0.8)
 • Weights start random and are LEARNED from data — not typed in by programmers
-• A trained model file is mostly its weights & biases
+• A trained model file = a little structure info + (mostly) its weights & biases
 
 ❓ Quiz (answer in comments!)
 1. Which runs on deep learning: face unlock, Google Lens, YouTube recommendations, Google Translate camera, or all?
@@ -215,10 +218,10 @@ All values were checked in Python (σ(0.4) = 0.5987, σ(−1.6) = 0.1680, σ(6) 
 - *"edges → letters → words"* layer labels: illustrative. Real layers learn whatever is useful.
 - *h1 = "study" / h2 = "rest" neuron names*: disclaimed on camera ("our labels for the story").
 - *ReLU*: introduced only as a one-line rule (negative → 0), and the script says it's an activation function covered next video. This is needed so the Day 23 numbers (Sita's h2 = 0) match Video B.
-- *Bias ≈ 36-marks cutoff*: exact in this setup. With b = −4, z > 0 (σ > 50%) happens precisely when 0.8·hrs + 0.04·att > 4.
+- *Bias ≈ 35-marks pass mark*: exact in this setup. (Day 7 said "36"; the AP/Telangana SSC pass mark is 35, per style-dna-report §6 #9, so the script quietly uses 35.) With b = −4, z > 0 (σ > 50%) happens precisely when 0.8·hrs + 0.04·att > 4.
 - *Cricket selector / knobs analogies*: on camera, the selector is said to use opinion while a neuron learns from data, and knobs are said to be able to go negative.
 - *"One neuron = straight-line boundary"*: true for a single weighted-sum neuron with a monotonic activation (= logistic regression).
-- *"A model file is mostly weights & biases"*: "mostly" keeps it correct. The file also holds an architecture config, a tokenizer, etc.
+- *"A model file is mostly weights & biases"*: the script says the file holds a little structure info and the rest is weights & biases, so "trained model = structure + weights & biases". It can also hold a tokenizer config, etc.
 - *12 MP × 3 = 36 M numbers*: correct as the raw count. In practice, images are usually resized before going into a network. It isn't needed on camera.
 - *"Deep" has no fixed number of layers*: the script says only "many hidden layers".
 
@@ -244,8 +247,36 @@ All values were checked in Python (σ(0.4) = 0.5987, σ(−1.6) = 0.1680, σ(6) 
 | Day 23 network | h1 = ReLU(1·S + 0.5·L − 6), h2 = ReLU(0.5·S + 1·L − 7), out = σ(1·h1 + 1·h2 − 2); 9 parameters |
 | Students | Ravi (4, 7) → 81.8% Pass · Sita (6, 3) → h1 1.5, h2 0, z −0.5, 37.8% Fail (actually passed) · Kiran (1, 8) → 37.8% Fail |
 | Vocabulary defined | input, weight, bias, weighted sum z, activation, output, input / hidden / output layer, fully connected, **forward pass**, parameters |
-| Analogies used (reuse, don't contradict) | Cricket selector (neuron) · **music-system knobs** (weights/bias; "learning = turning knobs till the prediction is right") → natural lead-in to gradient descent "which way to turn each knob" · strict / lenient examiner & grace marks (bias) · Instagram scrolling (negative weight) · 36-marks cutoff (bias) |
+| Analogies used (reuse, don't contradict) | Cricket selector (neuron) · **music-system knobs** (weights/bias; "learning = turning knobs till the prediction is right") → natural lead-in to gradient descent "which way to turn each knob" · strict / lenient examiner & grace marks (bias) · Instagram scrolling (negative weight) · 35-marks pass mark (bias) |
 | Analogies deliberately NOT used | Curry salt, ghat-road hill, water-tank overflow, restaurant-complaint, cricket post-match. All are left for Video B |
-| Facts stated | "Weights start small & random and are adjusted from data", "a trained model is basically its weights & biases", "more layers can overfit (Day 3 training vs testing)" |
+| Facts stated | "Weights start small & random and are adjusted from data", "a trained model = its structure + its weights & biases", "more layers can overfit (Day 3 training vs testing)" |
 
 **Suggested Video B opening callback:** "Last video lo Sita gurtunda? Network 38% fail annadi, kani tanu pass ayindi. Ivala aa mistake ni network ela correct chesukuntado chuddam."
+
+---
+
+## Review log
+
+Independent review, 2026-11-08. Every number was recomputed in Python (σ, ReLU, all students, knob table, quiz answers, 9 parameters, 12 M × 3, e). **All arithmetic was already correct, and nothing numeric was changed.** The Telugu and English files were checked segment by segment: the headings, timestamps, spoken numbers and board cues match exactly, and the fixes below were applied to both. Runtime is about 4,330 English-equivalent words ÷ 175 wpm ≈ 24.5 min, inside the 22–25 min target. Plan Days 21–24 subtopics are all covered.
+
+| # | Issue | Severity | Fix |
+|---|---|---|---|
+| 1 | **Hidden layer explained as "we can't see its values."** That contradicts the script itself, which computes h1 = 1.5 on the board two minutes later. "Hidden" really means it is neither input nor output: the data has no values for it, and the network works them out. | Medium (false simplification) | T19 spoken line rewritten in both files ("not input, not output, not in our data; the network figures them out itself"). Board cue and description notes updated to match. |
+| 2 | **"36 marks to pass" bias analogy.** This repeats Day 7's slip, which style-dna-report §6 #9 flags: the AP/Telangana SSC pass mark is 35. | Medium (known-error policy) | Changed to 35 in T24 spoken, board, heading and notes. No on-camera correction is needed. |
+| 3 | **"Student A: 1 hr, 50%".** Day 7 already showed a Student A on screen (A–E, results fail/fail/pass/pass/pass) with values we can't see. Invented numbers could contradict Day 7's table. | Low–medium (continuity) | Renamed to a **new Student F**, "added to the Day 7 table". The numbers are unchanged (z = −1.2, 23.1%). |
+| 4 | **"A trained model is simply its weights & biases."** This slightly overclaims, because the file also holds the architecture/config. | Low | Spoken as "a little structure info + the rest is these numbers → model = structure + weights & biases". Notes updated. |
+| 5 | **"From Day 5 to Day 8 we chose the features."** The student model was built in Day 4 (coverage map). | Low | Changed to Day 4–8 (spoken and board "ML (Days 4–8)"). |
+| 6 | **Stiff / non-Telangana verb forms.** For example, అనిపిస్తుంది, చూస్తాడు, decide చేస్తున్నాడు, పడుకున్నాడు, "Instagram లో ఎన్ని hours ఉన్నాడు", and the textbook "అని చెప్తుంది" for a definition. | Low (voice) | Changed to అనిపిస్తది, చూస్తడు, decide చేస్తుండు / చేస్తడు, పడుకుండు (Ravi, Kiran, quiz), గడిపిండు, "అని ఉంది కదా". |
+| 7 | **Humility beat paraphrased.** | Low (voice) | Changed to his real Day 7 wording: "క్లాస్ విన్నప్పుడు నాకు కూడా ఒక రెండు మూడు రోజులు పట్టింది ఇదంతా నేర్చుకోవడానికి". It is still a personal claim, so keep it only if it is true. |
+| 8 | **These notes used T01–T30 references** that don't appear in either script. | Low (production usability) | Added a "Segment key (Tnn)" mapping under §1. |
+| 9 | **"Day 2 లో మూడు circles గీసినం".** This is inferred: the Day 2 transcript was blocked, and its title is "AI vs ML vs DL". | Low (unverified) | Left as is. Video B makes the same callback. Deepak should confirm that Day 2 used circles, or say "Day 2 లో AI, ML, DL difference చూసినం". |
+| 10 | "90% of the people subscribe చేసుకోవట్లేదు" mid-roll | Info | Kept. It is his verbatim D6/D8 line. Video B made it generic, which is a harmless difference. |
+
+**Checked and fine:** opening hook → "Hey guys, welcome back", recap/taxonomy walk + Student D callback + catch-up + comment prompt, written agenda + "Let's dive into the video", reassurance, notes prompts (max gap ≈ 3 min), "sorry for interrupting" mid-roll at 35.5%, likely-doubt beats in every concept, end recap placed in AI ⊃ ML ⊃ DL, 4-question comment quiz, notes in the description, exact sign-off. On the technical side: sigmoid = probability with the threshold making the decision, "loosely inspired" by the brain, "more layers not always better", "bias ≠ unfair", one neuron = straight-line boundary, weight size depends on input scale, and no calculus or matrices.
+
+**Video B mismatches (for the Video B reviewer; not edited here)**
+- B uses **"36 marks pass line"** (F5 spoken + board note, both files). It should be **35** to match Video A and §6 #9.
+- B's recap says **"suppose Sita actually passed"**, but Video A states it as a fact (T22 red stamp, T30). Change it to "remember, she actually passed".
+- B's F5 repeats the Day 7 sigmoid correction ("Day 7 లో నేను… అన్నట్టు చెప్పిన"). Video A already made this correction (T15), so B should frame it as "last video లో clear చేసిన కదా" or keep it short.
+- B's outro reuses the **"took me 2–3 days"** humility beat that Video A also uses. Two consecutive episodes would repeat it, so vary one of them.
+- B's own §7.4 assumptions all hold against Video A: the 9-parameter network, Ravi/Sita/Kiran values, ReLU in one line, Student D = one neuron, and the closing "where do the weights come from?". B's "Day 2 circles" callback carries the same unverified risk as item 9.

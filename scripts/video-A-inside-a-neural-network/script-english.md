@@ -92,12 +92,12 @@ This is a faithful English rendering of `script-telugu.md`. It uses the **same s
 ### ⏱ 03:56–05:01 · [F] Concept 1: the key idea, learning features itself
 
 **🎙 Spoken**
-> Now, the most important phrase in this definition is "learn even the useful features themselves". I'll explain with our student example. In ML, what did we do? We gave the model the columns ourselves: study hours 4, sleep 7, attendance 80. Three numbers. Which features are important, we decided that ourselves. That's what we did from Day 5 to Day 8.
+> Now, the most important phrase in this definition is "learn even the useful features themselves". I'll explain with our student example. In ML, what did we do? We gave the model the columns ourselves: study hours 4, sleep 7, attendance 80. Three numbers. Which features are important, we decided that ourselves. That's what we did from Day 4 to Day 8.
 >
 > Now in deep learning, suppose that instead of those three numbers we give a photo of that student's answer sheet. A normal 12-megapixel phone photo has roughly 12 million pixels, and every pixel has three colours: red, green, blue. So 12 million into 3 is about 36 million numbers! Can anyone sit down and write rules for 36 million numbers? "If pixel number five lakh is dark, then..."? Impossible, right? That's exactly where deep learning comes in. Give it lots of photos along with their correct answers, and the network works out on its own which patterns matter: first lines and edges, then letters, then words. To put it even more simply: in ML, we select the features; in DL, the network learns the features itself from raw data. That's all.
 
 **🖊 Board / on-screen**
-1. Split the board into two halves. **Left: "ML (Days 5–8)"**. Draw a small table: Study hrs | Sleep | Attendance → **Model** → "Pass". Write "WE choose features 🧑".
+1. Split the board into two halves. **Left: "ML (Days 4–8)"**. Draw a small table: Study hrs | Sleep | Attendance → **Model** → "Pass". Write "WE choose features 🧑".
 2. **Right: "DL"**. Draw a rectangle for the answer-sheet photo → a stack of 4–5 columns of small circles → "Pass". Write "NETWORK learns features 🤖".
 3. Under the photo: "12 MP × 3 colours ≈ **36,000,000 numbers**".
 4. Under the stack, label the columns left to right: "edges → letters → words → answer".
@@ -220,7 +220,7 @@ This is a faithful English rendering of `script-telugu.md`. It uses the **same s
 ### ⏱ 11:11–11:50 · [H] Concept 2: second student + terminology drill (notes prompt)
 
 **🎙 Spoken**
-> Let's quickly try one more student: let's say Student A. He studied just 1 hour, attendance 50%. 0.8 into 1 = 0.8. 0.04 into 50 = 2. 0.8 plus 2 minus 4 = −1.2. Sigmoid of −1.2 comes to 0.231, that's 23%. Less than 50%. Fail, for sure, because he only studied for one hour. Same neuron, same weights, the student changed, and the answer changed.
+> Let's quickly try one more student. Let's add a new student to the Day 7 table: Student F. He studied just 1 hour, attendance 50%. 0.8 into 1 = 0.8. 0.04 into 50 = 2. 0.8 plus 2 minus 4 = −1.2. Sigmoid of −1.2 comes to 0.231, that's 23%. Less than 50%. Fail, for sure, because he only studied for one hour. Same neuron, same weights, the student changed, and the answer changed.
 >
 > So write the parts of a neuron in your notes. This is very important terminology. Input, x: the data that comes in. Weight, w: how much that input matters. Bias, b: a number added at the end. Weighted sum: z. Activation: here, sigmoid. Output: the one number that goes out.
 
@@ -230,7 +230,7 @@ This is a faithful English rendering of `script-telugu.md`. It uses the **same s
    | Student | Hrs | Att % | z | σ(z) | Decision |
    |---|---|---|---|---|---|
    | D | 4 | 80 | 2.4 | 0.917 | Pass |
-   | A | 1 | 50 | 0.8 + 2.0 − 4 = **−1.2** | 0.231 | Fail |
+   | F (new) | 1 | 50 | 0.8 + 2.0 − 4 = **−1.2** | 0.231 | Fail |
 2. Terminology card ✍️: **Input (x) · Weight (w) · Bias (b) · Weighted sum (z = w1x1 + w2x2 + b) · Activation (σ) · Output**.
 
 ---
@@ -270,7 +270,7 @@ This is a faithful English rendering of `script-telugu.md`. It uses the **same s
 >
 > So there are three kinds of layers. I'll draw it, watch. Three columns. First is the input layer. What is the input layer? It just holds the data, that's all. Our data: S = study hours, L = sleep hours. These are the same features we used in the Day 7 decision tree. Two circles. Note this down: the input layer doesn't calculate anything. It's just the gate the data comes in through.
 >
-> Second is the hidden layer. Why do we call it hidden? Because its values aren't directly visible to us. We only see the input we give and the output that comes out. What happens in the middle is hidden. Here the network builds some intermediate patterns. I'm drawing two neurons: h1 and h2.
+> Second is the hidden layer. Why do we call it hidden? Because it's neither the input nor the output; it sits in the middle. Our data has the inputs and the correct answers, but not these middle values. Nobody tells the network what they should be; the network works them out by itself. That's why it's called hidden. Here the network builds some intermediate patterns. I'm drawing two neurons: h1 and h2.
 >
 > Third is the output layer: the final answer. For pass/fail, one neuron with sigmoid, just like our Student D neuron.
 
@@ -278,7 +278,7 @@ This is a faithful English rendering of `script-telugu.md`. It uses the **same s
 1. **[DEF CARD]** "A neural network is a set of artificial neurons arranged in layers (an input layer, one or more hidden layers, and an output layer), where the outputs of one layer become the inputs of the next." ✍️
 2. Draw **3 columns** and write the headings: **Input layer** · **Hidden layer** · **Output layer**.
 3. Input column: 2 circles labelled **S (study hrs)** and **L (sleep hrs)**. Small note: "just holds data, no calculation".
-4. Hidden column: 2 circles **h1**, **h2**. Note: "hidden = we don't see these values".
+4. Hidden column: 2 circles **h1**, **h2**. Note: "hidden = not in our data; the network works these values out itself".
 5. Output column: 1 circle with a little σ S-curve: "Pass / Fail".
 
 ---
@@ -369,7 +369,7 @@ This is a faithful English rendering of `script-telugu.md`. It uses the **same s
 
 ---
 
-### ⏱ 18:34–19:38 · [W] Concept 4: Weights & biases (definition + unpack + 36-marks analogy)
+### ⏱ 18:34–19:38 · [W] Concept 4: Weights & biases (definition + unpack + 35-marks analogy)
 
 **🎙 Spoken**
 > Now the last topic, and in a way the most important one: weights and biases. Because in the whole network (ours has 9 numbers, GPT-3 has 175 billion), what are those numbers? Weights and biases. Write down the definition.
@@ -378,12 +378,12 @@ This is a faithful English rendering of `script-telugu.md`. It uses the **same s
 >
 > Let's break it down. Weight: "how strongly and in which direction". If there's a big positive weight, it pushes the prediction up strongly. If the weight is negative, it pulls it down. If the weight is near zero, it means "ignore this input".
 >
-> Bias: it's like a starting point, like a threshold. When b = −4, when does Student D's neuron say pass (z greater than zero)? Only when the weighted evidence comes to more than 4. In our exams you need 36 marks to pass, right? Below the cutoff means fail. This is just like that.
+> Bias: it's like a starting point, like a threshold. When b = −4, when does Student D's neuron say pass (z greater than zero)? Only when the weighted evidence comes to more than 4. In our exams you need 35 marks to pass, right? Below the cutoff means fail. This is just like that.
 
 **🖊 Board / on-screen**
 1. **[DEF CARD]** "Weights are numbers that decide how strongly, and in which direction, each input affects a neuron's output. A bias is a number added to the weighted sum that shifts how easily the neuron activates, whatever the inputs are. Together, weights and biases are the parameters that a neural network learns during training." ✍️
 2. Redraw the Day 22 neuron. Draw the weight arrows with **thickness**: thick = big weight, thin = small; legend "+ pushes up · − pulls down · ≈0 ignored".
-3. Write "b = −4 → need weighted evidence > 4 to PASS (like the 36-marks cutoff 📝)".
+3. Write "b = −4 → need weighted evidence > 4 to PASS (like the 35-marks pass mark 📝)".
 
 ---
 
@@ -436,7 +436,7 @@ This is a faithful English rendering of `script-telugu.md`. It uses the **same s
 >
 > Third: there's no rule that weights must be between 0 and 1, or that they're always positive. They can be any number, even negative, like Instagram.
 >
-> And one fun fact: when someone says "I downloaded an AI model", what did they actually mostly download? One big file full of weights and biases. A trained model, simply put, is its weights and biases.
+> And one fun fact: when someone says "I downloaded an AI model", what did they actually mostly download? One big file full of weights and biases. There's a little info about the model's structure in it, and the rest is all these numbers. So a trained model, simply put, is its structure plus its weights and biases.
 >
 > So, simple: what decides how much each input matters, and in which direction, is the weights; what shifts the starting point is the bias; together they're the parameters the network learns. That's what we call weights and biases.
 
@@ -444,7 +444,7 @@ This is a faithful English rendering of `script-telugu.md`. It uses the **same s
 - Write: "0.04 × 80 = 3.2 = 0.8 × 4 → **weight size depends on input scale**". Then: "80% as 0.8 → weight 4 → 4 × 0.8 = 3.2 (same!)".
 - Write: "Weights: start **random** → **learned** from data (not typed by programmers)".
 - Write: "Weights can be **any number**: +, −, big, small".
-- Icon: 📁 "model file = weights & biases".
+- Icon: 📁 "model file = structure + weights & biases (mostly the weights)".
 - One-liner box: **Weights = how much + which direction · Bias = shifts the starting point · Both = learned parameters**.
 
 ---
@@ -462,7 +462,7 @@ This is a faithful English rendering of `script-telugu.md`. It uses the **same s
 ### ⏱ 22:55–23:35 · [K] Video recap + expectation-setting
 
 **🎙 Spoken**
-> And that's it for the day. What did we cover in this video? What deep learning is: ML that uses neural networks with many layers to learn features on its own. What an artificial neuron is: inputs, weights, bias, activation, output, and the fact that Day 7's logistic regression is itself one neuron. How a neural network works: input layer, hidden layers, output layer, forward pass. And weights and biases: the knobs of the network. All of these come under AI, inside ML, under Deep Learning. If not everything is 100% clear in one go, don't stress. When I first learned this, it took me two or three days too. Watch it once more along with the notes.
+> And that's it for the day. What did we cover in this video? What deep learning is: ML that uses neural networks with many layers to learn features on its own. What an artificial neuron is: inputs, weights, bias, activation, output, and the fact that Day 7's logistic regression is itself one neuron. How a neural network works: input layer, hidden layers, output layer, forward pass. And weights and biases: the knobs of the network. All of these come under AI, inside ML, under Deep Learning. If not everything is 100% clear in one go, don't stress. When I first attended the class on this, it took me two or three days to learn it all too. Watch it once more along with the notes.
 
 **🖊 Board / on-screen**
 - Back to the 3 circles; inside **DL** list: ① DL ② Neuron ③ Layers / forward pass ④ Weights & biases (tick each ✔).

@@ -64,7 +64,7 @@
 ### ⏱ 02:19–02:54 · [E] Reassurance + stakes + take notes
 
 **🎙 Spoken**
-> Start చేసే ముందు, చాలా మంది ఏం అనుకుంటారు అంటే "ఏంటన్నా, deep learning, neural networks అంటే చాలా hard గా అనిపిస్తుంది, మేమేమో beginners, మాకు అర్థం కాదు" అనుకుంటారు కదా. అస్సలు భయపడకండి. నిజం చెప్పాలి అంటే, Day 7 మీకు అర్థమైతే, ఈరోజు video లో half మీకు ఆల్రెడీ తెలుసు. అది మీకే తెలియదు అంతే! అది కాసేపట్లో చూపిస్తా. మీరు విన్నాక మీరే అంటారు, "చాలా ఈజీ గా ఉందన్నా, మేము దీన్ని hard అనుకున్నాం" అని. ఈ నాలుగు topics చాలా చాలా important, ఎందుకంటే ముందు రాబోయేవి, ChatGPT అయినా, image recognition అయినా, అన్నీ దీని మీదే build అయి ఉంటాయి. సో ప్రతి ఒక్కళ్ళు notes రాసుకోండి.
+> Start చేసే ముందు, చాలా మంది ఏం అనుకుంటారు అంటే "ఏంటన్నా, deep learning, neural networks అంటే చాలా hard గా అనిపిస్తది, మేమేమో beginners, మాకు అర్థం కాదు" అనుకుంటారు కదా. అస్సలు భయపడకండి. నిజం చెప్పాలి అంటే, Day 7 మీకు అర్థమైతే, ఈరోజు video లో half మీకు ఆల్రెడీ తెలుసు. అది మీకే తెలియదు అంతే! అది కాసేపట్లో చూపిస్తా. మీరు విన్నాక మీరే అంటారు, "చాలా ఈజీ గా ఉందన్నా, మేము దీన్ని hard అనుకున్నాం" అని. ఈ నాలుగు topics చాలా చాలా important, ఎందుకంటే ముందు రాబోయేవి, ChatGPT అయినా, image recognition అయినా, అన్నీ దీని మీదే build అయి ఉంటాయి. సో ప్రతి ఒక్కళ్ళు notes రాసుకోండి.
 
 **🖊 Board / on-screen**
 - Text pop: "Understood Day 7? → you already know 50% of today 😉".
@@ -78,7 +78,7 @@
 >
 > *"Deep learning is a subset of machine learning that uses artificial neural networks with many layers to learn patterns, and even the useful features themselves, directly from large amounts of data such as images, audio and text."*
 >
-> సో దీని అర్థం ఏంటి అంటే, ఫస్ట్ "a subset of machine learning" అని చెప్తుంది. అంటే deep learning అనేది వేరే ఏదో కొత్త విషయం కాదు. ML లోపలే ఉంటది: Day 2 లో గీసిన లోపలి circle అన్నమాట. ఇది కూడా data నుంచే నేర్చుకుంటది. Training ఉంటది, testing ఉంటది, Day 3 నుంచి Day 8 వరకు చూసినట్టే అన్నమాట.
+> సో దీని అర్థం ఏంటి అంటే, ఫస్ట్ "a subset of machine learning" అని ఉంది కదా. అంటే deep learning అనేది వేరే ఏదో కొత్త విషయం కాదు. ML లోపలే ఉంటది: Day 2 లో గీసిన లోపలి circle అన్నమాట. ఇది కూడా data నుంచే నేర్చుకుంటది. Training ఉంటది, testing ఉంటది, Day 3 నుంచి Day 8 వరకు చూసినట్టే అన్నమాట.
 >
 > పేర్లోనే ఉంది కదా: Deep Learning. Deep అంటే ఏంటిది? Many layers. ఒక building కి చాలా floors ఉంటాయి కదా, అలా అన్నమాట. ఇంకా ఏం use చేస్తది? "Artificial neural networks". ఇది కూడా పేర్లోనే ఉంది: neural network అంటే neurons తో చేసిన ఒక network, చాలా చిన్న చిన్న neurons ని కలిపితే వచ్చేది. Neuron అంటే ఏంటో సెకండ్ topic లో చెప్తా. సో ఇప్పటికి ఇది గుర్తుపెట్టుకోండి: deep అంటే many layers అన్నమాట.
 
@@ -93,12 +93,12 @@
 ### ⏱ 03:56–05:01 · [F] Concept 1: the key idea, learning features itself
 
 **🎙 Spoken**
-> ఇప్పుడు ఈ definition లో అన్నిటికంటే important phrase ఏంటి అంటే "learn even the useful features themselves". మన student example తోనే చెప్తా. ML లో మనం ఏం చేసినం? Model కి columns మనమే ఇచ్చినం: study hours 4, sleep 7, attendance 80. అంటే మూడు numbers అన్నమాట. ఏ features important అని మనమే decide చేసినం. సో Day 5 నుంచి Day 8 వరకు మనం చేసింది అదే.
+> ఇప్పుడు ఈ definition లో అన్నిటికంటే important phrase ఏంటి అంటే "learn even the useful features themselves". మన student example తోనే చెప్తా. ML లో మనం ఏం చేసినం? Model కి columns మనమే ఇచ్చినం: study hours 4, sleep 7, attendance 80. అంటే మూడు numbers అన్నమాట. ఏ features important అని మనమే decide చేసినం. సో Day 4 నుంచి Day 8 వరకు మనం చేసింది అదే.
 >
 > ఇప్పుడు deep learning లో ఏం చేస్తాం అంటే, ఆ మూడు numbers బదులు ఆ student ది answer sheet photo ఇచ్చినం అనుకుందాం. ఒక normal 12 megapixel phone photo లో దాదాపు 12 million pixels ఉంటాయి, ప్రతి pixel కి మూడు colours: red, green, blue. సో 12 million into 3 అంటే దాదాపు 36 million numbers అన్నమాట! 36 million numbers కి ఎవరైనా కూర్చొని rules రాయగలరా? "ఐదు లక్షలవ pixel dark గా ఉంటే..." అని? Impossible కదా. సో అక్కడే deep learning వస్తది అన్నమాట. చాలా photos ని, వాటి correct answers తో పాటు ఇస్తే, ఏ patterns important అని network దానంతట అదే కనిపెడ్తది: ఫస్ట్ lines, edges, తర్వాత letters, తర్వాత words. ఇంకా సింపుల్ గా చెప్పాలి అంటే: ML లో features ని మనం select చేస్తాం; DL లో raw data నుంచి features ని network ఏ నేర్చుకుంటది. అంతే.
 
 **🖊 Board / on-screen**
-1. Split the board into two halves. **Left: "ML (Days 5–8)"**. Draw a small table: Study hrs | Sleep | Attendance → **Model** → "Pass". Write "WE choose features 🧑".
+1. Split the board into two halves. **Left: "ML (Days 4–8)"**. Draw a small table: Study hrs | Sleep | Attendance → **Model** → "Pass". Write "WE choose features 🧑".
 2. **Right: "DL"**. Draw a rectangle for the answer-sheet photo → a stack of 4–5 columns of small circles → "Pass". Write "NETWORK learns features 🤖".
 3. Under the photo: "12 MP × 3 colours ≈ **36,000,000 numbers**".
 4. Under the stack, label the columns left to right: "edges → letters → words → answer".
@@ -221,7 +221,7 @@
 ### ⏱ 11:11–11:50 · [H] Concept 2: second student + terminology drill (notes prompt)
 
 **🎙 Spoken**
-> ఇంకొక student ని fast గా try చేద్దాం: Student A అనుకుందాం. ఒక్క hour ఏ చదివిండు, attendance 50%. 0.8 into 1 = 0.8. 0.04 into 50 = 2. 0.8 plus 2 minus 4 = −1.2. Sigmoid of −1.2 వచ్చేసి 0.231, అంటే 23%. 50% కంటే తక్కువ. Fail, పక్కా fail, ఎందుకంటే ఒక్క hour ఏ చదివిండు. సో same neuron, same weights, student మారిండు, answer మారింది అన్నమాట.
+> ఇంకొక student ని fast గా try చేద్దాం. Day 7 table లో ఒక కొత్త student ని add చేద్దాం: Student F. ఒక్క hour ఏ చదివిండు, attendance 50%. 0.8 into 1 = 0.8. 0.04 into 50 = 2. 0.8 plus 2 minus 4 = −1.2. Sigmoid of −1.2 వచ్చేసి 0.231, అంటే 23%. 50% కంటే తక్కువ. Fail, పక్కా fail, ఎందుకంటే ఒక్క hour ఏ చదివిండు. సో same neuron, same weights, student మారిండు, answer మారింది అన్నమాట.
 >
 > సో neuron parts ని notes లో రాసుకోండి. ఇది చాలా important terminology. Input, x: లోపలికి వచ్చే data. Weight, w: ఆ input ఎంత matter అవుతది. Bias, b: last లో add చేసే ఒక number. Weighted sum: z. Activation: ఇక్కడ sigmoid. Output: బయటికి వెళ్ళే ఒక్క number.
 
@@ -231,7 +231,7 @@
    | Student | Hrs | Att % | z | σ(z) | Decision |
    |---|---|---|---|---|---|
    | D | 4 | 80 | 2.4 | 0.917 | Pass |
-   | A | 1 | 50 | 0.8 + 2.0 − 4 = **−1.2** | 0.231 | Fail |
+   | F (new) | 1 | 50 | 0.8 + 2.0 − 4 = **−1.2** | 0.231 | Fail |
 2. Terminology card ✍️: **Input (x) · Weight (w) · Bias (b) · Weighted sum (z = w1x1 + w2x2 + b) · Activation (σ) · Output**.
 
 ---
@@ -239,7 +239,7 @@
 ### ⏱ 11:50–12:21 · [H] Concept 2: cricket-selector analogy
 
 **🎙 Spoken**
-> ఇంకా సింపుల్ గా అర్థం కావాలి అంటే: ఒక cricket selector ని అనుకోండి. ఒక player ని team లోకి తీసుకోవాలా వద్దా అని decide చేస్తున్నాడు. Recent runs, fitness, fielding చూస్తాడు: అవి inputs. ఒక్కోదానికి ఒక్కో importance ఉంటది: అవి weights. అండ్ ఆ selector కి తనదంటూ ఒక strictness ఉంటది. కొందరు strict, కొందరు lenient. అది bias లాంటిది అన్నమాట. Last లో selection chance: అది output. కానీ ఒక difference ఉంది: selector తన opinion తో weights decide చేస్తాడు. Neuron మాత్రం data నుంచి weights నేర్చుకుంటది అన్నమాట. ఇది గుర్తుపెట్టుకోండి.
+> ఇంకా సింపుల్ గా అర్థం కావాలి అంటే: ఒక cricket selector ని అనుకోండి. ఒక player ని team లోకి తీసుకోవాలా వద్దా అని decide చేస్తుండు. Recent runs, fitness, fielding చూస్తడు: అవి inputs. ఒక్కోదానికి ఒక్కో importance ఉంటది: అవి weights. అండ్ ఆ selector కి తనదంటూ ఒక strictness ఉంటది. కొందరు strict, కొందరు lenient. అది bias లాంటిది అన్నమాట. Last లో selection chance: అది output. కానీ ఒక difference ఉంది: selector తన opinion తో weights decide చేస్తడు. Neuron మాత్రం data నుంచి weights నేర్చుకుంటది అన్నమాట. ఇది గుర్తుపెట్టుకోండి.
 
 **🖊 Board / on-screen**
 - Draw a second, smaller neuron labelled for cricket: inputs "Recent runs", "Fitness", "Fielding" → weights → bias "selector's strictness" → output "Selection chance %".
@@ -271,7 +271,7 @@
 >
 > సో మూడు రకాల layers ఉంటాయి. గీస్తా చూడండి. మూడు columns. ఫస్ట్ వచ్చేసి input layer. Input layer అంటే ఏంటిది? Data ని పట్టుకొని ఉంటది అంతే. మన data: S = study hours, L = sleep hours. Day 7 decision tree లో వాడిన అవే features. రెండు circles. Note చేసుకోండి: input layer ఏం calculate చేయదు. Data లోపలికి వచ్చే gate అంతే.
 >
-> సెకండ్ వచ్చేసి hidden layer. దీన్ని hidden అని ఎందుకు అంటారు? ఎందుకంటే దీని values మనకు direct గా కనిపించవు. మనం ఇచ్చే input, బయటికి వచ్చే output మాత్రమే మనకు కనిపిస్తాయి. మధ్యలో ఏం జరుగుతది అనేది hidden అన్నమాట. ఇక్కడ network కొన్ని intermediate patterns తయారు చేసుకుంటది అన్నమాట. రెండు neurons గీస్తున్నా: h1, h2.
+> సెకండ్ వచ్చేసి hidden layer. దీన్ని hidden అని ఎందుకు అంటారు? ఎందుకంటే ఇది input కాదు, output కాదు, మధ్యలో ఉంటది. మన data లో input ఉంటది, correct answer ఉంటది, కానీ ఈ మధ్యలో values ఉండవు. ఇవి ఎంత ఉండాలో మనం ఎవరం network కి చెప్పం, network ఏ వాటిని తనంతట తానే figure out చేసుకుంటది. అందుకే hidden అన్నమాట. ఇక్కడ network కొన్ని intermediate patterns తయారు చేసుకుంటది అన్నమాట. రెండు neurons గీస్తున్నా: h1, h2.
 >
 > థర్డ్ వచ్చేసి output layer: final answer. Pass/fail కి sigmoid తో ఒక్క neuron, మన Student D neuron లాగానే.
 
@@ -279,7 +279,7 @@
 1. **[DEF CARD]** "A neural network is a set of artificial neurons arranged in layers (an input layer, one or more hidden layers, and an output layer), where the outputs of one layer become the inputs of the next." ✍️
 2. Draw **3 columns** and write the headings: **Input layer** · **Hidden layer** · **Output layer**.
 3. Input column: 2 circles labelled **S (study hrs)** and **L (sleep hrs)**. Small note: "just holds data, no calculation".
-4. Hidden column: 2 circles **h1**, **h2**. Note: "hidden = we don't see these values".
+4. Hidden column: 2 circles **h1**, **h2**. Note: "hidden = not in our data; the network works these values out itself".
 5. Output column: 1 circle with a little σ S-curve: "Pass / Fail".
 
 ---
@@ -329,7 +329,7 @@
 ### ⏱ 16:20–17:15 · [I] Concept 3: Ravi & Kiran + the Sita twist (Video B hook)
 
 **🎙 Spoken**
-> ఇంకా ఇద్దరు students కి కూడా ఇదే calculation చేసిన. Screen మీద పెడుతున్నా, calculator ఉంటే check చేసుకోండి. Ravi: 4 hours చదివిండు, 7 hours పడుకున్నాడు. రెండు neurons on: 82%, pass. Kiran: 1 hour ఏ చదివిండు, 8 hours పడుకున్నాడు. h1 off, 38%, fail. సో story అర్థమైందా? Sita బాగా చదివింది కానీ పడుకోలేదు: 'rest' neuron off. Kiran పడుకున్నాడు కానీ చదవలేదు: 'study' neuron off. Ravi రెండూ చేసిండు: రెండూ on, pass. Day 7 decision tree లో study hours తర్వాత sleep hours check చేసినం కదా, దాదాపు అలాంటిదే. కానీ difference ఏంటి అంటే: tree ఒకదాని తర్వాత ఒకటి yes/no questions అడుగుతది; network అన్ని features ని weights తో smooth గా, layer తర్వాత layer కలుపుతది.
+> ఇంకా ఇద్దరు students కి కూడా ఇదే calculation చేసిన. Screen మీద పెడుతున్నా, calculator ఉంటే check చేసుకోండి. Ravi: 4 hours చదివిండు, 7 hours పడుకుండు. రెండు neurons on: 82%, pass. Kiran: 1 hour ఏ చదివిండు, 8 hours పడుకుండు. h1 off, 38%, fail. సో story అర్థమైందా? Sita బాగా చదివింది కానీ పడుకోలేదు: 'rest' neuron off. Kiran పడుకుండు కానీ చదవలేదు: 'study' neuron off. Ravi రెండూ చేసిండు: రెండూ on, pass. Day 7 decision tree లో study hours తర్వాత sleep hours check చేసినం కదా, దాదాపు అలాంటిదే. కానీ difference ఏంటి అంటే: tree ఒకదాని తర్వాత ఒకటి yes/no questions అడుగుతది; network అన్ని features ని weights తో smooth గా, layer తర్వాత layer కలుపుతది.
 >
 > అండ్ ఇక్కడ ఒక twist: Sita నిజానికి exam pass అయింది! మన network ఏమో 38% అని చెప్పింది. తప్పు చెప్పింది. మరి network తన తప్పుని ఎలా correct చేసుకుంటది? ఆ question ని పట్టుకోండి, అదే next video.
 
@@ -370,7 +370,7 @@
 
 ---
 
-### ⏱ 18:34–19:38 · [W] Concept 4: Weights & biases (definition + unpack + 36-marks analogy)
+### ⏱ 18:34–19:38 · [W] Concept 4: Weights & biases (definition + unpack + 35-marks analogy)
 
 **🎙 Spoken**
 > ఇప్పుడు last topic, ఒక రకంగా చూస్తే most important topic: weights అండ్ biases. ఎందుకంటే మొత్తం network లో (మనది 9 numbers, GPT-3 ది 175 billion) ఆ numbers ఏంటివి? Weights అండ్ biases ఏ. Definition రాసుకోండి.
@@ -379,12 +379,12 @@
 >
 > సో దీన్ని ఒక్కొక్కటిగా break చేద్దాం. Weight: "how strongly and in which direction". పెద్ద positive weight ఉంటే prediction ని strong గా పైకి push చేస్తది. Negative weight ఉంటే కిందకి లాగుతది. Weight zero దగ్గర ఉంటే "ఈ input ని ignore చేయి" అని అర్థం.
 >
-> Bias: ఒక starting point లాంటిది, ఒక threshold లాంటిది. b = −4 ఉన్నప్పుడు Student D neuron ఎప్పుడు pass అంటది (అంటే z zero కంటే ఎక్కువ)? Weighted evidence 4 కంటే ఎక్కువ వచ్చినప్పుడు మాత్రమే. మన exams లో pass అవ్వడానికి 36 marks కావాలి కదా, cutoff కంటే తక్కువ వస్తే fail. అలానే ఇది కూడా.
+> Bias: ఒక starting point లాంటిది, ఒక threshold లాంటిది. b = −4 ఉన్నప్పుడు Student D neuron ఎప్పుడు pass అంటది (అంటే z zero కంటే ఎక్కువ)? Weighted evidence 4 కంటే ఎక్కువ వచ్చినప్పుడు మాత్రమే. మన exams లో pass అవ్వడానికి 35 marks కావాలి కదా, cutoff కంటే తక్కువ వస్తే fail. అలానే ఇది కూడా.
 
 **🖊 Board / on-screen**
 1. **[DEF CARD]** "Weights are numbers that decide how strongly, and in which direction, each input affects a neuron's output. A bias is a number added to the weighted sum that shifts how easily the neuron activates, whatever the inputs are. Together, weights and biases are the parameters that a neural network learns during training." ✍️
 2. Redraw the Day 22 neuron. Draw the weight arrows with **thickness**: thick = big weight, thin = small; legend "+ pushes up · − pulls down · ≈0 ignored".
-3. Write "b = −4 → need weighted evidence > 4 to PASS (like the 36-marks cutoff 📝)".
+3. Write "b = −4 → need weighted evidence > 4 to PASS (like the 35-marks pass mark 📝)".
 
 ---
 
@@ -407,7 +407,7 @@
 >
 > Knob 2: examiner ని strict చేద్దాం, bias −6. z = 6.4 minus 6 = 0.4. 60%. Pass, కానీ బొటాబొటి గా. Lenient examiner, bias −2. z = 6.4 minus 2 = 4.4. 98.8%. Pass, చాలా sure గా. ఇది మన grace marks లాంటిది అన్నమాట: bias అందరినీ ఒకే విధంగా shift చేస్తది.
 >
-> Knob 3: negative weight. ఒక కొత్త input add చేద్దాం: exam ముందు రాత్రి Instagram లో ఎన్ని hours ఉన్నాడు. Weight −0.5. Student D 3 hours scroll చేసిండు. −0.5 into 3 = −1.5. z = 2.4 minus 1.5 = 0.9. 71%. ఇంకా pass ఏ, కానీ confidence తగ్గింది. Instagram కిందకి లాగింది!
+> Knob 3: negative weight. ఒక కొత్త input add చేద్దాం: exam ముందు రాత్రి Instagram లో ఎన్ని hours గడిపిండు. Weight −0.5. Student D 3 hours scroll చేసిండు. −0.5 into 3 = −1.5. z = 2.4 minus 1.5 = 0.9. 71%. ఇంకా pass ఏ, కానీ confidence తగ్గింది. Instagram కిందకి లాగింది!
 >
 > సో lesson ఏంటి? Weights ని గాని bias ని గాని మారిస్తే చాలు, same student కి prediction మారిపోతది. సో learning అంటే ఏంటిది? Correct weights ని, correct bias ని కనిపెట్టడం. అంతే.
 
@@ -437,7 +437,7 @@
 >
 > థర్డ్: weights 0 to 1 మధ్యలోనే ఉండాలి అని లేదు, ఎప్పుడూ positive అని కూడా లేదు. ఏ number అయినా ఉండొచ్చు, Instagram లాగా negative కూడా.
 >
-> అండ్ ఒక fun fact: ఎవరైనా "నేను ఒక AI model download చేసిన" అంటే, అసలు download చేసింది ఎక్కువగా ఏంటి? Weights అండ్ biases ఉండే ఒక పెద్ద file. Trained model అంటే సింపుల్ గా దాని weights అండ్ biases ఏ.
+> అండ్ ఒక fun fact: ఎవరైనా "నేను ఒక AI model download చేసిన" అంటే, అసలు download చేసింది ఎక్కువగా ఏంటి? Weights అండ్ biases ఉండే ఒక పెద్ద file. అందులో model structure గురించి కొంచెం info ఉంటది, మిగతా అంతా ఈ numbers ఏ. సో trained model అంటే సింపుల్ గా దాని structure, ప్లస్ దాని weights అండ్ biases అన్నమాట.
 >
 > సో సింపుల్: ప్రతి input ఎంత matter అవుతది, ఏ direction లో అని decide చేసేది weights; starting point ని shift చేసేది bias; రెండూ కలిపి network నేర్చుకునే parameters. దీన్నే weights అండ్ biases అంటాం అన్నమాట.
 
@@ -445,7 +445,7 @@
 - Write: "0.04 × 80 = 3.2 = 0.8 × 4 → **weight size depends on input scale**". Then: "80% as 0.8 → weight 4 → 4 × 0.8 = 3.2 (same!)".
 - Write: "Weights: start **random** → **learned** from data (not typed by programmers)".
 - Write: "Weights can be **any number**: +, −, big, small".
-- Icon: 📁 "model file = weights & biases".
+- Icon: 📁 "model file = structure + weights & biases (mostly the weights)".
 - One-liner box: **Weights = how much + which direction · Bias = shifts the starting point · Both = learned parameters**.
 
 ---
@@ -453,7 +453,7 @@
 ### ⏱ 22:15–22:55 · [J] Comment quiz
 
 **🎙 Spoken**
-> ఇప్పుడు ఈరోజు quiz. Answers కామెంట్స్ లో చెప్పండి. Question 1: వీటిలో మీరు రోజూ వాడేది, deep learning మీద నడిచేది ఏది? Face unlock, Google Lens, YouTube recommendations, Google Translate camera, లేకుంటే అన్నీ? Question 2: Student X 3 hours చదివిండు, 50% attendance. w1 = 0.8, w2 = 0.04, b = −4 వాడితే z ఎంత? Pass ఆ, fail ఆ? Question 3: Student D bias ని −4 నుంచి −8 కి మారిస్తే, ఇంకా pass అవుతాడా? Question 4, మన network కి: ఒక student 6 hours చదివిండు, 8 hours పడుకున్నాడు. h2 on ఆ, off ఆ? Video pause చేసి, calculator తో calculate చేసి comment చేయండి. ఎంత మంది నాలుగూ correct చేస్తారో చూద్దాం!
+> ఇప్పుడు ఈరోజు quiz. Answers కామెంట్స్ లో చెప్పండి. Question 1: వీటిలో మీరు రోజూ వాడేది, deep learning మీద నడిచేది ఏది? Face unlock, Google Lens, YouTube recommendations, Google Translate camera, లేకుంటే అన్నీ? Question 2: Student X 3 hours చదివిండు, 50% attendance. w1 = 0.8, w2 = 0.04, b = −4 వాడితే z ఎంత? Pass ఆ, fail ఆ? Question 3: Student D bias ని −4 నుంచి −8 కి మారిస్తే, ఇంకా pass అవుతాడా? Question 4, మన network కి: ఒక student 6 hours చదివిండు, 8 hours పడుకుండు. h2 on ఆ, off ఆ? Video pause చేసి, calculator తో calculate చేసి comment చేయండి. ఎంత మంది నాలుగూ correct చేస్తారో చూద్దాం!
 
 **🖊 Board / on-screen**
 - Quiz card with 4 numbered questions (as spoken). "⏸️ Pause → 🧮 calculate → 💬 comment". *(Answers are in production-notes.md, for the pinned comment.)*
@@ -463,7 +463,7 @@
 ### ⏱ 22:55–23:35 · [K] Video recap + expectation-setting
 
 **🎙 Spoken**
-> అండ్ that's it for the day. ఈ video లో మనం ఏమేమి cover చేసినం అంటే: deep learning అంటే ఏంటి, many layers ఉండే neural networks తో features ని దానంతట అదే నేర్చుకునే ML. Artificial neuron అంటే ఏంటి: inputs, weights, bias, activation, output, అండ్ Day 7 logistic regression ఏ ఒక neuron అని. Neural network ఎలా పని చేస్తది: input layer, hidden layers, output layer, forward pass. అండ్ weights అండ్ biases: network కి knobs. ఇవన్నీ AI లో, ML లో, Deep Learning కిందకి వస్తాయి. ఒక్కసారికే అంతా 100% అర్థం కాలేదు అంటే టెన్షన్ పడకండి. నేను ఫస్ట్ టైం నేర్చుకున్నప్పుడు నాకు కూడా రెండు మూడు రోజులు పట్టింది. Notes తో పాటు మళ్ళీ ఒకసారి చూడండి.
+> అండ్ that's it for the day. ఈ video లో మనం ఏమేమి cover చేసినం అంటే: deep learning అంటే ఏంటి, many layers ఉండే neural networks తో features ని దానంతట అదే నేర్చుకునే ML. Artificial neuron అంటే ఏంటి: inputs, weights, bias, activation, output, అండ్ Day 7 logistic regression ఏ ఒక neuron అని. Neural network ఎలా పని చేస్తది: input layer, hidden layers, output layer, forward pass. అండ్ weights అండ్ biases: network కి knobs. ఇవన్నీ AI లో, ML లో, Deep Learning కిందకి వస్తాయి. ఒక్కసారికే అంతా 100% అర్థం కాలేదు అంటే టెన్షన్ పడకండి. నేను ఫస్ట్ టైం క్లాస్ విన్నప్పుడు నాకు కూడా ఒక రెండు మూడు రోజులు పట్టింది ఇదంతా నేర్చుకోవడానికి. Notes తో పాటు మళ్ళీ ఒకసారి చూడండి.
 
 **🖊 Board / on-screen**
 - Back to the 3 circles; inside **DL** list: ① DL ② Neuron ③ Layers / forward pass ④ Weights & biases (tick each ✔).
