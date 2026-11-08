@@ -2,7 +2,7 @@
 
 **Series:** AI Learning Series, **Day 10** on the channel. This covers plan Days 25–28: activation function, loss function, gradient descent and backpropagation.
 **Recording script:** `script-telugu.md`. This file is a faithful English rendering of it, with the same segments, timestamps and board cues. It is for checking content and accuracy. Do not record from it.
-**Runtime:** ~24:18 (≈ 24.3 min) estimated, from 4,253 spoken words at 175 wpm (his measured average).
+**Runtime:** ~24:06 (≈ 24.1 min) estimated, from 4,217 spoken words at 175 wpm (his measured average).
 **Legend:** ⏱ timestamp (start–end) · 🎙 what he says · 🖊 what to draw, write or show (in order)
 
 > **Production note on numbering:** Video A ("Inside a Neural Network", plan Days 21–24) is assumed to go out as **Day 9**, so this video opens as **Day 10**. If the channel numbering changes, update the day number in three places: segment A, segment L (the "only 10 videos" line) and the title.
@@ -156,24 +156,24 @@
 5. Circle the corner at 0 and write **"bend = non-linear"**.
 6. Show the sleep mountain again with the caption **"2 ReLU neurons → this shape"**. Small text for pause-and-note viewers: *score(L) = ReLU(L − 3) − 2 × ReLU(L − 7), for L = 3 to 11 → 0, 2, 4 (peak at 7), 3, 2, 0.*
 
-### F5. Sigmoid (formula shown once) + the Day 7 clarification
-⏱ **06:51 – 07:57**
+### F5. Sigmoid (formula shown once) + Video A callback
+⏱ **06:51 – 07:45**
 
 🎙
 > The second is **sigmoid**. This one isn't new for us: we saw it on Day 7 in logistic regression. The formula, once, on screen: σ(z) = 1 / (1 + e^(−z)), where e is about 2.718. Don't stress about the formula. I'm showing it just once.
 >
 > Simply put, sigmoid takes any number and squeezes it between 0 and 1. A big positive number comes out close to 1, a big negative number close to 0, and z = 0 gives exactly 0.5. Student D: z = 2.4 gives 0.917. It's like a fan regulator: smooth from slow to full speed. It never goes above full and never below zero. Or think of it as a confidence meter from 0% to 100%.
 >
-> We cleared one point last video, but it's very important for the loss function, so once more. Don't get confused. The sigmoid output is a **probability**, like 0.917. It isn't exactly 0 or 1. After that we apply a **threshold**, 50%, like the pass mark in our exams. Only then does the final decision become 0 or 1. Sigmoid gives the probability. The threshold makes the decision. They're two different things.
+> And remember from last video: sigmoid gives a **probability**, like 0.917, and the 50% **threshold**, like our 35-marks pass mark, makes the pass/fail decision. That probability is exactly what the loss function will check next.
 
 🖊
 1. Formula card (the only time it is shown): **σ(z) = 1 / (1 + e^(−z)), e ≈ 2.718**.
 2. Axes: an S-curve between dashed lines at 0 and 1. Mark **(0, 0.5)** and **(2.4, 0.917) "Student D"**.
 3. Two boxes side by side: **[sigmoid → 0.917 = probability]** → **[threshold 50% → PASS (1)]**. Write "≠" between "probability" and "label".
-4. Small note: **exam pass mark ↔ 50% threshold**.
+4. Small note: **35 marks = pass mark ↔ 50% threshold**.
 
 ### F6. Where each is used + name-drops + mini-recap
-⏱ **07:57 – 08:45**
+⏱ **07:45 – 08:32**
 
 🎙
 > So where does ReLU go and where does sigmoid go? Mostly ReLU in hidden layers. If you need a yes/no, pass/fail at the output, sigmoid. Our network is exactly like that: ReLU in the hidden layer, sigmoid at the output. Don't think "sigmoid was used on Day 7, so it must be the best". If you put sigmoid in many hidden layers, learning becomes slow. That's one reason ReLU became the default.
@@ -192,7 +192,7 @@
 ## [H] CONCEPT 2: Loss function
 
 ### H1. Announce + definition + exam-paper analogy
-⏱ **08:45 – 09:31**
+⏱ **08:32 – 09:19**
 
 🎙
 > So the activation function is done. Now the network gives a prediction. But is that prediction right or wrong? And how wrong? To measure that, the next concept is the **loss function**. Write down the definition.
@@ -207,7 +207,7 @@
 3. Write **label = answer key** under it.
 
 ### [G] Mid-roll CTA (cuts in mid-concept, D7 style)
-⏱ **09:31 – 10:04**
+⏱ **09:19 – 09:51**
 
 🎙
 > Sorry for interrupting the video in the middle. Pause this video for one second and hit like. And click the three dots and hit hype. When you hype it, our video reaches many more people, and many more beginners like you learn. Most of the people watching this series still haven't subscribed. Every like and every subscription you give pushes our whole team to make more videos like this. Many of you are saying "Anna, don't slow the series down, bring the next videos fast." We will, for sure. But we need all your support.
@@ -218,7 +218,7 @@
 > **Note:** his usual stat is "90% of viewers are not subscribed". Only say a number if YouTube Studio supports it on the day of recording; otherwise keep the generic line above.
 
 ### H2. Single number, lower is better + the two types
-⏱ **10:04 – 10:53**
+⏱ **09:51 – 10:41**
 
 🎙
 > So, back to loss. One more example: Google Maps shows "destination 3 km away", right? That 3 km is the loss. If it's 0 km, you've arrived. What's our goal? To reduce the loss. Training, put simply, means reducing the loss again and again.
@@ -234,7 +234,7 @@
    - **Classification (categories) → log loss (binary cross-entropy)**
 
 ### H3. Log loss with the student numbers (the one worked example for this concept)
-⏱ **10:53 – 11:59**
+⏱ **10:41 – 11:47**
 
 🎙
 > In pass/fail, the model gives a probability, right? We check how much probability the model gave to the correct answer. The formula's on screen: loss = −ln(probability given to the correct answer). ln means natural log. You don't need to remember the formula. I did it on a calculator. Just look at the numbers. If you check it on a calculator, use the "ln" button, not the "log" button.
@@ -260,7 +260,7 @@
 4. Arrow from 0.69 to 3.0: **"more than 4×!"**
 
 ### H4. Doubt: loss vs accuracy + mini-recap
-⏱ **11:59 – 12:52**
+⏱ **11:47 – 12:40**
 
 🎙
 > Now many of you will ask: "Anna, loss and accuracy are the same thing, right?" Don't get confused. They're not. On Day 6 we saw accuracy: 90 correct out of 100 is 90%. Accuracy only counts right or wrong. If the model says 51% or 99% and both students pass, it's the same for accuracy. But for loss it's different: 99% gives a very small loss and 51% a bigger one. Loss tells you *how* right or *how* wrong, smoothly. That smoothness is exactly what our next concept, gradient descent, needs. So remember: we **train** on loss and **report** accuracy.
@@ -282,7 +282,7 @@
 ## [I] CONCEPT 3: Gradient descent
 
 ### I1. Announce + definition + name unpack
-⏱ **12:52 – 13:30**
+⏱ **12:40 – 13:17**
 
 🎙
 > Now we know the loss. Sita's loss is 0.97. What should we do now? Reduce the loss. How? We have 9 knobs, right, the weights and biases. Which knob do we turn, which way, and by how much? The answer is **gradient descent**. Personally, I find this a really interesting concept.
@@ -296,7 +296,7 @@
 2. Split the name on the board: **GRADIENT = slope (direction + steepness)** | **DESCENT = going down**.
 
 ### I2. Walking down a hill in the fog: the valley picture (drawing first)
-⏱ **13:30 – 14:04**
+⏱ **13:17 – 13:52**
 
 🎙
 > Imagine this once. You're on Ananthagiri Hills at night. Full fog, no torch. You have to come down to the village. You can't see the path. What will you do? You'll feel which way the ground slopes under your feet. You'll take one small step towards the downward side. Feel again, step again. Like that you'll come all the way down. This is gradient descent.
@@ -310,7 +310,7 @@
 4. Fog doodle over the top: "can't see the bottom, only feel the slope".
 
 ### I3. The direction rule + update rule in words
-⏱ **14:04 – 14:37**
+⏱ **13:52 – 14:25**
 
 🎙
 > Now a very important rule. Write it down: **always move opposite to the slope.** If the slope is positive, increasing the weight increases the loss, so decrease the weight. If the slope is negative, increasing the weight decreases the loss, so increase the weight.
@@ -325,7 +325,7 @@
 3. Mini note: **slope −1 → − × − = + → weight goes UP**.
 
 ### I4. Step size = learning rate (named, details deferred) + Amma's salt
-⏱ **14:37 – 15:35**
+⏱ **14:25 – 15:23**
 
 🎙
 > Now the step size. How big a step should we take? That step size is what we call the **learning rate**. Amma puts salt in the curry, right? She tastes it, says "a bit bland", adds a pinch, and tastes again. What if she throws in a whole fistful at once? The curry is spoiled. Overshoot. And if she adds one grain at a time? By the time the curry is ready it's night. So the step size has to be right. The details of the learning rate, what happens if it's too big or too small, I'll explain in the next episode along with epochs and batches. For now just remember: learning rate = step size.
@@ -339,7 +339,7 @@
 4. Disclaimer chip: **GD = all knobs at once, each by its own slope.**
 
 ### I5. One real update: student Priya (the one worked example for this concept)
-⏱ **15:35 – 17:06**
+⏱ **15:23 – 16:54**
 
 🎙
 > Don't worry about the maths. Let's go slowly. Take the Day 7 neuron: w1 = 0.8, w2 = 0.04, b = −4. A new student, Priya, studied 2 hours and has 60% attendance. She actually passed.
@@ -368,7 +368,7 @@
 4. Note in a box: *"Shortcut works for sigmoid + log loss. Machine does w2 and b at the same time."* Small grey footnote (do not read out): *"w2 with raw 60% gives slope −30, too big a jump. Real projects scale attendance to 0.6 first. Next episode."*
 
 ### I6. Doubts + mini-recap
-⏱ **17:06 – 17:47**
+⏱ **16:54 – 17:35**
 
 🎙
 > "Anna, do we get the perfect answer in one step?" No. Small, small steps, many times. "Are gradient descent and backpropagation the same?" I'll clear that up in the next concept.
@@ -386,7 +386,7 @@
 ## [J] CONCEPT 4: Backpropagation
 
 ### J1. The problem + definition + name unpack
-⏱ **17:47 – 18:42**
+⏱ **17:35 – 18:30**
 
 🎙
 > Now there's a problem. In Priya's example there was only one neuron, so we directly knew the input for w1. But in our 9-knob network? Take a first-layer weight, the S → h1 wire. Its effect goes through h1 and then through the output. The output came out wrong, but how much of that mistake belongs to the S → h1 weight? We can't see it directly. And big networks have crores of weights. How do we find the slope for every single weight? The answer is **backpropagation**.
@@ -401,7 +401,7 @@
 3. Split the name: **BACK = backwards** | **PROPAGATION = passing along**.
 
 ### J2. Analogy: cricket coach's post-match analysis
-⏱ **18:42 – 19:23**
+⏱ **18:30 – 19:10**
 
 🎙
 > Think of a cricket match. India lost by 30 runs. After the match the coach does an analysis. The result is the loss. The coach traces it backwards: the bowler in the last overs gave away a lot of runs, so more blame. One batsman didn't even get to bat, so zero batting blame for him. Whoever contributed how much gets that much blame. After that, everyone changes their practice a little. Backprop is the same thing: **blame assignment**.
@@ -414,7 +414,7 @@
 3. Write **Backprop = blame assignment**, and a chip: *"Nobody dropped. Everyone nudged a little."*
 
 ### J3. Sita's backward pass (the one worked example for this concept)
-⏱ **19:23 – 20:41**
+⏱ **19:10 – 20:28**
 
 🎙
 > Don't worry. Slowly. Sita studied 6 hours and slept 3 hours. Forward pass: h1 = 1.5, so it's on. h2's sum was −1, and ReLU made it 0, so it's off. Output: 37.8%. The truth: she passed. Loss about 0.97.
@@ -440,7 +440,7 @@
 4. Write the rule at the top: **blame on a wire = error arriving × value it carried**.
 
 ### J4. Gradient descent applies the update → Sita flips to pass
-⏱ **20:41 – 21:27**
+⏱ **20:28 – 21:15**
 
 🎙
 > Now, what are these blame numbers? They're exactly the gradients, the slopes. Step 5: now gradient descent comes in: new = old − step size × blame. Step size 0.02. S → h1 goes from 1 to 1.075. h1 → output goes from 1 to 1.019. The full table is on screen. Pause and write it down.
@@ -466,7 +466,7 @@
 3. Side box: **Ravi 81.8% → 89.3% · Kiran ≈ 38% (almost no change)** → "one lesson changes the network for everyone → average over many students".
 
 ### J5. Doubts + chain rule (name only) + mini-recap
-⏱ **21:27 – 22:14**
+⏱ **21:15 – 22:01**
 
 🎙
 > "Anna, in backprop does the data go backwards?" No. The inputs never change: Sita studied 6 hours, and that doesn't change. Only the error, the blame signal, goes backwards.
@@ -486,7 +486,7 @@
 ---
 
 ## [K1] The full "how a network learns" loop
-⏱ **22:14 – 22:49**
+⏱ **22:01 – 22:37**
 
 🎙
 > Now let's put all four together in one picture. This is the most important picture in this video. Write it down.
@@ -504,7 +504,7 @@
 ---
 
 ## [K2] Video recap + comment quiz
-⏱ **22:49 – 23:25**
+⏱ **22:37 – 23:13**
 
 🎙
 > And that's it for the day! In this video we covered the activation function (ReLU and sigmoid), the loss function, gradient descent and backpropagation. All of this sits inside AI, in machine learning, in deep learning, in the training of neural networks.
@@ -522,7 +522,7 @@
 ---
 
 ## [L] Outro
-⏱ **23:25 – 24:18**
+⏱ **23:13 – 24:06**
 
 🎙
 > If not everything is 100% clear in one viewing, don't worry. Backprop doesn't click for most people the first time. It didn't for me either. Watch it once more with the notes and it'll click.

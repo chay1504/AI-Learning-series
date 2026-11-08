@@ -6,8 +6,8 @@
 - `production-notes.md`: this file.
 
 **Covers plan Days 25–28:** activation function (ReLU, sigmoid), loss function, gradient descent and backpropagation.
-**Runtime estimate:** 4,253 English-equivalent spoken words ÷ 175 wpm ≈ **24:18**, or about **25 min** once drawing pauses are included. The Telugu script is about 3,750 spoken words, which fits his measured density of about 155 Telugu words per minute.
-**Mid-roll CTA:** 09:31, about 39% of runtime. That is inside his 35–46% band, and it cuts into Concept 2 mid-thought, the way Day 7 does.
+**Runtime estimate:** 4,217 English-equivalent spoken words ÷ 175 wpm ≈ **24:06**, or about **25 min** once drawing pauses are included. The Telugu script is about 3,720 spoken words, which fits his measured density of about 155 Telugu words per minute.
+**Mid-roll CTA:** 09:19, about 39% of runtime. That is inside his 35–46% band, and it cuts into Concept 2 mid-thought, the way Day 7 does.
 **Numbering:** this assumes Video A goes out as **Day 9**. If it doesn't, change the day number in the welcome line (segment A), the "only 10 videos" line (segment L), the title and the description.
 
 ---
@@ -45,17 +45,17 @@ Last video we asked: where do a network's weights come from? Today's the answer.
 04:24 Why layers collapse without activation
 05:22 ReLU = max(0, z)
 06:51 Sigmoid (probability vs decision)
-08:45 What is a loss function?
-10:53 Log loss with student examples
-11:59 Loss vs accuracy
-12:52 What is gradient descent?
-13:30 Walking down a hill in fog (the loss valley)
-15:35 One real update: Priya's example
-17:47 What is backpropagation?
-18:42 Cricket coach = blame assignment
-19:23 Sita's backward pass, step by step
-22:14 The full learning loop
-22:49 Quiz + what's next
+08:32 What is a loss function?
+10:41 Log loss with student examples
+11:47 Loss vs accuracy
+12:40 What is gradient descent?
+13:17 Walking down a hill in fog (the loss valley)
+15:23 One real update: Priya's example
+17:35 What is backpropagation?
+18:30 Cricket coach = blame assignment
+19:10 Sita's backward pass, step by step
+22:01 The full learning loop
+22:37 Quiz + what's next
 
 📝 NOTES (write these down!)
 1. Activation function: applied to a neuron's weighted sum (z); adds non-linearity so the network can learn curved patterns. Without it, stacked layers collapse into one straight line (e.g. ×2+1 then ×3−2 = ×6+1).
@@ -101,7 +101,7 @@ Prepare clean versions of items 1, 3, 9 and 12 in advance. Draw the others live 
 | 4 | F2/F4 | **Sleep mountain**: x = sleep hours 3–11, peak at 7, with a straight-ruler overlay marked ✗ | Shown again in F4 captioned "2 ReLU neurons → this shape" (score = ReLU(L−3) − 2×ReLU(L−7): 0, 2, 4, 3, 2, 0 at 3, 5, 7, 8, 9, 11 h) |
 | 5 | F3 | **Collapse boxes**: x → [×2 +1] → [×3 −2] vs x → [×6 +1], with x = 4 → 9 → 25 and 6×4+1 = 25 | Stamp: "2 layers without activation = 1 straight line" |
 | 6 | F4 | **ReLU graph** (flat, then 45° ramp), points 1.5 → 1.5 and −1 → 0; small water-tank doodle | Circle the bend at 0 |
-| 7 | F5 | **Sigmoid S-curve** between 0 and 1, points (0, 0.5) and (2.4, 0.917); boxes "probability → threshold → decision"; note "exam pass mark ↔ 50%" (no "36") | **The only time the sigmoid formula appears** |
+| 7 | F5 | **Sigmoid S-curve** between 0 and 1, points (0, 0.5) and (2.4, 0.917); boxes "probability → threshold → decision"; note "35 marks = pass mark ↔ 50%" (35, matching Video A; not Day 7's 36) | **The only time the sigmoid formula appears** |
 | 8 | H1 | **Answer sheet vs answer key** doodle; "label = answer key" | |
 | 9 | H3 | **Log-loss table + curve** (0.917 → 0.087 · 0.5 → 0.69 · 0.378 → ≈0.97 · 0.05 → 3.0) | Formula card says **ln**, not log |
 | 10 | I2/I3/I6 | **U-shaped loss valley** (plus, in I6, a small wavy two-dip valley for the "not always the deepest" caveat): x = weight, y = loss; ⭐ at the bottom; stick figure with a tangent; downhill hops; "slope − → increase w" on the left wall, "slope + → decrease w" on the right; fog doodle | The core picture of the video. Draw it before any number |
@@ -158,7 +158,7 @@ If you change any input number, recompute everything downstream. The check scrip
 - **Backprop computes** each weight's contribution (the gradient); **gradient descent applies** the update. These are stated as separate steps (J4, J5).
 - Only the **error signal** flows backward. Inputs never change (J5).
 - ReLU = max(0, z). It is non-linear because of the bend at 0 (F4).
-- The sigmoid output is a **probability**, not a 0/1 label. The threshold makes the decision (F5). Video A already corrected the Day 7 wording, so F5 frames this as "we cleared it last video, once more because loss needs it". The pass line is said as "pass mark", not "36 marks" (style-DNA §6 issue #9). Also e ≈ **2.718** (one Day 7 slip said 2.717), and the formula is written with brackets: 1 / (1 + e^(−z)).
+- The sigmoid output is a **probability**, not a 0/1 label. The threshold makes the decision (F5). Video A already corrected the Day 7 wording, so F5 is only a one-line callback ("remember from last video"). The pass line is "35 marks", matching Video A (style-DNA §6 issue #9: Day 7's "36" was a slip). Also e ≈ **2.718** (one Day 7 slip said 2.717), and the formula is written with brackets: 1 / (1 + e^(−z)).
 - Without non-linearity, stacked linear layers collapse to one linear layer (F3).
 - Loss ≠ accuracy: train on loss, report accuracy (H4).
 - The (prediction − truth) × input slope shortcut is valid **for a sigmoid output + log loss** (per example). The script says so and does not give a proof (I5).
@@ -199,8 +199,8 @@ Independent review against Video A, the style-DNA checklist, the research file a
 |---|---|---|---|
 | 1 | Segment B said "suppose Sita actually passed", but Video A already revealed it as a fact ("twist: Sita actually passed!"). §7.4 also wrongly claimed the label was introduced here. | Medium (cross-video continuity) | B now recalls it as Video A's twist (both languages); §7.4 corrected. |
 | 2 | Gradient descent had no local-minimum caveat; the U-valley plus "bottom = best weight" implied GD always finds the best answer. Plan Day 27 also asks for an Adam/variants name-drop. | Medium (false simplification by omission) | I6 adds one plain doubt beat: real valleys have many dips, GD can stop in a shallower one, in practice reaches a good-enough point; Adam named as a smarter GD. Board sketch + description note added. |
-| 3 | F5 presented the sigmoid "probability vs 0/1" fix as a fresh correction of Day 7, although Video A had already made it. | Low-Medium (consistency) | Reworded as "we cleared this last video; once more because the loss needs it". |
-| 4 | "36-marks pass line" repeats style-DNA §6 known issue #9 (SSC pass mark is generally 35). | Low-Medium (accuracy) | Spoken and board now say "pass mark" with no number (avoids contradicting Video A's 36). |
+| 3 | F5 presented the sigmoid "probability vs 0/1" fix as a fresh, full correction of Day 7, although Video A had already made it. | Low-Medium (consistency) | Trimmed to a one-line callback ("remember from last video: sigmoid gives a probability, the 50% threshold makes the decision") that leads into the loss function (Video A reviewer's item 3). |
+| 4 | "36-marks pass line" repeats style-DNA §6 known issue #9 (SSC pass mark is generally 35). | Low-Medium (accuracy) | Now "35 marks pass mark" in both scripts and on the board, matching Video A's corrected 35 (Video A reviewer's item 1). |
 | 5 | Recap described the neuron as "inputs × weights + bias → output", dropping the activation step that Video A's definition and one-liner included (and that F1 then relies on: "a neuron had two steps"). | Low | Recap and board cue now read "→ activation → output". |
 | 6 | Spoken loss formula said "−log" while the card said "−ln" and viewers were told to use the ln key. | Low (precision) | H3 and I5 now say "−ln", with "ln means natural log" added once in H3. |
 | 7 | "Machine updates w2 and b too, the same way": with raw 60% attendance the w2 step would jump 0.04 → 3.04, a trap for calculator viewers. | Low | Board footnote (not read out): scale attendance to 0.6 first; next episode. |
@@ -209,7 +209,8 @@ Independent review against Video A, the style-DNA checklist, the research file a
 | 10 | Outro humility line ("took me two or three days") repeated Video A's segment K line word-for-word in consecutive episodes. | Low (voice/freshness) | Reworded ("doesn't click for most people the first time; it didn't for me either"); §7.3 updated. |
 | 11 | Segment IDs collided: Concept 4 was "[I2]" (same as sub-segment I2), the loop was "[J]" while J1–J5 were backprop, and the notes called the loop "segment K". | Low (production) | Concept 4 → [J], loop → [K1], recap + quiz → [K2]; notes references updated. |
 | 12 | "Today — that's the answer" was a stiff, translated-sounding line; one "అన్నాడు" mixed with Telangana "అయిండు". | Low (voice) | "ఈరోజు వీడియో దానికే answer."; "అన్నడు". |
-| 13 | Timestamps and chapters went stale after the edits. | Low | All 31 timestamps in both scripts recomputed from English word counts at 175 wpm; description chapters updated. Runtime now **~24:18** (4,253 words); mid-roll 09:31 ≈ 39%. |
+| 13 | Timestamps and chapters went stale after the edits. | Low | All 31 timestamps in both scripts recomputed from English word counts at 175 wpm; description chapters updated. Runtime now **~24:06** (4,217 words; Telugu ≈ 3,720 words ≈ 154/min); mid-roll 09:19 ≈ 39%. |
 
 **Checked, no change needed:** ReLU = max(0, z) and the bend argument; layer collapse (6x + 1); sigmoid range and Student D 0.917; loss definition, MSE/residual callback (Day 6 says MAE/MSE by name), log-loss table and "more than 4×" (4.32×); loss ≠ accuracy; opposite-to-slope rule and the sign explanation; learning rate = step size (deferred); backprop computes vs GD updates kept separate (J1 definition, J4, J5); ReLU-off h2 gets zero gradient on both its incoming weights and its outgoing weight; only the error flows backward; no calculus/derivative notation, chain rule named once without a formula; all Day 25–28 plan subtopics present. Voice: A0 pitch + "Hey guys, welcome back to AI Learning Series Day 10", recap, catch-up nudge, numbered agenda with వచ్చేసి, reassurance, రాసుకోండి prompts at every definition/rule, "Sorry for interrupting" mid-roll, anticipated-doubt beats, disclaimed analogies, end recap in the taxonomy, three-question comment quiz, notes in description, and the exact sign-off are all present. English and Telugu have the same content, numbers and timestamps.
 
+**Alignment with the Video A review (coordinator relay, all five items re-checked against the current Video A files):** (1) 35-marks pass mark: done, row 4. (2) Sita's pass is treated as established from Video A: done, row 1. (3) Sigmoid correction cut to a one-line callback: done, row 3. (4) Different humility line from Video A's "two or three days": done, row 10. (5) Student A → Student F and the new hidden-layer wording in Video A: Video B references neither (its recap only says "input layer, hidden layer, output layer"), so no change needed.

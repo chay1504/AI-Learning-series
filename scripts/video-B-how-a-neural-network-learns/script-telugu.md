@@ -2,7 +2,7 @@
 
 **Series:** AI Learning Series, **Day 10** on the channel. This covers plan Days 25–28: activation function → loss function → gradient descent → backpropagation.
 **Previous episode:** Video A, "Inside a Neural Network" (Day 9): what DL is, the artificial neuron, layers, weights and biases.
-**Runtime:** ~24:18 (≈ 24.3 min) spoken (English-equivalent 4,253 words at 175 wpm). Allow ~25 min with drawing pauses.
+**Runtime:** ~24:06 (≈ 24.1 min) spoken (English-equivalent 4,217 words at 175 wpm). Allow ~25 min with drawing pauses.
 **Companion files:** `script-english.md` (the same script in English, for checking content) · `production-notes.md` (titles, description, drawings list, quiz answers, accuracy notes)
 
 **Legend**
@@ -168,24 +168,24 @@
 5. Circle the corner at 0 and write **"bend = non-linear"**.
 6. Show the sleep mountain again with the caption **"2 ReLU neurons → this shape"**. Small text for pause-and-note viewers: *score(L) = ReLU(L − 3) − 2 × ReLU(L − 7), for L = 3 to 11 → 0, 2, 4 (peak at 7), 3, 2, 0.*
 
-### F5. Sigmoid (formula shown once) + the Day 7 clarification
-⏱ **06:51 – 07:57**
+### F5. Sigmoid (formula shown once) + Video A callback
+⏱ **06:51 – 07:45**
 
 🎙
 > సెకండ్ వన్ వచ్చేసి sigmoid. ఇది మనకి కొత్త కాదు — Day 7 లో logistic regression లో చూసినం. Formula ఒక్కసారి screen మీద: σ(z) = 1 / (1 + e^(−z)), e అంటే దాదాపు 2.718. Formula గురించి టెన్షన్ పడకండి, ఒక్కసారి చూపిస్తున్నా అంతే.
 >
 > సింపుల్ గా చెప్పాలి అంటే — sigmoid ఏ number ఇచ్చినా దాన్ని 0 కి 1 కి మధ్యలోకి squeeze చేస్తది. పెద్ద positive number అయితే 1 కి దగ్గరగా, పెద్ద negative అయితే 0 కి దగ్గరగా, z = 0 అయితే exact గా 0.5. Student D — z = 2.4 అయితే 0.917 వచ్చింది కదా. ఇది fan regulator లాంటిది — slow నుంచి full speed వరకు smooth గా పోతది. Full కంటే పైకి పోదు, zero కంటే కిందకి పోదు. లేకుంటే 0% నుంచి 100% వరకు ఒక confidence meter అనుకోండి.
 >
-> లాస్ట్ వీడియోలో ఒక point clear చేసినం కదా — కానీ loss function కి ఇది చాలా important, సో మళ్ళీ ఒక్కసారి. కన్ఫ్యూజ్ అవ్వద్దు. Sigmoid output ఒక probability, 0.917 లాంటిది. Exact గా 0 ఓ 1 ఓ కాదు. దాని తర్వాత మనం threshold పెడ్తాం — 50% — మన exams లో pass mark లాగా. అప్పుడే final decision 0 or 1 అవుతది. Sigmoid probability ఇస్తది. Threshold decision తీసుకుంటది. రెండూ different అన్నమాట.
+> And లాస్ట్ వీడియోలో చూసినం కదా — sigmoid ఇచ్చేది ఒక probability, 0.917 లాంటిది. Pass/fail decision తీసుకునేది 50% threshold — మన 35 marks pass mark లాగా. ఆ probability నే next loss function check చేస్తది అన్నమాట.
 
 🖊
 1. Formula card (the only time it is shown): **σ(z) = 1 / (1 + e^(−z)), e ≈ 2.718**.
 2. Axes: an S-curve between dashed lines at 0 and 1. Mark **(0, 0.5)** and **(2.4, 0.917) "Student D"**.
 3. Two boxes side by side: **[sigmoid → 0.917 = probability]** → **[threshold 50% → PASS (1)]**. Write "≠" between "probability" and "label".
-4. Small note: **exam pass mark ↔ 50% threshold**.
+4. Small note: **35 marks = pass mark ↔ 50% threshold**.
 
 ### F6. Where each is used + name-drops + mini-recap
-⏱ **07:57 – 08:45**
+⏱ **07:45 – 08:32**
 
 🎙
 > సో ReLU ఎక్కడ, sigmoid ఎక్కడ? Hidden layers లో ఎక్కువగా ReLU. Output దగ్గర yes/no, pass/fail కావాలి అంటే sigmoid. మన network కూడా exact గా అంతే — hidden layer లో ReLU, output లో sigmoid. "Day 7 లో sigmoid వాడినం కదా, అదే best" అని అనుకోకండి. చాలా hidden layers లో sigmoid పెడితే learning slow అయితది. ReLU default అవ్వడానికి అది ఒక reason.
@@ -204,7 +204,7 @@
 ## [H] CONCEPT 2: Loss function
 
 ### H1. Announce + definition + exam-paper analogy
-⏱ **08:45 – 09:31**
+⏱ **08:32 – 09:19**
 
 🎙
 > సో activation function అయిపోయింది. ఇప్పుడు network ఒక prediction ఇస్తది. కానీ ఆ prediction correct ఆ, తప్పా? తప్పు అయితే ఎంత తప్పు? అది కొలవడానికి next concept — loss function. Definition రాసుకోండి.
@@ -219,7 +219,7 @@
 3. Write **label = answer key** under it.
 
 ### [G] Mid-roll CTA (cuts in mid-concept, D7 style)
-⏱ **09:31 – 10:04**
+⏱ **09:19 – 09:51**
 
 🎙
 > వీడియో మధ్యలో interrupt చేస్తున్నందుకు sorry. ఒక్క సెకండ్ ఈ వీడియోని pause చేసి like చేయండి. And three dots క్లిక్ చేసి hype చేయండి — hype చేస్తే మన వీడియో చాలా మందికి reach అవుతది, మీలాంటి beginners ఇంకా చాలా మంది నేర్చుకుంటారు. ఈ series చూసేవాళ్ళలో చాలా మంది ఇంకా subscribe చేయలేదు. మీరు చేసే ప్రతి like, ప్రతి subscription మా team మొత్తాన్ని ఇలాంటి ఇంకా videos చేయడానికి push చేస్తది. చాలా మంది "అన్నా series slow చేయకు, next videos fast గా తీసుకురా" అంటున్నారు కదా — కచ్చితంగా తీసుకొస్తాం. బట్ మీ అందరి support మాకు కావాలి.
@@ -230,7 +230,7 @@
 > **Note:** his usual stat is "90% of viewers are not subscribed". Only say a number if YouTube Studio supports it on the day of recording; otherwise keep the generic line above.
 
 ### H2. Single number, lower is better + the two types
-⏱ **10:04 – 10:53**
+⏱ **09:51 – 10:41**
 
 🎙
 > సో మళ్ళీ loss కి వద్దాం. ఇంకో example — Google Maps లో "destination 3 km away" అని చూపిస్తది కదా. ఆ 3 km ఏ loss. 0 km అయితే reach అయిపోయినట్టు. మన goal ఏంటి? Loss ని తగ్గించడం. Training అంటే సింపుల్ గా చెప్పాలి అంటే loss ని తగ్గించుకుంటూ పోవడమే.
@@ -246,7 +246,7 @@
    - **Classification (categories) → log loss (binary cross-entropy)**
 
 ### H3. Log loss with the student numbers (the one worked example for this concept)
-⏱ **10:53 – 11:59**
+⏱ **10:41 – 11:47**
 
 🎙
 > Pass/fail లో model ఒక probability ఇస్తది కదా. Correct answer కి model ఎంత probability ఇచ్చిందో చూస్తాం. Formula screen మీద ఉంది: loss = −ln(probability given to the correct answer). ln అంటే natural log. Formula గుర్తుపెట్టుకోవాల్సిన అవసరం లేదు, నేను calculator లో చేసిన, numbers చూడండి. మీరు calculator లో check చేస్తే "ln" button వాడండి, "log" button కాదు.
@@ -272,7 +272,7 @@
 4. Arrow from 0.69 to 3.0: **"more than 4×!"**
 
 ### H4. Doubt: loss vs accuracy + mini-recap
-⏱ **11:59 – 12:52**
+⏱ **11:47 – 12:40**
 
 🎙
 > ఇప్పుడు మీలో చాలా మంది అడుగుతారు — "అన్నా, loss and accuracy రెండూ same ఏ కదా?" కన్ఫ్యూజ్ అవ్వద్దు, same కాదు. Day 6 లో accuracy చూసినం — 100 లో 90 correct అయితే 90%. Accuracy కేవలం correct ఆ, wrong ఆ అని count చేస్తది. Model 51% అన్నా 99% అన్నా, ఇద్దరూ pass అయితే accuracy కి రెండూ same. కానీ loss కి different — 99% కి loss చాలా తక్కువ, 51% కి ఎక్కువ. ఎంత correct, ఎంత wrong అని smooth గా చెప్పేది loss. ఆ smoothness ఏ మన next concept gradient descent కి కావాలి. సో గుర్తుపెట్టుకోండి — train చేసేది loss మీద, report చేసేది accuracy.
@@ -294,7 +294,7 @@
 ## [I] CONCEPT 3: Gradient descent
 
 ### I1. Announce + definition + name unpack
-⏱ **12:52 – 13:30**
+⏱ **12:40 – 13:17**
 
 🎙
 > ఇప్పుడు loss తెలుసు. Sita ది loss 0.97. ఇప్పుడు ఏం చేయాలి? Loss తగ్గించాలి. ఎట్లా? మన దగ్గర 9 knobs ఉన్నాయి కదా — weights and biases. ఏ knob ని, ఏ side, ఎంత తిప్పాలి? దీనికి answer — gradient descent. నాకైతే personally ఇది చాలా interesting అనిపించే concept.
@@ -308,7 +308,7 @@
 2. Split the name on the board: **GRADIENT = slope (direction + steepness)** | **DESCENT = going down**.
 
 ### I2. Walking down a hill in the fog: the valley picture (drawing first)
-⏱ **13:30 – 14:04**
+⏱ **13:17 – 13:52**
 
 🎙
 > ఒక్కసారి imagine చేసుకోండి. మీరు రాత్రి పూట Ananthagiri hills మీద ఉన్నారు. Full fog, torch లేదు. కిందకి village కి రావాలి. దారి కనిపిస్తలేదు. ఏం చేస్తారు? కాళ్ళ కింద నేల ఏ వైపు వాలుగా ఉందో feel చేస్తారు. కిందకి వాలు ఉన్న వైపు ఒక చిన్న step వేస్తారు. మళ్ళీ feel చేస్తారు, మళ్ళీ step. అట్లా అట్లా కిందకి వచ్చేస్తారు. ఇదే gradient descent.
@@ -322,7 +322,7 @@
 4. Fog doodle over the top: "can't see the bottom, only feel the slope".
 
 ### I3. The direction rule + update rule in words
-⏱ **14:04 – 14:37**
+⏱ **13:52 – 14:25**
 
 🎙
 > ఇప్పుడు చాలా important rule, రాసుకోండి: ఎప్పుడూ slope కి opposite direction లో వెళ్ళాలి. Slope positive అంటే — weight పెంచితే loss పెరుగుతది — సో weight తగ్గించాలి. Slope negative అంటే — weight పెంచితే loss తగ్గుతది — సో weight పెంచాలి.
@@ -337,7 +337,7 @@
 3. Mini note: **slope −1 → − × − = + → weight goes UP**.
 
 ### I4. Step size = learning rate (named, details deferred) + Amma's salt
-⏱ **14:37 – 15:35**
+⏱ **14:25 – 15:23**
 
 🎙
 > ఇక step size. ఎంత పెద్ద step వేయాలి? ఆ step size నే learning rate అంటాం. మన అమ్మ కూరలో ఉప్పు వేస్తది కదా — taste చూస్తది, "కొంచెం చప్పగా ఉంది" అని ఒక చిటికెడు వేస్తది, మళ్ళీ taste చూస్తది. ఒక్కసారే గుప్పెడు ఉప్పు వేస్తే? కూర పాడైపోతది — overshoot. ఒక్కొక్క గింజ వేసుకుంటూ పోతే? కూర అయ్యేసరికి రాత్రి అయిపోతది. సో step size సరిగ్గా ఉండాలి. Learning rate details — too big అయితే ఏమైతది, too small అయితే ఏమైతది — next episode లో epochs, batches తో కలిపి చెప్తా. ఇప్పటికి: learning rate = step size అని గుర్తుపెట్టుకోండి.
@@ -351,7 +351,7 @@
 4. Disclaimer chip: **GD = all knobs at once, each by its own slope.**
 
 ### I5. One real update: student Priya (the one worked example for this concept)
-⏱ **15:35 – 17:06**
+⏱ **15:23 – 16:54**
 
 🎙
 > Maths గురించి ఏం టెన్షన్ పడకండి, స్లో స్లోగా చూద్దాం. Day 7 neuron తీసుకుందాం: w1 = 0.8, w2 = 0.04, b = −4. కొత్త student Priya — 2 hours చదివింది, 60% attendance. Actually pass అయింది.
@@ -380,7 +380,7 @@
 4. Note in a box: *"Shortcut works for sigmoid + log loss. Machine does w2 and b at the same time."* Small grey footnote (do not read out): *"w2 with raw 60% gives slope −30, too big a jump. Real projects scale attendance to 0.6 first. Next episode."*
 
 ### I6. Doubts + mini-recap
-⏱ **17:06 – 17:47**
+⏱ **16:54 – 17:35**
 
 🎙
 > "అన్నా, ఒక్క step లోనే perfect answer వస్తదా?" రాదు. చిన్న చిన్న steps, చాలా సార్లు. "Gradient descent and backpropagation రెండూ same ఆ?" — అది next concept లో clear చేస్తా.
@@ -398,7 +398,7 @@
 ## [J] CONCEPT 4: Backpropagation
 
 ### J1. The problem + definition + name unpack
-⏱ **17:47 – 18:42**
+⏱ **17:35 – 18:30**
 
 🎙
 > ఇప్పుడు ఒక problem ఉంది. Priya example లో ఒక్కటే neuron ఉంది — w1 కి input ఏంటో direct గా తెలుసు. కానీ మన 9-knob network లో? First layer లో ఒక weight తీసుకోండి — S → h1 wire. దాని effect h1 గుండా, తర్వాత output గుండా వెళ్తది. Output తప్పు వచ్చింది — కానీ ఆ తప్పులో S → h1 weight ది ఎంత share? Direct గా కనిపించదు. And big networks లో కోట్ల కొద్దీ weights ఉంటాయి. ప్రతి ఒక్క weight కి slope ఎట్లా కనిపెట్టాలి? దీనికి answer — backpropagation.
@@ -413,7 +413,7 @@
 3. Split the name: **BACK = backwards** | **PROPAGATION = passing along**.
 
 ### J2. Analogy: cricket coach's post-match analysis
-⏱ **18:42 – 19:23**
+⏱ **18:30 – 19:10**
 
 🎙
 > ఒక cricket match అనుకోండి. India 30 runs తేడాతో ఓడిపోయింది. Match అయినాక coach analysis చేస్తాడు. Result ఏ మన loss. Coach వెనక్కి trace చేస్తాడు — last overs లో bowler ఎక్కువ runs ఇచ్చిండు — ఎక్కువ blame. ఒక batsman కి batting ఏ రాలేదు — అతనికి batting blame zero. ఎవరు ఎంత contribute చేసిండ్రో అంత blame. తర్వాత అందరూ కొంచెం కొంచెం practice మార్చుకుంటారు. Backprop కూడా ఇదే — blame assignment అన్నమాట.
@@ -426,7 +426,7 @@
 3. Write **Backprop = blame assignment**, and a chip: *"Nobody dropped. Everyone nudged a little."*
 
 ### J3. Sita's backward pass (the one worked example for this concept)
-⏱ **19:23 – 20:41**
+⏱ **19:10 – 20:28**
 
 🎙
 > టెన్షన్ పడకండి, స్లోగా చూద్దాం. Sita 6 hours చదివింది, 3 hours పడుకుంది. Forward pass లో: h1 = 1.5 — ON. h2 sum −1 వచ్చింది, ReLU దాన్ని 0 చేసింది — OFF. Output: 37.8%. Truth ఏంటి? Pass అయింది. Loss దాదాపు 0.97.
@@ -452,7 +452,7 @@
 4. Write the rule at the top: **blame on a wire = error arriving × value it carried**.
 
 ### J4. Gradient descent applies the update → Sita flips to pass
-⏱ **20:41 – 21:27**
+⏱ **20:28 – 21:15**
 
 🎙
 > ఇప్పుడు ఈ blame numbers ఏంటివి? ఇవే gradients — slopes. Step 5 — ఇప్పుడు gradient descent వస్తది: new = old − step size × blame. Step size 0.02. S → h1 వచ్చేసి 1 నుంచి 1.075 అయింది. h1 → output 1 నుంచి 1.019. Full table screen మీద ఉంది — pause చేసి రాసుకోండి.
@@ -478,7 +478,7 @@
 3. Side box: **Ravi 81.8% → 89.3% · Kiran ≈ 38% (almost no change)** → "one lesson changes the network for everyone → average over many students".
 
 ### J5. Doubts + chain rule (name only) + mini-recap
-⏱ **21:27 – 22:14**
+⏱ **21:15 – 22:01**
 
 🎙
 > "అన్నా, backprop లో data వెనక్కి వెళ్తదా?" No. Inputs ఎప్పుడూ మారవు — Sita 6 hours చదివింది, అది మారదు. వెనక్కి వెళ్ళేది కేవలం error, blame signal మాత్రమే.
@@ -498,7 +498,7 @@
 ---
 
 ## [K1] The full "how a network learns" loop
-⏱ **22:14 – 22:49**
+⏱ **22:01 – 22:37**
 
 🎙
 > ఇప్పుడు ఈ నాలుగూ కలిపి ఒక్క picture. ఈ వీడియోలో most important picture ఇదే — రాసుకోండి.
@@ -516,7 +516,7 @@
 ---
 
 ## [K2] Video recap + comment quiz
-⏱ **22:49 – 23:25**
+⏱ **22:37 – 23:13**
 
 🎙
 > And that's it for the day! ఈ వీడియోలో మనం activation function — ReLU and sigmoid — loss function, gradient descent, backpropagation కవర్ చేసినం. ఇవన్నీ AI లో, machine learning లో, deep learning లో, neural network training లో వస్తాయి అన్నమాట.
@@ -534,7 +534,7 @@
 ---
 
 ## [L] Outro
-⏱ **23:25 – 24:18**
+⏱ **23:13 – 24:06**
 
 🎙
 > ఒక్కసారి చూస్తే అంతా 100% clear కాకపోయినా టెన్షన్ పడకండి. Backprop చాలా మందికి ఫస్ట్ టైం లో click అవ్వదు — నాకు కూడా అంతే. Notes తో ఇంకొక్కసారి చూడండి, click అయితది.
