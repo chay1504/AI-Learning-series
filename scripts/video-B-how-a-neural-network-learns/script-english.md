@@ -2,7 +2,7 @@
 
 **Series:** AI Learning Series, **Day 10** on the channel. This covers plan Days 25–28: activation function, loss function, gradient descent and backpropagation.
 **Recording script:** `script-telugu.md`. This file is a faithful English rendering of it, with the same segments, timestamps and board cues. It is for checking content and accuracy. Do not record from it.
-**Runtime:** ~23:52 (≈ 23.9 min) estimated, from 4,176 spoken words at 175 wpm (his measured average).
+**Runtime:** ~24:18 (≈ 24.3 min) estimated, from 4,253 spoken words at 175 wpm (his measured average).
 **Legend:** ⏱ timestamp (start–end) · 🎙 what he says · 🖊 what to draw, write or show (in order)
 
 > **Production note on numbering:** Video A ("Inside a Neural Network", plan Days 21–24) is assumed to go out as **Day 9**, so this video opens as **Day 10**. If the channel numbering changes, update the day number in three places: segment A, segment L (the "only 10 videos" line) and the title.
@@ -32,24 +32,24 @@
 ---
 
 ## [B] Recap of Video A + catch-up
-⏱ **00:21 – 01:58**
+⏱ **00:21 – 02:02**
 
 🎙
 > First, let's recap once. In the last video we entered deep learning. On Day 2 we drew circles, right? AI, inside it ML, inside that DL. Last video we went into that innermost circle.
 >
-> Then we saw what an artificial neuron is. Inputs come in, it multiplies each input by a weight, adds them all, adds a bias, and gives an output. Inputs × weights + bias → output. That simple. And the Student D calculation from Day 7 (4 hours of study, 80% attendance, z = 2.4, 91.7% pass) was already one neuron. We saw that last time.
+> Then we saw what an artificial neuron is. Inputs come in, it multiplies each input by a weight, adds them all, adds a bias, passes that through an activation, and gives one output. Inputs × weights + bias → activation → output. That simple. And the Student D calculation from Day 7 (4 hours of study, 80% attendance, z = 2.4, 91.7% pass) was already one neuron. We saw that last time.
 >
 > Then layers: input layer, hidden layer, output layer. We drew a small network too: study hours and sleep hours go in, two hidden neurons, one output. That network has 9 numbers in total. Those are the weights and biases. These are the knobs of the network, you see.
 >
-> And at the end of the last video I asked you a question, right? Where do these weights actually come from? On Day 7 we *assumed* 0.8, 0.04 and −4. But in real life nobody types them in. The machine finds them by itself. How does it find them? Today, that's the answer.
+> And at the end of the last video I asked you a question, right? Where do these weights actually come from? On Day 7 we *assumed* 0.8, 0.04 and −4. But in real life nobody types them in. The machine finds them by itself. How does it find them? Today's video is the answer to that.
 >
-> Remember one more person: Sita. She studied 6 hours but slept only 3 hours. What did our network say? 38% pass, so "fail". But suppose Sita actually passed. That means the network was wrong. How does the network learn from this mistake? By the end of this video, you yourselves will calculate it.
+> Remember one more person: Sita. She studied 6 hours but slept only 3 hours. What did our network say? 38% pass, so "fail". And the twist, remember? Sita actually passed. That means the network was wrong. How does the network learn from this mistake? By the end of this video, you yourselves will calculate it.
 >
 > If you haven't watched Day 1 to Day 9, especially the last video, please watch them once and come back. This video is its continuation. You'll understand it much more clearly.
 
 🖊
 1. Quick redraw (or flash Video A's final board): three nested circles **AI ⊃ ML ⊃ DL**, with DL highlighted.
-2. One neuron: two arrows in (x1, x2) → circle (Σ | σ) → arrow out. Write **inputs × weights + bias → output**.
+2. One neuron: two arrows in (x1, x2) → circle (Σ | σ) → arrow out. Write **inputs × weights + bias → activation → output**.
 3. The Video A network: **S, L → h1, h2 → output**, with "9 knobs = weights + biases" written beside it.
 4. Write the question big: **"Weights ela vasthayi?" / "Where do the weights come from?"** and circle it.
 5. Sita card: **Sita: studied 6 h, slept 3 h → network says 38% pass ✗ (actually PASSED)**. Leave this card in a corner of the board for the rest of the video.
@@ -57,7 +57,7 @@
 ---
 
 ## [C] Agenda
-⏱ **01:58 – 02:14**
+⏱ **02:02 – 02:18**
 
 🎙
 > So what are we going to discuss today? First is the activation function. Second is the loss function. Third is gradient descent. Fourth is backpropagation. Only when these four come together does a network learn. They're like a chain: if one is missing, the others don't work.
@@ -73,12 +73,12 @@
 ---
 
 ## [E] Reassurance + stakes + notes
-⏱ **02:14 – 02:45**
+⏱ **02:18 – 02:49**
 
 🎙
 > What do many people think? "What is this, anna, gradient descent, backpropagation... even the names are scary. There'll be maths, we won't understand." Right? Don't be afraid at all. Today I won't use even one calculus formula. I'll explain with drawings, with our same students example and with small numbers. After listening you'll say, "Is that all, anna? We thought it was very hard."
 >
-> These four concepts are used to train every single deep learning model, whether it's ChatGPT or face unlock. So they're very, very important. Everyone, take notes.
+> Every deep learning model, whether it's ChatGPT or face unlock, is built and trained with these four concepts. So they're very, very important. Everyone, take notes.
 
 🖊
 - Small sticky note on screen: **"No calculus today. Drawings + small numbers only."**
@@ -88,7 +88,7 @@
 ## [F] CONCEPT 1: Activation function
 
 ### F1. Announce + definition + name unpack
-⏱ **02:45 – 03:35**
+⏱ **02:49 – 03:39**
 
 🎙
 > So the first topic is the activation function. I'm showing the definition on screen. Write it down.
@@ -105,7 +105,7 @@
 3. Underline **"non-linearity"** in the definition. Next to it, draw a straight line labelled "linear" and a wavy curve labelled "non-linear".
 
 ### F2. Why we need a bend: the sleep "sweet spot"
-⏱ **03:35 – 04:20**
+⏱ **03:39 – 04:24**
 
 🎙
 > For example, take sleep. If a student sleeps 3 hours, they're sleepy in the exam and perform badly. 5 hours, a little better. 7 hours, perfect, fresh. And what if they sleep 11 hours? Sleeping more doesn't keep making it better, right? They won't wake up in time for the exam and there's no time left to study. So if we draw a graph, what does it look like? It goes up, peaks at 7, then comes down again. Like a hill, a mountain shape.
@@ -118,7 +118,7 @@
 3. Overlay a straight ruler line in a different colour. Write **"✗ a straight line can't do this"**.
 
 ### F3. Without activation, layers collapse (the one worked example for this concept)
-⏱ **04:20 – 05:18**
+⏱ **04:24 – 05:22**
 
 🎙
 > Now a very interesting point. What happens without an activation function? The neuron only multiplies and adds, and that's always a straight line. So you might doubt: "Anna, one neuron is a straight line, but if we put 100 layers, won't a curve come?" No, it won't. I'll show you.
@@ -135,7 +135,7 @@
 5. (Optional, small, for curious viewers: "3(2x + 1) − 2 = 6x + 1".)
 
 ### F4. ReLU
-⏱ **05:18 – 06:47**
+⏱ **05:22 – 06:51**
 
 🎙
 > So now let's look at two famous activation functions. The first is **ReLU**. Full form: Rectified Linear Unit. Write it down: ReLU(z) = max(0, z). What does that mean? If z is positive, it gives out the same number. If it's negative, it gives 0. That's all. That is ReLU. For example, ReLU(1.5) = 1.5, and ReLU(−1) = 0.
@@ -157,23 +157,23 @@
 6. Show the sleep mountain again with the caption **"2 ReLU neurons → this shape"**. Small text for pause-and-note viewers: *score(L) = ReLU(L − 3) − 2 × ReLU(L − 7), for L = 3 to 11 → 0, 2, 4 (peak at 7), 3, 2, 0.*
 
 ### F5. Sigmoid (formula shown once) + the Day 7 clarification
-⏱ **06:47 – 07:55**
+⏱ **06:51 – 07:57**
 
 🎙
 > The second is **sigmoid**. This one isn't new for us: we saw it on Day 7 in logistic regression. The formula, once, on screen: σ(z) = 1 / (1 + e^(−z)), where e is about 2.718. Don't stress about the formula. I'm showing it just once.
 >
 > Simply put, sigmoid takes any number and squeezes it between 0 and 1. A big positive number comes out close to 1, a big negative number close to 0, and z = 0 gives exactly 0.5. Student D: z = 2.4 gives 0.917. It's like a fan regulator: smooth from slow to full speed. It never goes above full and never below zero. Or think of it as a confidence meter from 0% to 100%.
 >
-> Let me say one thing clearly here. Don't get confused. On Day 7 I said something a little like "the output is 0 or 1". To say it correctly: the sigmoid output is a **probability**, like 0.917. It isn't exactly 0 or 1. After that we apply a **threshold**, 50%, like the 36-marks pass line. Only then does the final decision become 0 or 1. Sigmoid gives the probability. The threshold makes the decision. They're two different things.
+> We cleared one point last video, but it's very important for the loss function, so once more. Don't get confused. The sigmoid output is a **probability**, like 0.917. It isn't exactly 0 or 1. After that we apply a **threshold**, 50%, like the pass mark in our exams. Only then does the final decision become 0 or 1. Sigmoid gives the probability. The threshold makes the decision. They're two different things.
 
 🖊
 1. Formula card (the only time it is shown): **σ(z) = 1 / (1 + e^(−z)), e ≈ 2.718**.
 2. Axes: an S-curve between dashed lines at 0 and 1. Mark **(0, 0.5)** and **(2.4, 0.917) "Student D"**.
 3. Two boxes side by side: **[sigmoid → 0.917 = probability]** → **[threshold 50% → PASS (1)]**. Write "≠" between "probability" and "label".
-4. Small note: **36 marks = pass line ↔ 50% threshold**.
+4. Small note: **exam pass mark ↔ 50% threshold**.
 
 ### F6. Where each is used + name-drops + mini-recap
-⏱ **07:55 – 08:43**
+⏱ **07:57 – 08:45**
 
 🎙
 > So where does ReLU go and where does sigmoid go? Mostly ReLU in hidden layers. If you need a yes/no, pass/fail at the output, sigmoid. Our network is exactly like that: ReLU in the hidden layer, sigmoid at the output. Don't think "sigmoid was used on Day 7, so it must be the best". If you put sigmoid in many hidden layers, learning becomes slow. That's one reason ReLU became the default.
@@ -192,7 +192,7 @@
 ## [H] CONCEPT 2: Loss function
 
 ### H1. Announce + definition + exam-paper analogy
-⏱ **08:43 – 09:29**
+⏱ **08:45 – 09:31**
 
 🎙
 > So the activation function is done. Now the network gives a prediction. But is that prediction right or wrong? And how wrong? To measure that, the next concept is the **loss function**. Write down the definition.
@@ -207,7 +207,7 @@
 3. Write **label = answer key** under it.
 
 ### [G] Mid-roll CTA (cuts in mid-concept, D7 style)
-⏱ **09:29 – 10:02**
+⏱ **09:31 – 10:04**
 
 🎙
 > Sorry for interrupting the video in the middle. Pause this video for one second and hit like. And click the three dots and hit hype. When you hype it, our video reaches many more people, and many more beginners like you learn. Most of the people watching this series still haven't subscribed. Every like and every subscription you give pushes our whole team to make more videos like this. Many of you are saying "Anna, don't slow the series down, bring the next videos fast." We will, for sure. But we need all your support.
@@ -218,7 +218,7 @@
 > **Note:** his usual stat is "90% of viewers are not subscribed". Only say a number if YouTube Studio supports it on the day of recording; otherwise keep the generic line above.
 
 ### H2. Single number, lower is better + the two types
-⏱ **10:02 – 10:52**
+⏱ **10:04 – 10:53**
 
 🎙
 > So, back to loss. One more example: Google Maps shows "destination 3 km away", right? That 3 km is the loss. If it's 0 km, you've arrived. What's our goal? To reduce the loss. Training, put simply, means reducing the loss again and again.
@@ -234,10 +234,10 @@
    - **Classification (categories) → log loss (binary cross-entropy)**
 
 ### H3. Log loss with the student numbers (the one worked example for this concept)
-⏱ **10:52 – 11:56**
+⏱ **10:53 – 11:59**
 
 🎙
-> In pass/fail, the model gives a probability, right? We check how much probability the model gave to the correct answer. The formula's on screen: loss = −log(probability given to the correct answer). You don't need to remember the formula. I did it on a calculator. Just look at the numbers. If you check it on a calculator, use the "ln" button, not the "log" button.
+> In pass/fail, the model gives a probability, right? We check how much probability the model gave to the correct answer. The formula's on screen: loss = −ln(probability given to the correct answer). ln means natural log. You don't need to remember the formula. I did it on a calculator. Just look at the numbers. If you check it on a calculator, use the "ln" button, not the "log" button.
 >
 > Student D passed, and the model said 91.7%. Loss: 0.087, very small. Another student passed, and the model said 50-50. Loss: 0.69. Sita passed, and the model said 37.8%. Loss: about 0.97. And one more student passed, but the model very confidently said "only 5%, definitely fail". Loss: 3.0. Very high.
 >
@@ -260,7 +260,7 @@
 4. Arrow from 0.69 to 3.0: **"more than 4×!"**
 
 ### H4. Doubt: loss vs accuracy + mini-recap
-⏱ **11:56 – 12:49**
+⏱ **11:59 – 12:52**
 
 🎙
 > Now many of you will ask: "Anna, loss and accuracy are the same thing, right?" Don't get confused. They're not. On Day 6 we saw accuracy: 90 correct out of 100 is 90%. Accuracy only counts right or wrong. If the model says 51% or 99% and both students pass, it's the same for accuracy. But for loss it's different: 99% gives a very small loss and 51% a bigger one. Loss tells you *how* right or *how* wrong, smoothly. That smoothness is exactly what our next concept, gradient descent, needs. So remember: we **train** on loss and **report** accuracy.
@@ -282,7 +282,7 @@
 ## [I] CONCEPT 3: Gradient descent
 
 ### I1. Announce + definition + name unpack
-⏱ **12:49 – 13:27**
+⏱ **12:52 – 13:30**
 
 🎙
 > Now we know the loss. Sita's loss is 0.97. What should we do now? Reduce the loss. How? We have 9 knobs, right, the weights and biases. Which knob do we turn, which way, and by how much? The answer is **gradient descent**. Personally, I find this a really interesting concept.
@@ -296,7 +296,7 @@
 2. Split the name on the board: **GRADIENT = slope (direction + steepness)** | **DESCENT = going down**.
 
 ### I2. Walking down a hill in the fog: the valley picture (drawing first)
-⏱ **13:27 – 14:01**
+⏱ **13:30 – 14:04**
 
 🎙
 > Imagine this once. You're on Ananthagiri Hills at night. Full fog, no torch. You have to come down to the village. You can't see the path. What will you do? You'll feel which way the ground slopes under your feet. You'll take one small step towards the downward side. Feel again, step again. Like that you'll come all the way down. This is gradient descent.
@@ -310,7 +310,7 @@
 4. Fog doodle over the top: "can't see the bottom, only feel the slope".
 
 ### I3. The direction rule + update rule in words
-⏱ **14:01 – 14:34**
+⏱ **14:04 – 14:37**
 
 🎙
 > Now a very important rule. Write it down: **always move opposite to the slope.** If the slope is positive, increasing the weight increases the loss, so decrease the weight. If the slope is negative, increasing the weight decreases the loss, so increase the weight.
@@ -325,7 +325,7 @@
 3. Mini note: **slope −1 → − × − = + → weight goes UP**.
 
 ### I4. Step size = learning rate (named, details deferred) + Amma's salt
-⏱ **14:34 – 15:32**
+⏱ **14:37 – 15:35**
 
 🎙
 > Now the step size. How big a step should we take? That step size is what we call the **learning rate**. Amma puts salt in the curry, right? She tastes it, says "a bit bland", adds a pinch, and tastes again. What if she throws in a whole fistful at once? The curry is spoiled. Overshoot. And if she adds one grain at a time? By the time the curry is ready it's night. So the step size has to be right. The details of the learning rate, what happens if it's too big or too small, I'll explain in the next episode along with epochs and batches. For now just remember: learning rate = step size.
@@ -339,14 +339,14 @@
 4. Disclaimer chip: **GD = all knobs at once, each by its own slope.**
 
 ### I5. One real update: student Priya (the one worked example for this concept)
-⏱ **15:32 – 17:03**
+⏱ **15:35 – 17:06**
 
 🎙
 > Don't worry about the maths. Let's go slowly. Take the Day 7 neuron: w1 = 0.8, w2 = 0.04, b = −4. A new student, Priya, studied 2 hours and has 60% attendance. She actually passed.
 >
 > Step 1, forward: z = 0.8 × 2 + 0.04 × 60 − 4 = 1.6 + 2.4 − 4 = 0. Sigmoid of 0 is 0.5. The network said "50-50, I don't know."
 >
-> Step 2, loss: −log(0.5) = 0.69.
+> Step 2, loss: −ln(0.5) = 0.69.
 >
 > Step 3, slope. Here's a shortcut: when sigmoid and log loss come together, the slope comes out very simple: (prediction − truth) × input. I'm not going into the proof; the machine calculates it. The slope for w1 = (0.5 − 1) × 2 = −1. Negative! So w1 should be increased.
 >
@@ -365,25 +365,28 @@
    - **④ Update:** 0.8 − 0.1 × (−1) = **0.9**
    - **⑤ Check:** 0.9×2 + 2.4 − 4 = **0.2** → σ = **0.55** → loss **0.60** ✔
 3. On the valley drawing, move the ball one hop down and write **0.69 → 0.60**.
-4. Note in a box: *"Shortcut works for sigmoid + log loss. Machine does w2 and b at the same time."*
+4. Note in a box: *"Shortcut works for sigmoid + log loss. Machine does w2 and b at the same time."* Small grey footnote (do not read out): *"w2 with raw 60% gives slope −30, too big a jump. Real projects scale attendance to 0.6 first. Next episode."*
 
 ### I6. Doubts + mini-recap
-⏱ **17:03 – 17:21**
+⏱ **17:06 – 17:47**
 
 🎙
 > "Anna, do we get the perfect answer in one step?" No. Small, small steps, many times. "Are gradient descent and backpropagation the same?" I'll clear that up in the next concept.
 >
+> One more doubt: "Will it always reach the very bottom, the best answer?" Not guaranteed. A real loss valley isn't one neat U like my drawing. It has many small dips, and sometimes it stops in a dip that isn't the deepest. But in big networks, in practice, it reaches a good enough point. Real libraries also use smarter versions, like Adam. Same idea: slope, step, repeat.
+>
 > Simple: look at the slope, take a small step opposite to it, and keep reducing the loss. That is gradient descent.
 
 🖊
+- Quick sketch beside the U: a wavy valley with two dips, a ball resting in the shallower one. Caption: **"real valley: many dips → not always the deepest, usually good enough"**. Chip: **"Adam = a smarter GD (name only)"**.
 - Recap card: **Gradient descent = feel the slope → step opposite to it → loss ↓ → repeat.**
 
 ---
 
-## [I2] CONCEPT 4: Backpropagation
+## [J] CONCEPT 4: Backpropagation
 
 ### J1. The problem + definition + name unpack
-⏱ **17:21 – 18:16**
+⏱ **17:47 – 18:42**
 
 🎙
 > Now there's a problem. In Priya's example there was only one neuron, so we directly knew the input for w1. But in our 9-knob network? Take a first-layer weight, the S → h1 wire. Its effect goes through h1 and then through the output. The output came out wrong, but how much of that mistake belongs to the S → h1 weight? We can't see it directly. And big networks have crores of weights. How do we find the slope for every single weight? The answer is **backpropagation**.
@@ -398,7 +401,7 @@
 3. Split the name: **BACK = backwards** | **PROPAGATION = passing along**.
 
 ### J2. Analogy: cricket coach's post-match analysis
-⏱ **18:16 – 18:57**
+⏱ **18:42 – 19:23**
 
 🎙
 > Think of a cricket match. India lost by 30 runs. After the match the coach does an analysis. The result is the loss. The coach traces it backwards: the bowler in the last overs gave away a lot of runs, so more blame. One batsman didn't even get to bat, so zero batting blame for him. Whoever contributed how much gets that much blame. After that, everyone changes their practice a little. Backprop is the same thing: **blame assignment**.
@@ -411,7 +414,7 @@
 3. Write **Backprop = blame assignment**, and a chip: *"Nobody dropped. Everyone nudged a little."*
 
 ### J3. Sita's backward pass (the one worked example for this concept)
-⏱ **18:57 – 20:15**
+⏱ **19:23 – 20:41**
 
 🎙
 > Don't worry. Slowly. Sita studied 6 hours and slept 3 hours. Forward pass: h1 = 1.5, so it's on. h2's sum was −1, and ReLU made it 0, so it's off. Output: 37.8%. The truth: she passed. Loss about 0.97.
@@ -437,7 +440,7 @@
 4. Write the rule at the top: **blame on a wire = error arriving × value it carried**.
 
 ### J4. Gradient descent applies the update → Sita flips to pass
-⏱ **20:15 – 21:01**
+⏱ **20:41 – 21:27**
 
 🎙
 > Now, what are these blame numbers? They're exactly the gradients, the slopes. Step 5: now gradient descent comes in: new = old − step size × blame. Step size 0.02. S → h1 goes from 1 to 1.075. h1 → output goes from 1 to 1.019. The full table is on screen. Pause and write it down.
@@ -458,12 +461,12 @@
    | output bias | −2 | −0.622 | **−1.988** |
    | all of h2's weights and bias, h2 → output | same | 0 | **unchanged** |
 
-   Caption: "PAUSE & NOTE".
+   Caption: "PAUSE & NOTE". Footnote under the table: *"bias blame = error arriving × 1 (a bias always carries 1)"*.
 2. Forward again, in green at the output: **Sita 37.8% → 53% ✔ PASS · loss 0.97 → 0.63**.
 3. Side box: **Ravi 81.8% → 89.3% · Kiran ≈ 38% (almost no change)** → "one lesson changes the network for everyone → average over many students".
 
 ### J5. Doubts + chain rule (name only) + mini-recap
-⏱ **21:01 – 21:48**
+⏱ **21:27 – 22:14**
 
 🎙
 > "Anna, in backprop does the data go backwards?" No. The inputs never change: Sita studied 6 hours, and that doesn't change. Only the error, the blame signal, goes backwards.
@@ -482,8 +485,8 @@
 
 ---
 
-## [J] The full "how a network learns" loop
-⏱ **21:48 – 22:23**
+## [K1] The full "how a network learns" loop
+⏱ **22:14 – 22:49**
 
 🎙
 > Now let's put all four together in one picture. This is the most important picture in this video. Write it down.
@@ -500,8 +503,8 @@
 
 ---
 
-## [K] Video recap + comment quiz
-⏱ **22:23 – 22:59**
+## [K2] Video recap + comment quiz
+⏱ **22:49 – 23:25**
 
 🎙
 > And that's it for the day! In this video we covered the activation function (ReLU and sigmoid), the loss function, gradient descent and backpropagation. All of this sits inside AI, in machine learning, in deep learning, in the training of neural networks.
@@ -519,10 +522,10 @@
 ---
 
 ## [L] Outro
-⏱ **22:59 – 23:52**
+⏱ **23:25 – 24:18**
 
 🎙
-> If not everything is 100% clear in one viewing, don't worry. When I first learned backprop, it took me two or three days to understand it too. Watch it once more and it'll click.
+> If not everything is 100% clear in one viewing, don't worry. Backprop doesn't click for most people the first time. It didn't for me either. Watch it once more with the notes and it'll click.
 >
 > I'm putting all the notes, the definitions, drawings and numbers, in the description. Download them and revise.
 >
