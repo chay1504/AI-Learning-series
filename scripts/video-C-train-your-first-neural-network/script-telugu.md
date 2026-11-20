@@ -3,7 +3,7 @@
 **Series:** AI Learning Series, **Day 11** on the channel (Part 3 of the Deep Learning block). This covers plan Days 29–30: epochs, batches and learning rate (plus overfitting) → build and train a neural network in Keras on Google Colab.
 **Previous episodes:** Video A, "Inside a Neural Network" (Day 9) · Video B, "How a Neural Network Learns" (Day 10).
 **Next episode:** Part 4, "How AI Sees Images" (Day 12): computer vision, CNN, an MNIST image classifier.
-**Runtime:** ~26:48 (≈ 26.8 min) estimated: 4,538 English-equivalent spoken words at 175 wpm (3,700 Telugu-script words), plus ~52 s for Colab cells running in the build. Allow ~28 min with drawing pauses.
+**Runtime:** ~26:59 (≈ 27.0 min) estimated: 4,570 English-equivalent spoken words at 175 wpm (3,724 Telugu-script words), plus ~52 s for Colab cells running in the build. Allow ~28 min with drawing pauses.
 **Companion files:** `script-english.md` (the same script in English, for checking content) · `production-notes.md` (titles, description, drawings, Colab prep checklist, quiz answers, accuracy notes) · notebook `../../notebooks/part-3-train-your-first-neural-network.ipynb`
 
 **Legend**
@@ -101,26 +101,26 @@
 ## [F] CONCEPT 1: Epoch
 
 ### F1. Announce + definition + keyword
-⏱ **02:59 – 03:33**
+⏱ **02:59 – 03:34**
 
 🎙
 > సో ఫస్ట్ topic: epoch. లాస్ట్ వీడియోలో "repeat" అన్నాం కదా. ఆ repeat ని కొలవడానికి ఒక unit ఉంటది. అదే epoch. Definition screen మీద చూపిస్తున్నా, రాసుకోండి.
 >
 > *"An epoch is one complete pass through the entire training data. Training for 100 epochs means the network sees every training example 100 times."*
 >
-> అంటే ఏంటిది? Training data లో ఉన్న ప్రతి ఒక్క student ని network ఒక్కసారి చూస్తే, అది ఒక epoch. ఇక్కడ most important word వచ్చేసి "entire", మొత్తం data. కొంత భాగం మాత్రమే చూస్తే అది epoch కాదు.
+> అంటే ఏంటిది? Training data లో ఉన్న ప్రతి ఒక్క student ని network ఒక్కసారి చూస్తే, అది ఒక epoch అన్నమాట. ఇక్కడ most important word వచ్చేసి "entire", మొత్తం data. కొంత భాగం మాత్రమే చూస్తే అది epoch కాదు.
 
 🖊
 1. Definition card (English).
 2. Underline **"entire training data"** and write beside it: **"ALL students, once = 1 epoch"**.
 
 ### F2. Revision analogy + board (60 students)
-⏱ **03:33 – 04:11**
+⏱ **03:34 – 04:12**
 
 🎙
 > ఇంకా సింపుల్ గా చెప్పాలి అంటే, exams ముందు revision చేస్తాం కదా. ఫస్ట్ revision: syllabus మొత్తం ఒక్కసారి. సెకండ్ revision: మళ్ళీ మొత్తం. ఒక్క revision = ఒక epoch అన్నమాట. ఒక్క chapter చదివితే అది revision కాదు కదా, syllabus మొత్తం అయితేనే ఒక round.
 >
-> Board మీద చూద్దాం. ఒక class లో 60 students ఉన్నారు అనుకుందాం, ఇదే మన training data. 60 dots గీస్తున్నా. Network ఈ 60 మందిని ఒక్కసారి పూర్తిగా చూస్తే Epoch 1. మళ్ళీ మొదటి నుంచి, Epoch 2, 3, 4, 5. Epochs పెరుగుతున్న కొద్దీ loss కొంచెం కొంచెం తగ్గుతది, Day 10 valley లో ball కిందకి దిగినట్టు.
+> Board మీద చూద్దాం. ఒక class లో 60 students ఉన్నారు అనుకుందాం, ఇదే మన training data. 60 dots గీస్తున్నా. సో network ఈ 60 మందిని ఒక్కసారి పూర్తిగా చూస్తే Epoch 1. మళ్ళీ మొదటి నుంచి, Epoch 2, 3, 4, 5. Epochs పెరుగుతున్న కొద్దీ loss కొంచెం కొంచెం తగ్గుతది, Day 10 valley లో ball కిందకి దిగినట్టు.
 
 🖊
 1. A grid of **60 small dots** labelled **"Training data = 60 students"**.
@@ -129,7 +129,7 @@
 4. Small doodle: a notebook with "1st revision ✔ 2nd ✔ 3rd ✔" = "1 revision = 1 epoch".
 
 ### F3. Doubt + one-liner
-⏱ **04:11 – 04:39**
+⏱ **04:12 – 04:40**
 
 🎙
 > మీకు doubt రావొచ్చు: "అన్నా, అదే students ని మళ్ళీ మళ్ళీ చూపిస్తే ఏం లాభం? ఒక్కసారి చాలదా?" చాలదు. Gradient descent చిన్న చిన్న steps వేస్తది కదా, ఒక్క round లో valley bottom కి reach కాదు. అందుకే చాలా rounds కావాలి. మరి ఎంత ఎక్కువైతే అంత మంచిదేనా? దాంట్లో ఒక twist ఉంది, ఫోర్త్ topic లో చెప్తా.
@@ -145,14 +145,14 @@
 ## [H] CONCEPT 2: Batch
 
 ### H1. Announce + definition + answer-sheet bundles
-⏱ **04:39 – 05:51**
+⏱ **04:40 – 05:53**
 
 🎙
 > సో epoch అయిపోయింది. సెకండ్ question: ఒకేసారి ఎంత మంది students data ఇస్తాం? లాస్ట్ వీడియోలో చెప్పిన కదా, real training లో ఒక్కరి blame తో కాదు, చాలా మంది students blame ని average చేసి update చేస్తారు అని. ఆ group కి పేరే batch. Definition రాసుకోండి.
 >
 > *"A batch is a small group of training examples that the network processes together before making one update to its weights and biases. The batch size is the number of examples in each batch."*
 >
-> అంటే ఏంటిది? Network ఒక చిన్న group తీసుకుంటది, 10 మంది అనుకుందాం. ఆ 10 మందికి forward pass, loss, backprop చేసి, వాళ్ళ blame ని average చేసి, 9 knobs ని ఒక్కసారి update చేస్తది. ఒక batch, ఒక update. ఇది గుర్తుపెట్టుకోండి.
+> అంటే ఏంటిది? Network ఒక చిన్న group తీసుకుంటది, 10 మంది అనుకుందాం. ఆ 10 మందికి forward pass, loss, backprop చేసి, వాళ్ళ blame ని average చేసి, 9 knobs ని ఒక్కసారి update చేస్తది. సో ఒక batch, ఒక update అన్నమాట. ఇది గుర్తుపెట్టుకోండి.
 >
 > Teacher answer sheets correct చేస్తది కదా. 60 papers ఉంటే, 10 papers ఒక bundle గా తీసుకుంటది. ఆ bundle correct చేసి, common mistakes note చేసుకొని, next class లో కొంచెం మార్చి చెప్తది. తర్వాత next bundle. ఒక bundle = ఒక batch. Bundle తర్వాత చేసే చిన్న మార్పు = ఒక update. 60 papers అన్నీ అయిపోతే = ఒక epoch. కానీ దీన్నే exact example అనుకోకండి: teacher తన teaching మారుస్తది, network తన weights మారుస్తది.
 
@@ -163,7 +163,7 @@
 4. Disclaimer chip: *"Teacher changes teaching; network changes weights. Same papers come back every epoch."*
 
 ### H2. Board: 60 students in batches of 10 (the rule)
-⏱ **05:51 – 06:32**
+⏱ **05:53 – 06:34**
 
 🎙
 > ఇప్పుడు board మీద. ఆ 60 dots ని 10-10 గా boxes కడుతున్నా: Batch 1 నుంచి Batch 6. ప్రతి box కింద ఒక spanner, అంటే "update". సో ఒక epoch లో 6 updates. ఇప్పుడు ఈ rule రాసుకోండి, చాలా important:
@@ -184,12 +184,12 @@
 6. Next to the Day 10 loop in the corner, write: **"runs once per BATCH"**.
 
 ### H3. Three flavours + why batches + shuffling
-⏱ **06:32 – 07:14**
+⏱ **06:34 – 07:16**
 
 🎙
 > Batch size మనం ఎంత అయినా పెట్టొచ్చు. Batch size 1: ప్రతి student తర్వాత update, దీన్ని stochastic gradient descent అంటారు. Batch size 60: class మొత్తం ఒకే batch, epoch కి ఒక్క update, దీన్ని batch gradient descent అంటారు. మధ్యలో, 10, 32, 64 లాంటివి: mini-batch gradient descent. Real గా అందరూ వాడేది ఇదే.
 >
-> మరి మొత్తం data ఒకేసారి ఎందుకు ఇవ్వరు? ఒకటి: real projects లో లక్షల, కోట్ల examples ఉంటాయి, అవన్నీ ఒకేసారి memory లో పట్టవు. Batches గా ఇస్తే GPU ఒక్కో batch ని parallel గా fast గా process చేస్తది. రెండు: epoch కి ఒక్కటి కాకుండా చాలా updates వస్తాయి, learning తొందరగా start అవుతది. And ప్రతి epoch ముందు students ని shuffle చేస్తది, teacher papers కలిపి కొత్త bundles కట్టినట్టు.
+> సో మరి మొత్తం data ఒకేసారి ఎందుకు ఇవ్వరు? ఒకటి: real projects లో లక్షల, కోట్ల examples ఉంటాయి, అవన్నీ ఒకేసారి memory లో పట్టవు. Batches గా ఇస్తే GPU ఒక్కో batch ని parallel గా fast గా process చేస్తది. రెండు: epoch కి ఒక్కటి కాకుండా చాలా updates వస్తాయి, learning తొందరగా start అవుతది. And ప్రతి epoch ముందు students ని shuffle చేస్తది, teacher papers కలిపి కొత్త bundles కట్టినట్టు.
 
 🖊
 1. Side table:
@@ -203,7 +203,7 @@
 3. Small shuffle doodle: two bundles with arrows crossing → **"shuffle before every epoch"**.
 
 ### H4. Doubts + one-liner
-⏱ **07:14 – 07:50**
+⏱ **07:16 – 07:52**
 
 🎙
 > ఇక్కడ చాలా మంది confuse అవుతారు: epoch, batch, iteration. కన్ఫ్యూజ్ అవ్వద్దు. Batch అంటే data లో ఒక ముక్క. Iteration అంటే ఆ ఒక్క ముక్క తో చేసే ఒక update. Epoch అంటే data మొత్తం ఒక్కసారి, దాంట్లో చాలా iterations ఉంటాయి.
@@ -222,7 +222,7 @@
 ## [I] CONCEPT 3: Learning rate
 
 ### I1. Announce + definition + "not computer speed"
-⏱ **07:50 – 08:37**
+⏱ **07:52 – 08:39**
 
 🎙
 > ఇప్పుడు థర్డ్ question: step size మరీ పెద్దగా ఉంటే ఏమైతది? Day 10 లో gradient descent rule చూసినం కదా: new weight = old weight − step size × slope. ఆ step size కి official పేరే learning rate. Definition రాసుకోండి.
@@ -237,18 +237,18 @@
 3. Red chip: **❌ learning rate ≠ computer speed · ✅ = size of each knob change**.
 
 ### I2. The valley: too small / good / too big (drawing first)
-⏱ **08:37 – 09:53**
+⏱ **08:39 – 09:56**
 
 🎙
 > Day 10 valley ని మళ్ళీ గీస్తున్నా. Loss vs weight, కింద star, best weight. Ball ని left side పైన పెడుతున్నా. ఇప్పుడు మూడు learning rates తో ఏం జరుగుతదో చూద్దాం.
 >
-> ఒకటి: learning rate చాలా చిన్నది. Green colour. చిన్న చిన్న అడుగులు. Direction correct ఏ, కానీ 6 steps వేసినా bottom కి ఇంకా చాలా దూరం. Too small అంటే slow.
+> ఒకటి: learning rate చాలా చిన్నది. Green colour. చిన్న చిన్న అడుగులు. Direction correct ఏ, కానీ 6 steps వేసినా bottom కి ఇంకా చాలా దూరం. Too small అంటే slow అన్నమాట.
 >
 > రెండు: సరైన learning rate. Blue. మంచి hops, smooth గా star దగ్గరికి వచ్చేసింది. Good.
 >
 > మూడు: learning rate చాలా పెద్దది. Red. ఒక్క jump లోనే bottom ని దాటి opposite wall మీదకి వెళ్ళింది. మళ్ళీ jump, మళ్ళీ ఇటు వైపు. అటు ఇటు bounce అవుతూనే ఉంటది, bottom కి ఎప్పటికీ రాదు. ఇంకా పెద్దది అయితే? ప్రతి jump కి ఇంకా ఎత్తుకి వెళ్లి, valley నుంచే బయటకి ఎగిరిపోతది, loss పెరుగుతూ పోతది. దీన్నే overshoot అంటాం, worst case లో diverge అవుతది అంటారు.
 >
-> మీరు cycle నేర్చుకున్నప్పుడు గుర్తుందా? కొంచెం wobble అవ్వగానే handle ని గట్టిగా తిప్పితే, road మీద అటు ఇటు zigzag. మరీ నెమ్మదిగా correct చేస్తే, పక్కకి drain లోకి. Learning rate కూడా అంతే. కానీ దీన్నే exact example అనుకోకండి: cycle లో మనం feel తో correct చేస్తాం, gradient descent మాత్రం slope ని calculate చేసి correct చేస్తది.
+> మీరు cycle నేర్చుకున్నప్పుడు గుర్తుందా? కొంచెం wobble అవ్వగానే handle ని గట్టిగా తిప్పితే, road మీద అటు ఇటు zigzag. మరీ నెమ్మదిగా correct చేస్తే, పక్కకి drain లోకి. సో learning rate కూడా అంతే. కానీ దీన్నే exact example అనుకోకండి: cycle లో మనం feel తో correct చేస్తాం, gradient descent మాత్రం slope ని calculate చేసి correct చేస్తది.
 
 🖊
 1. Redraw the Day 10 **U-shaped valley**: x = weight, y = loss, ⭐ at the bottom ("best weight"), ball high on the left wall.
@@ -260,7 +260,7 @@
 7. Optional small grey numbers for pause-and-note viewers (valley loss = (w − 3)², start w = 0, best w = 3): *lr 0.01 → 0.06, 0.12, 0.18 … · lr 0.25 → 1.5, 2.25, 2.63 … ⭐ · lr 1.0 → 6, 0, 6, 0 … · lr 1.1 → 6.6, −1.3, 8.2 … 💥*
 
 ### [G] Mid-roll CTA (cuts in mid-concept)
-⏱ **09:53 – 10:26**
+⏱ **09:56 – 10:29**
 
 🎙
 > వీడియో మధ్యలో interrupt చేస్తున్నందుకు sorry. ఒక్క సెకండ్ ఈ వీడియోని pause చేసి like చేయండి. And three dots క్లిక్ చేసి hype చేయండి. Hype చేస్తే మన వీడియో మీలాంటి ఇంకా చాలా మంది beginners కి reach అవుతది. చాలా మంది "అన్నా, ఎప్పుడూ theory ఏనా, practical ఎప్పుడు?" అని అడిగినారు కదా. ఇదిగో, ఈరోజు practical. ఈ series చూసేవాళ్ళలో చాలా మంది ఇంకా subscribe చేయలేదు. మీరు చేసే ప్రతి subscription మా team అందరికీ ఇలాంటి ఇంకా videos చేయడానికి push ఇస్తది. Thank you. సో మళ్ళీ learning rate కి వద్దాం, ఈసారి numbers తో.
@@ -271,18 +271,18 @@
 > **Note:** his usual stat is "90% of viewers are not subscribed". Only say a number if YouTube Studio supports it on the day of recording; otherwise keep the generic line above.
 
 ### I3. Priya + Student F with three learning rates (the one worked example of the theory half)
-⏱ **10:26 – 11:47**
+⏱ **10:29 – 11:51**
 
 🎙
 > ఈరోజు theory లో ఇదొక్కటే calculation. టెన్షన్ పడకండి, Day 10 లో చేసిందే. Priya గుర్తుంది కదా: 2 hours చదివింది, 60% attendance, pass అయింది. w1 = 0.8, w2 = 0.04, b = −4. z వచ్చేసి 0, అంటే 50-50, loss 0.693. w1 slope వచ్చేసి −1. సో new w1 = 0.8 − learning rate × (−1), అంటే 0.8 + learning rate. అంతే.
 >
 > ఇంకొక student ని పిలుద్దాం. Day 9 లో Student F గుర్తుందా? ఒక్క hour ఏ చదివిండు, 50% attendance, actually fail అయిండు. Original knobs తో 23%, correct గా fail అన్నది. Loss 0.263. ఇద్దరి loss కలిపితే 0.956.
 >
-> Learning rate 0.01: w1 = 0.81. Priya loss 0.693 నుంచి 0.683 కి. దాదాపు కదలలేదు. Too small.
+> సో learning rate 0.01: w1 = 0.81. Priya loss 0.693 నుంచి 0.683 కి. దాదాపు కదలలేదు. Too small.
 >
 > Learning rate 0.1, లాస్ట్ వీడియోలో వాడింది: w1 = 0.9. Priya loss 0.598, Student F ఇంకా fail ఏ. ఇద్దరి total 0.885, తగ్గింది. Good.
 >
-> Learning rate 3: w1 = 3.8. Priya 99.75% pass, loss దాదాపు zero. Wow అనిపిస్తది కదా? కానీ Student F ని చూడండి: z = 3.8 + 2 − 4 = 1.8. 86% pass అంటది! ఒక్క hour చదివి fail అయినవాడిని 86% pass అంటది. ఇద్దరి total 0.956 నుంచి 1.955, double అయింది! Step మరీ పెద్దది అయితే ఒకరిని fix చేసి, ఇంకొకరిని break చేస్తది. ఇదే overshoot, numbers లో. మీ దగ్గర calculator ఉంటే check చేసుకోండి.
+> Learning rate 3: w1 = 3.8. Priya 99.75% pass, loss దాదాపు zero. Wow అనిపిస్తది కదా? కానీ Student F ని చూడండి: z = 3.8 + 2 − 4 = 1.8. 86% pass అంటది! ఒక్క hour చదివి fail అయినవాడిని 86% pass అంటది. ఇద్దరి total 0.956 నుంచి 1.955, double అయింది! Step మరీ పెద్దది అయితే ఒకరిని fix చేసి, ఇంకొకరిని break చేస్తది. ఇదే overshoot అన్నమాట, numbers లో. మీ దగ్గర calculator ఉంటే check చేసుకోండి.
 
 🖊
 1. Two student cards: **Priya: 2 h, 60%, PASSED** · **Student F (Day 9): 1 h, 50%, FAILED**. Neuron card: **w1 = 0.8, w2 = 0.04, b = −4 · slope for w1 (Priya) = −1 → new w1 = 0.8 + learning rate**.
@@ -298,12 +298,12 @@
 4. Footnote (small): *loss uses ln (natural log). Student F's loss = −ln(1 − P(pass)), because the truth is Fail.*
 
 ### I4. How to choose + parameter vs hyperparameter + one-liner
-⏱ **11:47 – 12:41**
+⏱ **11:51 – 12:45**
 
 🎙
 > మరి "అన్నా, correct learning rate ఎంత?" అంటే, fixed answer లేదు. Problem ని బట్టి మారుతది. Practical గా try చేసి చూస్తారు: 0.1, 0.01, 0.001 లాంటివి.
 >
-> ఇప్పుడు ఒక very important terminology: parameter vs hyperparameter. రాసుకోండి.
+> సో ఇప్పుడు ఒక very important terminology: parameter vs hyperparameter. రాసుకోండి.
 >
 > *"Parameters are the weights and biases that the network learns by itself during training. Hyperparameters are the settings we choose before training, such as the number of epochs, the batch size, the learning rate, and the number of layers and neurons."*
 >
@@ -324,12 +324,12 @@
 ## [J] CONCEPT 4: Overfitting (too many epochs)
 
 ### J1. The twist + previous-year papers + definition
-⏱ **12:41 – 14:05**
+⏱ **12:45 – 14:10**
 
 🎙
 > సో ఇప్పుడు epoch దగ్గర ఆపిన twist. "Epochs ఎంత ఎక్కువ పెడితే అంత బాగా నేర్చుకుంటది కదా అన్నా? 100 కాదు, 10,000 పెడదాం." ఎప్పుడూ కాదు.
 >
-> మనలో ఒకడు ఉంటాడు కదా. అవే 5 previous year question papers మళ్ళీ మళ్ళీ practice చేస్తాడు. ఫస్ట్ రెండు మూడు సార్లు concepts అర్థమవుతాయి, మంచిదే. కానీ 50 సార్లు చేస్తే? ఇక concept కాదు, answers బట్టీ పడతాడు. Exam లో question కొంచెం మారితే, flat. Network కి కూడా exact గా ఇదే జరుగుతది. దీన్ని overfitting అంటారు. Definition రాసుకోండి.
+> మనలో ఒకడు ఉంటాడు కదా. అవే 5 previous year question papers మళ్ళీ మళ్ళీ practice చేస్తాడు. ఫస్ట్ రెండు మూడు సార్లు concepts అర్థమవుతాయి, మంచిదే. కానీ 50 సార్లు చేస్తే? ఇక concept కాదు, answers బట్టీ పడతాడు. Exam లో question కొంచెం మారితే, flat. సో network కి కూడా exact గా ఇదే జరుగుతది. దీన్ని overfitting అంటారు. Definition రాసుకోండి.
 >
 > *"Overfitting happens when a model learns the training data too closely, including its noise and random luck, so it does very well on the training data but poorly on new, unseen data."*
 >
@@ -344,12 +344,12 @@
 4. Mini scale: **UNDERFITTING (too few epochs, hasn't learned) ← ✔ just right → OVERFITTING (too many, memorised)**.
 
 ### J2. Validation data = mock test (and ≠ test data)
-⏱ **14:05 – 14:57**
+⏱ **14:10 – 15:02**
 
 🎙
 > మరి network బట్టీ పడుతుందో, నిజంగా నేర్చుకుంటుందో ఎట్లా కనిపెట్టాలి? ముందు వీడియోస్ లో training vs testing చూసినం కదా. ఇక్కడ ఇంకొక చిన్న idea: validation data. Coaching centres లో weekly mock tests లాగా.
 >
-> Same idea. Training students లో నుంచి కొంత మందిని పక్కన పెడతాం. Network వాళ్ళ నుంచి నేర్చుకోదు, వాళ్ళ వల్ల knobs మారవు. ప్రతి epoch తర్వాత వాళ్ళ మీద loss check చేస్తాం, అంతే. ఇదే validation data, మన mock test.
+> Same idea. Training students లో నుంచి కొంత మందిని పక్కన పెడతాం. Network వాళ్ళ నుంచి నేర్చుకోదు, వాళ్ళ వల్ల knobs మారవు. ప్రతి epoch తర్వాత వాళ్ళ మీద loss check చేస్తాం, అంతే. ఇదే validation data అన్నమాట, మన mock test.
 >
 > ఇక్కడ కన్ఫ్యూజ్ అవ్వద్దు, validation data and test data same కాదు. Validation అంటే mock test: preparation జరుగుతున్నప్పుడు, ఎన్ని epochs, ఏ learning rate అని decide చేయడానికి. Test అంటే final exam: last లో ఒక్కసారి మాత్రమే. Test data చూసి మళ్ళీ మళ్ళీ settings మారిస్తే, question paper ముందే చూసి exam రాసినట్టు.
 
@@ -359,10 +359,10 @@
 3. Chip: *"Tuning on the test set = seeing the question paper before the exam."*
 
 ### J3. The two loss curves (the key drawing) + best epoch
-⏱ **14:57 – 15:39**
+⏱ **15:02 – 15:46**
 
 🎙
-> ఇప్పుడు ఈ topic లో most important drawing, రాసుకోండి. x-axis: epochs. y-axis: loss. Blue line, training loss: కిందకి, కిందకి, దాదాపు zero దాకా వెళ్తది. Orange line, validation loss, అంటే mock test: ఫస్ట్ అది కూడా కిందకి వస్తది, ఒక point దగ్గర lowest, తర్వాత మళ్ళీ పైకి. చూసినారా, రెండు lines విడిపోయినాయి. Training students మీద better, కొత్త students మీద worse. ఈ gap ఏ overfitting signal.
+> ఇప్పుడు ఈ topic లో most important drawing, రాసుకోండి. x-axis: epochs. y-axis: loss. Blue line, training loss: కిందకి, కిందకి, దాదాపు zero దాకా వెళ్తది. Orange line, validation loss, అంటే mock test: ఫస్ట్ అది కూడా కిందకి వస్తది, ఒక point దగ్గర lowest, తర్వాత మళ్ళీ పైకి. చూసినారా, రెండు lines విడిపోయినాయి. Training students మీద better, కొత్త students మీద worse. సో ఈ gap ఏ overfitting signal అన్నమాట.
 >
 > ఆ lowest point దగ్గర ఒక dashed line: "best epoch, ఇక్కడ ఆపాలి". Left side learning, right side బట్టీ zone. Real projects లో validation curve ని చూస్తూ best point దగ్గర training ఆపేస్తారు. Keras లో దీనికి early stopping అనే ready-made helper కూడా ఉంది, పేరు మాత్రమే గుర్తుపెట్టుకోండి.
 
@@ -376,7 +376,7 @@
 7. Grey name-drop: *"early stopping (Keras helper, name only)"*.
 
 ### J4. Doubt: is it epochs alone? + one-liner
-⏱ **15:39 – 16:08**
+⏱ **15:46 – 16:15**
 
 🎙
 > ఇప్పుడు ఒక doubt: "అన్నా, epochs ఎక్కువ అయితే ఎప్పుడూ overfit అవుతదా?" కాదు. Overfitting ఎక్కువగా ఎప్పుడు జరుగుతది అంటే: knobs చాలా ఎక్కువ, data చాలా తక్కువ, epochs చాలా ఎక్కువ, ఈ మూడూ కలిస్తే. ఈ రెండు cases Colab లో real గా చూపిస్తా: ఒకటి overfit కానిది, ఒకటి overfit అయ్యేది.
@@ -392,7 +392,7 @@
 ## [K] BUILD: Train our network in Google Colab (Keras)
 
 ### K0. Bridge: the loop = model.fit, open Colab
-⏱ **16:08 – 16:41**
+⏱ **16:15 – 16:47**
 
 🎙
 > సో theory అయిపోయింది. ఇప్పుడు ఈరోజు most exciting part: build! Day 10 loop పక్కన ఒక్క line రాస్తున్నా: model.fit. ఈ రెండూ ఒకటే అని కాసేపట్లో మీరే చూస్తారు.
@@ -408,14 +408,14 @@
 - Keep the split screen for the whole build: board left, Colab right.
 
 ### K1. Blocks 1–3: tools, class data, training vs testing
-⏱ **16:41 – 17:50**
+⏱ **16:47 – 17:58**
 
 🎙
-> Block 1: Get our tools ready. numpy, ఒక పెద్ద calculator. matplotlib, graphs గీస్తది. Keras, neural network toolkit, దాని కింద engine లాగా TensorFlow పని చేస్తది. Keras ఒక ready-made masala packet లాంటిది. Day 10 లో మనం చేత్తో దంచినం, ఇక్కడ ready గా ఉంటది. కానీ ఎంత వేయాలో, అంటే epochs, batch size, learning rate, అది మనమే decide చేయాలి.
+> Block 1: Get our tools ready. numpy, ఒక పెద్ద calculator. matplotlib, graphs గీస్తది. Keras, neural network toolkit, దాని కింద engine లాగా TensorFlow పని చేస్తది. Keras అంటే ఒక ready-made masala packet లాంటిది అన్నమాట. Day 10 లో మనం చేత్తో దంచినం, ఇక్కడ ready గా ఉంటది. కానీ ఎంత వేయాలో, అంటే epochs, batch size, learning rate, అది మనమే decide చేయాలి.
 >
 > Block 2: Make our class data. 500 pretend students. ప్రతి student కి రెండు features, study hours and sleep hours, and ఒక label, pass or fail, అంటే answer key. Data తయారు చేయడానికి ఒక hidden rule వాడినం: marks calculate చేసి, కొంచెం luck కలిపి, 35 marks వస్తే pass. కానీ network కి ఈ rule చూపించం, 500 examples మాత్రమే, real data లాగానే. 500 లో 347 మంది pass, 69%.
 >
-> Block 3: Training data vs testing data. 400 మంది నుంచి నేర్చుకుంటది, 100 మందిని final exam కోసం lock చేసి పెడుతున్నాం. And hours ని 10 తో divide చేస్తున్నాం, 6 hours 0.6 అవుతది. Day 9 లో చెప్పిన కదా, 80% ని 0.8 గా కూడా రాయొచ్చు అని. చిన్న numbers తో learning smooth గా ఉంటది.
+> Block 3: Training data vs testing data. 400 మంది నుంచి నేర్చుకుంటది, 100 మందిని final exam కోసం lock చేసి పెడుతున్నాం. And hours ని 10 తో divide చేస్తున్నాం, అంటే 6 hours 0.6 అవుతది. Day 9 లో చెప్పిన కదా, 80% ని 0.8 గా కూడా రాయొచ్చు అని. చిన్న numbers తో learning smooth గా ఉంటది.
 
 🖊
 - On the board, draw a masala packet next to a grinding stone: **"Day 10 = by hand · Keras = ready packet · you still choose HOW MUCH (epochs, batch size, learning rate)"**.
@@ -427,7 +427,7 @@
 - **Block 3: Training data vs testing data** → highlight **`Training students: 400`** and **`Testing students : 100`**. Text pop: "6 hours ÷ 10 → 0.6".
 
 ### K2. Block 4: the network we drew → "9 = 9"
-⏱ **17:50 – 18:42**
+⏱ **17:58 – 18:50**
 
 🎙
 > Block 4: Build the network we drew. ఇది నాకు ఈరోజు favourite moment. ఈ block ని, board మీద Day 9 drawing ని పక్క పక్కన చూడండి. Input: 2 inputs, study and sleep. Dense 2, relu: 2 hidden neurons, ReLU తో, మన h1, h2. Dense అంటే fully connected, Day 9 లో నాలుగు lines గీసినం కదా, అదే. Dense 1, sigmoid: ఒక output neuron, pass probability ఇస్తది. ఒక్క line = ఒక layer అన్నమాట.
@@ -442,7 +442,7 @@
 - **Block 4: Build the network we drew** → zoom on the `model.summary()` table. Circle **hidden_layer … 6**, **output_layer … 3** and **Trainable params: 9**. (It also shows "36.00 B"; don't read it.)
 
 ### K3. Block 5: compile = loss + gradient descent + step size
-⏱ **18:42 – 19:11**
+⏱ **18:50 – 19:18**
 
 🎙
 > Block 5: Compile. ఇక్కడ network కి "ఎట్లా నేర్చుకోవాలి" అని చెప్తున్నాం. మూడు choices. Loss: binary crossentropy. Day 10 లో చూసిన log loss ఏ ఇది, pass/fail కోసం. Optimizer: SGD. ఇది మన gradient descent ఏ. Learning rate: 0.1, Priya కి వేసిన అదే step size. Metrics: accuracy. ఇది జస్ట్ మనం చదవడానికి. Day 10 లో చెప్పిన కదా, train చేసేది loss మీద, report చేసేది accuracy. ఈ block output ఏమీ ఇవ్వదు, settings మాత్రమే.
@@ -454,14 +454,14 @@
 - **Block 5: Compile (choose the loss, the gradient-descent version and the learning rate)** → highlight the three words in turn: `binary_crossentropy`, `SGD(learning_rate=0.1)`, `accuracy`. Text pop: "no output, just settings".
 
 ### K4. Block 6: fit = the Day 10 loop, 1,000 times
-⏱ **19:11 – 20:24**
+⏱ **19:18 – 20:32**
 
 🎙
 > ఇప్పుడు Block 6: Fit. లాస్ట్ వీడియోలో promise చేసిన line ఇదే. ఈ ఒక్క line లోపల Day 10 loop మొత్తం నడుస్తది: forward, loss, backprop, update, repeat. Sita కి మనం చేత్తో చేసిన blame calculation, ఇక్కడ automatic.
 >
 > మూడు settings, అంటే మన ఈరోజు theory. Validation split 0.2: 400 లో last 80 మంది mock test. సో actually నేర్చుకునేది 320 మంది. Batch size 32: 320 ÷ 32 = 10 batches per epoch. Epochs 100. Total updates ఎన్ని? 100 × 10 = 1,000. ఈ calculation notes లో రాసుకోండి. లాస్ట్ వీడియోలో "వేల సార్లు" అన్నాం కదా, ఆ steps ఇవే.
 >
-> Screen చూడండి. "Epoch 1/100", ఇది epoch counter. పక్కన "10/10", ఆ epoch లో 10 batches అయిపోయినాయి అని. ఇందాక చెప్పిన కదా, ఫస్ట్ టైం ఈ screen నాకు అర్థం కాలేదు అని. ఇప్పుడు మీకు అర్థమవుతుంది. Epoch 1: loss 0.532, accuracy 70%. Epoch 50: 0.229. Epoch 100: loss 0.193, accuracy 92–93%. Mock test loss 0.439 నుంచి 0.159 కి. Network నేర్చుకుంది!
+> Screen చూడండి. "Epoch 1/100", ఇది epoch counter. పక్కన "10/10", ఆ epoch లో 10 batches అయిపోయినాయి అని. ఇందాక చెప్పిన కదా, ఫస్ట్ టైం ఈ screen నాకు అర్థం కాలేదు అని. ఇప్పుడు మీకు అర్థమవుతుంది. Epoch 1: loss 0.532, accuracy 70%. Epoch 50: 0.229. Epoch 100: loss 0.193, accuracy 92–93%. Mock test loss 0.439 నుంచి 0.159 కి. సో network నేర్చుకుంది అన్నమాట!
 
 🖊
 - Draw a fat arrow from the Day 10 loop to the `model.fit` line. On the loop write **"× 10 batches × 100 epochs = 1,000 times"**.
@@ -473,7 +473,7 @@
 - Scroll and freeze on Epoch 1 (**loss 0.5319, accuracy 0.7031, val_loss 0.4389**), Epoch 50 (**loss 0.2287**) and Epoch 100 (**loss 0.1926, accuracy 0.9250, val_loss 0.1589**).
 
 ### K5. Blocks 7–8: the loss curves + the final exam (90%)
-⏱ **20:24 – 21:07**
+⏱ **20:32 – 21:16**
 
 🎙
 > Block 7: Look at the loss curves. Training loss, validation loss, రెండూ కలిసి కిందకి వస్తున్నాయి కదా. Orange line పైకి తిరగలేదు. అంటే బట్టీ కాదు, నిజంగా నేర్చుకుంటుంది.
@@ -491,14 +491,14 @@
 - **Block 8: Final exam (evaluate on the test data)** → zoom on **`Test loss : 0.199`** and **`Test accuracy : 90%`**.
 
 ### K6. Block 9: Sita flips from 38% to 95% + the 9 learned knobs
-⏱ **21:07 – 22:10**
+⏱ **21:16 – 22:19**
 
 🎙
 > ఇప్పుడు ఈరోజు climax. Block 9: Predict for Sita, Ravi and Kiran. Board మీద Sita card ఉంది: Day 9 లో 38%, fail, కానీ actually pass. ఇప్పుడు trained network ని అడుగుదాం. Predict లో కూడా hours ని 10 తో divide చేయాలి, training లో లాగానే. Notebook లో ఆల్రెడీ ఉంది.
 >
 > Sita: 95%, PASS! 38% నుంచి 95%. Ravi: 87%, pass. Kiran: 13%, fail.
 >
-> చూడండి. మనం Sita ని మార్చలేదు, ఇంకా 6 hours ఏ చదివింది, 3 hours ఏ పడుకుంది. మారింది knobs. ఆ knobs ని నేను guess చేయలేదు, 320 మంది students data నుంచి machine ఏ కనిపెట్టింది. And predict అంటే ఏం లేదు, Day 9 లో board మీద చేసిన అదే forward pass, కొత్త knobs తో.
+> చూడండి. మనం Sita ని మార్చలేదు, ఇంకా 6 hours ఏ చదివింది, 3 hours ఏ పడుకుంది. మారింది knobs అన్నమాట. ఆ knobs ని నేను guess చేయలేదు, 320 మంది students data నుంచి machine ఏ కనిపెట్టింది. And predict అంటే ఏం లేదు, Day 9 లో board మీద చేసిన అదే forward pass, కొత్త knobs తో.
 >
 > Next cell లో machine కనిపెట్టిన 9 knobs ఉంటాయి. ఫర్ ఎగ్జాంపుల్ h1 లో study weight 3.58, sleep weight 1.07. ఈ data కి study ఎక్కువ matter అవుతది అని network నేర్చుకుంది. కానీ ఇవి ÷10 inputs కోసం, Day 9 numbers తో direct గా compare చేయకండి.
 
@@ -513,7 +513,7 @@
 - Show the **"The 9 knobs the machine found by itself"** output; point only at study→h1 3.58 and sleep→h1 1.07.
 
 ### K7. Experiment 1: learning rate too small, about right, too big
-⏱ **22:10 – 23:09**
+⏱ **22:19 – 23:19**
 
 🎙
 > ఇప్పుడు theory ని proof చేద్దాం. Experiment 1: Learning rate too small, about right, too big. Same network, same data, same starting knobs, ఒక్క learning rate మాత్రమే మారుతది. Fair race అన్నమాట: 0.001, 0.1, 20.0.
@@ -534,12 +534,12 @@
 - Show the "Step size matters" plot; trace the zigzagging lr = 20.0 line with the cursor.
 
 ### K8. Experiment 2: too many epochs → overfitting, for real
-⏱ **23:09 – 24:06**
+⏱ **23:19 – 24:16**
 
 🎙
 > Experiment 2: Too many epochs, and memorising instead of learning. ఇప్పుడు మనమే కావాలని బట్టీ కి perfect situation create చేస్తున్నాం. పెద్ద network, 4,417 knobs. నేర్చుకోవడానికి మాత్రం కేవలం 30 students. 500 epochs. Optimizer వచ్చేసి Adam, Day 10 లో పేరు చెప్పిన "smarter gradient descent". Mock test కోసం వేరే 80 మంది.
 >
-> Graph చూడండి, మన board drawing real గా! Training loss కిందకి కిందకి, 500 epochs కి 0.0006, training accuracy 100%. Perfect అనిపిస్తది కదా? కానీ validation loss చూడండి: epoch 35 దగ్గర best, 0.185. తర్వాత పైకి, పైకి, 500 కి 0.903, దాదాపు 5 times worse. 30 మందిని బట్టీ పట్టేసింది. Grey dashed line, best epoch 35, అక్కడ ఆపాల్సింది.
+> Graph చూడండి, మన board drawing real గా! Training loss కిందకి కిందకి, 500 epochs కి 0.0006, training accuracy 100%. Perfect అనిపిస్తది కదా? కానీ validation loss చూడండి: epoch 35 దగ్గర best, 0.185. తర్వాత పైకి, పైకి, 500 కి 0.903, దాదాపు 5 times worse. సో 30 మందిని బట్టీ పట్టేసింది అన్నమాట. Grey dashed line, best epoch 35, అక్కడ ఆపాల్సింది.
 >
 > మరి మన 9-knob model? Block 7 లో validation loss 100 epochs పొడుగునా కిందకే వచ్చింది. 9 knobs, 320 students, బట్టీ కి room లేదు.
 
@@ -552,12 +552,12 @@
 - **Optional: a slightly bigger network** → skip on camera (it's for viewers; result in production-notes §7).
 
 ### K9. "Your numbers may differ" + the stuck-at-68% fix + homework
-⏱ **24:06 – 25:03**
+⏱ **24:16 – 25:14**
 
 🎙
 > ఒక important note. మీ numbers కొంచెం different గా రావొచ్చు: 90% బదులు 89 or 91, Sita 95 బదులు 93. అది normal. Random starting knobs, shuffling, computer తేడాల వల్ల decimals మారొచ్చు. Story మాత్రం same.
 >
-> ఒకవేళ accuracy 68% దగ్గర stuck అయి, ప్రతి student కి same % వస్తే, భయపడకండి, మీ mistake కాదు. మన చిన్న network లో రెండు ReLU neurons start లోనే off అయిపోయినాయి అన్నమాట. Day 10 లో Sita h2 off అయితే blame zero అని చూసినం కదా, అదే. Blame రాకపోతే నేర్చుకోదు. Block 4 లో seed ని 42 నుంచి 7 కి మార్చి మళ్ళీ run చేయండి.
+> ఒకవేళ accuracy 68% దగ్గర stuck అయి, ప్రతి student కి same % వస్తే, భయపడకండి, మీ mistake కాదు. మన చిన్న network లో రెండు ReLU neurons start లోనే off అయిపోయినాయి అన్నమాట. Day 10 లో Sita h2 off అయితే blame zero అని చూసినం కదా, అదే. సో blame రాకపోతే నేర్చుకోదు. Block 4 లో seed ని 42 నుంచి 7 కి మార్చి మళ్ళీ run చేయండి.
 >
 > Homework, notebook last లో ఉంది. ఒకటి: epochs 5 పెడితే test accuracy ఎంత వస్తది? రెండు: batch size 320 పెడితే ఒక్కో epoch లో ఎన్ని batches చూపిస్తది? మూడు: learning rate 1.0 పెడితే too big ఆ, OK ఆ? మీ results comments లో పెట్టండి.
 
@@ -573,12 +573,12 @@
 ---
 
 ## [L1] Video recap + comment quiz
-⏱ **25:03 – 25:58**
+⏱ **25:14 – 26:09**
 
 🎙
 > And that's it for the day! ఈరోజు మనం cover చేసినవి: epoch, data మొత్తం ఒక round. Batch, ఒక update కి చూసే చిన్న group. Learning rate, ఒక్కో step size. Parameters vs hyperparameters. Overfitting, అంటే బట్టీ, దాన్ని mock test తో పట్టుకోవడం. And Keras లో మన own network ని build చేసి, train చేసి, Sita ని 38% నుంచి 95% కి తీసుకొచ్చినం. ఇవన్నీ AI లో, ML లో, deep learning లో, neural network training కిందకి వస్తాయి అన్నమాట.
 >
-> ఇప్పుడు quiz, comments లో చెప్పండి. ఒకటి: 60 students, batch size 20, 10 epochs. Weights మొత్తం ఎన్ని సార్లు update అవుతాయి? రెండు: training loss కిందకి వెళ్తుంది, కానీ epoch 6 తర్వాత validation loss పైకి. ఏం జరుగుతుంది, ఏం చేయాలి? మూడు: Block 4 లో Dense 2 ని Dense 3 చేస్తే, Trainable params ఎంత? ఫస్ట్ calculate చేసి, తర్వాత Colab లో check చేయండి. ఎవరు మంచిగా విన్నారో చూద్దాం.
+> సో ఇప్పుడు quiz, comments లో చెప్పండి. ఒకటి: 60 students, batch size 20, 10 epochs. Weights మొత్తం ఎన్ని సార్లు update అవుతాయి? రెండు: training loss కిందకి వెళ్తుంది, కానీ epoch 6 తర్వాత validation loss పైకి. ఏం జరుగుతుంది, ఏం చేయాలి? మూడు: Block 4 లో Dense 2 ని Dense 3 చేస్తే, Trainable params ఎంత? ఫస్ట్ calculate చేసి, తర్వాత Colab లో check చేయండి. ఎవరు మంచిగా విన్నారో చూద్దాం.
 
 🖊
 1. Taxonomy line: **AI → ML → Deep Learning → training a neural network → {epoch, batch, learning rate, overfitting} → Keras build (Sita 38% → 95%)**.
@@ -591,7 +591,7 @@
 ---
 
 ## [L2] Outro + Part 4 teaser + sign-off
-⏱ **25:58 – 26:48**
+⏱ **26:09 – 26:59**
 
 🎙
 > ఒక్కసారి చూస్తే అంతా click కాకపోయినా పర్లేదు. Notebook మీ దగ్గర ఉంది. ఒక్కసారి మీ చేత్తో run చేస్తే, వీడియో పది సార్లు చూసినదానికంటే ఎక్కువ అర్థమవుతది. Notes అన్నీ, and Colab notebook link, description లో పెడుతున్నా.
