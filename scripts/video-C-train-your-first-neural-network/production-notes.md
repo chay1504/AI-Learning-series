@@ -7,10 +7,10 @@
 - Companion notebook: [`../../notebooks/part-3-train-your-first-neural-network.ipynb`](../../notebooks/part-3-train-your-first-neural-network.ipynb) (tested end to end; every Colab number in the script is its real output with seed 42).
 
 **Covers plan Days 29–30:** epochs, batches, learning rate (plus parameters vs hyperparameters, overfitting/underfitting, validation vs test) and building + training the Day 9 network in Keras on Google Colab.
-**Runtime estimate:** 4,570 English-equivalent spoken words ÷ 175 wpm + ~52 s of cells running ≈ **26:59**, about **28 min** with drawing pauses. The Telugu script is about 3,720 spoken words (≈ 138 per minute; the build has screen time between lines).
-**Split:** theory 00:00–16:15 · **build 16:15–25:14 (8:59)** · quiz/recap/outro 25:14–26:59.
-**Mid-roll CTA:** 09:56, about **37%** of runtime, cutting into Concept 3 between the valley drawing and the worked numbers (D7 style).
-**Notes prompts (రాసుకోండి / గుర్తుపెట్టుకోండి):** 02:59, 04:40, 05:53, 07:52, 11:51, 12:45, 15:02, 19:18, 22:19 (no gap over ~4 min).
+**Runtime estimate:** 4,454 English-equivalent spoken words ÷ 175 wpm + ~52 s of cells running ≈ **26:19**, about **27–28 min** with drawing pauses. The Telugu script is about 3,670 spoken words (≈ 139 per minute; the build has screen time between lines).
+**Split:** theory 00:00–15:44 · **build 15:44–24:36 (8:52)** · quiz/recap/outro 24:36–26:19.
+**Mid-roll CTA:** 09:32, about **36%** of runtime, cutting into Concept 3 between the valley drawing and the worked numbers (D7 style).
+**Notes prompts (రాసుకోండి / గుర్తుపెట్టుకోండి):** 02:50, 04:28, 05:35, 07:32, 11:23, 12:16, 14:31, 18:47, 21:46 (no gap over ~4.5 min).
 **Numbering:** assumes Video A = Day 9, Video B = Day 10, this = **Day 11**, Part 4 = Day 12. See §10 for every place a day number is spoken.
 
 ---
@@ -18,7 +18,7 @@
 ## 1. Title options (his format: emoji, topic, ✅, series tag)
 
 1. **😱 Train Your First Neural Network ✅ | Epochs, Batches, Learning Rate + Google Colab | AI Learning Series Day-11**
-2. **Neural Network Training in 27 Minutes ...... ✅ | AI Learning Series Day 11 | Ft. Tech Boy Deepak**
+2. **Neural Network Training in 26 Minutes ...... ✅ | AI Learning Series Day 11 | Ft. Tech Boy Deepak**
 3. **😱 Epochs, Batches & Learning Rate Explained ✅ | Build a Neural Network in Telugu | Ai learning | Ft. Tech Boy Deepak | Detailed Explanation**
 
 (Patterns from his real titles: "Day 6: 😱 Classification vs Regression ✅ | Ai learning | Ft. Tech Boy Deepak | Detailed Explanation", "Day 8: ML Algorithms in 24 Minutes ...... ✅". Update the minute count in option 2 to the final cut.)
@@ -43,26 +43,26 @@ Epochs, batches and learning rate explained with drawings, then we build and tra
 ⏱ Chapters
 00:00 Intro
 00:37 Recap: Day 9–10 + last quiz answers
-01:58 Today's agenda
-02:59 What is an epoch?
-04:40 What is a batch? (answer-sheet bundles)
-05:53 Updates per epoch = students ÷ batch size
-07:52 What is the learning rate?
-08:39 Too small vs too big (the loss valley)
-10:29 Learning rate in numbers (Priya & Student F)
-11:51 Parameters vs hyperparameters
-12:45 Overfitting (బట్టీ) & underfitting
-14:10 Validation data = mock test
-15:02 Training vs validation loss curves
-16:15 Build in Google Colab (Keras)
-17:58 Our 9-knob network: 9 = 9
-19:18 model.fit = the training loop (1,000 updates)
-20:32 Final exam: 90% on unseen students
-21:16 Sita: 38% → 95%
-22:19 Experiment 1: learning rate 0.001 vs 0.1 vs 20
-23:19 Experiment 2: overfitting for real
-24:16 Your numbers may differ + homework
-25:14 Quiz + what's next
+01:50 Today's agenda
+02:50 What is an epoch?
+04:28 What is a batch? (answer-sheet bundles)
+05:35 Updates per epoch = students ÷ batch size
+07:32 What is the learning rate?
+08:20 Too small vs too big (the loss valley)
+10:03 Learning rate in numbers (Priya & Student F)
+11:23 Parameters vs hyperparameters
+12:16 Overfitting (బట్టీ) & underfitting
+13:40 Validation data = mock test
+14:31 Training vs validation loss curves
+15:44 Build in Google Colab (Keras)
+17:28 Our 9-knob network: 9 = 9
+18:47 model.fit = the training loop (1,000 updates)
+19:56 Final exam: 90% on unseen students
+20:40 Sita: 38% → 95%
+21:46 Experiment 1: learning rate 0.001 vs 0.1 vs 20
+22:45 Experiment 2: overfitting for real
+23:42 Your numbers may differ + homework
+24:36 Quiz + what's next
 
 📝 NOTES (write these down!)
 1. Epoch: one complete pass through the ENTIRE training data. 100 epochs = every training example seen 100 times.
@@ -158,7 +158,7 @@ Prepare clean versions of items 1, 2, 7 and 11 in advance. Draw the others live 
 | 2 | First rows 7.7/8.2 Pass · 4.4/9.2 Pass · 8.6/9.4 Pass · 7.0/6.5 Pass · 0.9/6.6 Fail · **347 of 500 passed (69%)** | 7.7 h pass, 0.9 h fail, 347 / 69% |
 | 3 | Training students 400 · Testing students 100 | ✔ |
 | 4 | hidden_layer 6 · output_layer 3 · **Trainable params: 9 (36.00 B)** | 9 = 9 |
-| 6 | Every line `10/10`. Epoch 1: loss 0.5319, acc 0.7031, val_loss 0.4389 · Epoch 10: 0.4006 · Epoch 50: 0.2287 · Epoch 100: loss 0.1926, acc 0.9250, val_loss 0.1589 | 0.532 / 70% → 0.229 → 0.193 / "92–93%"; val 0.439 → 0.159 |
+| 6 | Every line `10/10`. Epoch 1: loss 0.5319, acc 0.7031, val_loss 0.4389 · Epoch 10: 0.4006 · Epoch 50: 0.2287 · Epoch 100: loss 0.1926, acc 0.9250, val_loss 0.1589 | 0.532 / 70% → 0.229 → 0.193 / "about 93%"; val 0.439 → 0.159 |
 | 7 | Training loss 0.532 → 0.401 → 0.229 → 0.193; training accuracy 70% → 82% → 91% → 93% (Block 7 rounds 0.925 up to 93%) | both curves fall together |
 | 8 | **Test loss 0.199 · Test accuracy 90%** | 90% |
 | 9 | **Sita 95% PASS** · Ravi 87% PASS · Kiran 13% FAIL · Try it yourself (5 h, 7 h) 96% | ✔ |
@@ -235,6 +235,10 @@ Check script: `/tmp/claude-0/-home-user-AI-Learning-series/991ce546-83cf-5aab-8e
 - **Analogies disclaimed on camera** ("దీన్నే exact example అనుకోకండి"): answer-sheet bundles (teacher changes teaching, network changes weights) and the cycle (feel vs calculated slope). The masala packet carries its own caveat ("you still choose how much"). Revision / previous-year papers / mock test need no disclaimer.
 - **Depth limits respected:** one worked calculation in the theory (I3, a Day 10 continuation); no optimiser maths, no LR-schedule maths, no batch norm, no tensors/shapes, no line-by-line syntax; Adam and early stopping are names only.
 
+- **"Colab = a free notebook you open in the browser; the code runs on Google's computers" (K0):** Colab code does not run *in* the browser; it runs on a Google-hosted machine. Keep this wording.
+- **"Study matters more" from the learned h1 weights (K6):** said only because both inputs are hours on the same ÷10 scale. Video A taught "weight size depends on input scale, don't judge importance by the weight alone", so the line now carries that qualifier; don't cut it.
+- **Outro reassurance (L2):** "don't just watch, run the notebook once with your own hands" replaces "if it doesn't click after one viewing, that's fine", which repeated Video A's and Video B's outro lines.
+
 ## 10. Continuity
 
 ### 10.1 Callbacks back to Days 9–10 (all checked against the Video A/B scripts)
@@ -286,19 +290,19 @@ Teaser said on camera (L2): *"ఇప్పటిదాకా numbers తో work
 
 | Seg | Time | Seg | Time | Seg | Time |
 |---|---|---|---|---|---|
-| A0 | 00:00–00:20 | H4 | 07:16–07:52 | K1 | 16:47–17:58 |
-| A | 00:20–00:37 | I1 | 07:52–08:39 | K2 | 17:58–18:50 |
-| B | 00:37–01:58 | I2 | 08:39–09:56 | K3 | 18:50–19:18 |
-| C | 01:58–02:16 | G | 09:56–10:29 | K4 | 19:18–20:32 |
-| E | 02:16–02:59 | I3 | 10:29–11:51 | K5 | 20:32–21:16 |
-| F1 | 02:59–03:34 | I4 | 11:51–12:45 | K6 | 21:16–22:19 |
-| F2 | 03:34–04:12 | J1 | 12:45–14:10 | K7 | 22:19–23:19 |
-| F3 | 04:12–04:40 | J2 | 14:10–15:02 | K8 | 23:19–24:16 |
-| H1 | 04:40–05:53 | J3 | 15:02–15:46 | K9 | 24:16–25:14 |
-| H2 | 05:53–06:34 | J4 | 15:46–16:15 | L1 | 25:14–26:09 |
-| H3 | 06:34–07:16 | K0 | 16:15–16:47 | L2 | 26:09–26:59 |
+| A0 | 00:00–00:20 | H4 | 06:57–07:32 | K1 | 16:19–17:28 |
+| A | 00:20–00:37 | I1 | 07:32–08:20 | K2 | 17:28–18:19 |
+| B | 00:37–01:50 | I2 | 08:20–09:32 | K3 | 18:19–18:47 |
+| C | 01:50–02:08 | G | 09:32–10:03 | K4 | 18:47–19:56 |
+| E | 02:08–02:50 | I3 | 10:03–11:23 | K5 | 19:56–20:40 |
+| F1 | 02:50–03:24 | I4 | 11:23–12:16 | K6 | 20:40–21:46 |
+| F2 | 03:24–04:00 | J1 | 12:16–13:40 | K7 | 21:46–22:45 |
+| F3 | 04:00–04:28 | J2 | 13:40–14:31 | K8 | 22:45–23:42 |
+| H1 | 04:28–05:35 | J3 | 14:31–15:15 | K9 | 23:42–24:36 |
+| H2 | 05:35–06:14 | J4 | 15:15–15:44 | L1 | 24:36–25:31 |
+| H3 | 06:14–06:57 | K0 | 15:44–16:19 | L2 | 25:31–26:19 |
 
-Timing script: `/tmp/claude-0/-home-user-AI-Learning-series/991ce546-83cf-5aab-8ee0-6ee23f4b3e74/scratchpad/vc_time.py` (counts English spoken words per segment, adds 2–12 s per build segment for cells running).
+Timing script: `/tmp/claude-0/-home-user-AI-Learning-series/991ce546-83cf-5aab-8ee0-6ee23f4b3e74/scratchpad/vc_time.py` (counts English spoken words per segment, adds 2–12 s per build segment for cells running). Review retime: `/tmp/claude-0/-home-user-AI-Learning-series/991ce546-83cf-5aab-8ee0-6ee23f4b3e74/scratchpad/rv3/rt.py` (same method, reads the ⏱ segments directly).
 
 ## 12. Writer's self-check (style-DNA checklist)
 
@@ -309,3 +313,27 @@ Timing script: `/tmp/claude-0/-home-user-AI-Learning-series/991ce546-83cf-5aab-8
 - Mid-roll "sorry for interrupting" at 37%; comment quiz (3 questions); homework; notes + notebook in description; next topic named. ✔
 - Voice: -తది endings, Telangana past forms (చూసినం, చదివిండు, అయినాయి), సో/అంటే/అన్నమాట/కదా throughout; బట్టీ used as the memorising word; no "basically", no బ్రో/రా/మామ; viewers' "అన్నా" only in reported doubts. ✔
 - New humility line (first time reading a training log), not Video A's "2–3 days" or Video B's backprop line. ✔
+- Outro reassurance is new too (run the notebook yourself), not Video A/B's "if it isn't 100% clear in one viewing" line. Mid-roll subscribe line reworded so it no longer copies Video B's. ✔
+
+---
+
+## Review log
+
+Independent review against Videos A and B (scripts, production notes, review logs), the style-DNA checklist, `research/dl-content-research-part-3.md`, the Day 3/6–8 Telugu transcripts and Part 4's opening. **The notebook was re-run end to end** (TF 2.21 / Keras 3.15.1, CPU, non-interactive matplotlib, ~92 s): every number the script quotes matched exactly: 347/500 (69%) · 400/100 · Trainable params 9 · every line `10/10` · loss 0.5319 → 0.2287 → 0.1926, acc 0.7031 → 0.9250, val_loss 0.4389 → 0.1589 · test 0.199 / 90% · Sita 95% · Ravi 87% · Kiran 13% · try-it 96% · learned knobs 3.58/1.07/−1.06 · 0.45/1.08/−0.05 · 3.93/−0.14/−2.40 · lr 0.001: 0.577 → 0.504, 68% · lr 20.0: 3.921, 1.428, 1.696, 0.849, 2.110 … 1.465, 68% · 4,417 knobs, best val 0.185 @ epoch 35, 0.0006 (100%) / 0.903 · optional 193 knobs 90% / 0.203. Extra checks: the hidden rule without luck scores exactly 90% on the 100 test students; the lr 0.001 and lr 20.0 models predict PASS for all 100 (68 actually passed); homework answers 68% / `1/1` + 81% / 90% confirmed; seed 7 → 90%, seed 8 → stuck at 68% with **both** ReLU neurons inactive for every training student at initialisation; the main model's validation loss falls every single epoch (minimum at epoch 100). All theory arithmetic recomputed (Priya/Student F table, 1.955/0.956 = 2.04, combined-loss minimum at w1 ≈ 1.52 so lr 3 → 3.8 really does overshoot it, valley sequences, 60/10/32 batch maths, 4,417, quiz 30 and 13): **all correct; no number changed.** Video B's quiz answers (0, 3; 1.6 down; h2 off → zero blame) match Video B §5.
+
+| # | Issue | Severity | Fix |
+|---|---|---|---|
+| 1 | Notebook Block 3 said "In the last video, attendance 60% became 0.6 for the same reason". False: Video B used raw 60 for Priya (z = 0.8×2 + 0.04×**60** − 4); scaling was only an unread board footnote. | Medium (notebook accuracy / continuity) | Now: "In Video A we saw that 80% attendance can also be written as 0.8 …" (Video A [W] doubts), matching what K1 says on camera. |
+| 2 | K0: "Colab is a free notebook that runs Python in your browser". The code runs on Google's machines, not in the browser. | Low-Medium (accuracy) | "You open it in the browser; the code runs on Google's computers; nothing to install" (both languages); §9.3 note. |
+| 3 | K6: "study 3.58 vs sleep 1.07 → study matters more" read importance off the weights, which Video A explicitly warned against ("weight size depends on input scale"). | Low-Medium (consistency with Video A) | Qualifier added: both inputs are hours on the same ÷10 scale, so here the comparison is fair. |
+| 4 | L2 outro reassurance ("if it doesn't all click after one viewing, that's fine") repeated Video A's and Video B's outro lines in a third consecutive episode. | Low (voice freshness) | Replaced with a new line: "don't just watch, run the notebook once with your own hands …". §12 updated. |
+| 5 | Mid-roll subscribe sentence was a near-copy of Video B's ("most of the people watching this series still haven't subscribed. Every subscription … pushes our whole team …"). | Low (voice freshness) | Reworded ("ఇంకా subscribe చేయకుంటే, ఇప్పుడే చేయండి …"). The unverified "you asked for practicals" social proof stays flagged in §9.3 (keep only if true). |
+| 6 | I1 called learning rate the step size's "official name" as if new, but Video B [I4] had already named it and deferred the details to this episode. | Low (continuity) | "I told you that step size is called the learning rate; today, the details." |
+| 7 | K4 read Epoch 100 accuracy as "92–93%" (log shows 0.9250, Block 7 prints 93%): an odd range to say aloud. | Low | "about 93%" in both scripts and §7. |
+| 8 | K9 "in our small network both ReLU neurons got switched off" sounded like it happened in our run (seed 42 is fine). | Low (clarity) | Now conditional: "if you're stuck at 68%, it means both ReLU neurons were off from the start". |
+| 9 | Runtime ~26:59, at the top of the 24–27 window. | Low (pacing) | Tightened without dropping any beat or number: B recap, E, F2, H1 bundle analogy, H2, I2 cycle analogy, G, I3, I4, J1, J2, K1, K2, K4 ("thousands of times" re-callback; the payoff stays in B/K4 maths), K6, K9, L2. 4,570 → **4,454** English words (3,724 → 3,669 Telugu) → **~26:19**. All 33 timestamps recomputed in both files (identical segment IDs and stamps), header runtime, §1 title (26 minutes), description chapters, split, mid-roll (09:32 ≈ 36%), notes-prompt times and §11 map updated. Going lower would mean cutting analogies or doubt beats, so it stops here. |
+| 10 | Telugu header pointed to "production-notes §8" for the number checks (§8 is the quiz). Small stiff/redundant Telugu: "ఈరోజు ఆ మూడింటికే answers", "Same idea." after "mock tests లాగా", the doubled "86% pass అంటది" sentence, "సో learning rate కూడా అంతే" after a disclaimer. | Low | §9; lines smoothed ("ఈరోజు వీడియో ఆ మూడింటికే answer", etc.). H3 now says Keras does the shuffling. |
+
+**Checked, no change needed:** epoch / batch / iteration definitions and the "round up" rule (60 ÷ 32 → 2, sets up Part 4's 422); SGD / batch / mini-batch GD names; learning rate ≠ computer speed, too small slow, too big overshoot/diverge; parameters vs hyperparameters; overfitting (noise/luck) vs underfitting; validation (mock test, never learned from, used to choose settings) ≠ test (final exam, once); early stopping and Adam as names only; summary / compile / fit / evaluate / predict each described by meaning, never syntax, with block names matching the notebook headings exactly; the 68% accuracy trap; Sita 6 h / 3 h / 38% → 95%, Student F 1 h / 50% / 23%, Priya 2 h / 60%, pass mark 35 all match Parts 1–2; recap claims only what Videos A/B taught. Depth is no harder than Video B (one theory calculation, a Day 10 continuation). Voice: A0 pitch, "Hey guys, welcome back to AI Learning Series Day 11", recap + catch-up, numbered agenda with వచ్చేసి, reassurance, రాసుకోండి / గుర్తుపెట్టుకోండి prompts, "Sorry for interrupting" mid-roll, voiced doubts, disclaimed analogies, taxonomy recap, 3-question quiz, homework, notes + notebook in description, next topic named, exact sign-off. English and Telugu carry the same content, numbers, timestamps and segment IDs. Personal-experience lines remain flagged "keep only if true" in §9.3 (E/K4 first-training-log line; G social proof); A's "special to me" and K2's "my favourite moment" are opinions, not anecdotes.
+
+**Part 4 (read-only) consistency:** Part 4's recap of Day 11 (epochs, batches, learning rate, overfitting, validation = mock test / test = final exam, 9 params, 320 students, batch 32, 100 epochs = 1,000 updates, 90%, Sita 38% → 95%), its quiz answers (30 · overfitting, stop near epoch 6 · 13) and its "until now numbers, how does AI see a photo?" callback all match this script (the teaser line was kept verbatim). One optional tweak for the Part 4 reviewer: its Block 6 says Adam is "the smarter gradient descent whose name I told you on Day 10"; Day 11's Experiment 2 also *used* Adam, so "Day 11 Experiment 2 లో కూడా వాడినం" would be a tighter callback. No mismatches found.

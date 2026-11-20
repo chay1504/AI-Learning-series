@@ -2,7 +2,7 @@
 
 **Series:** AI Learning Series, **Day 11** on the channel (Part 3 of the Deep Learning block). This covers plan Days 29–30: epochs, batches and learning rate (plus overfitting), then building and training a neural network in Keras on Google Colab.
 **Recording script:** `script-telugu.md`. This file is a faithful English rendering of it, with the same segments, timestamps and board/Colab cues. It is for checking content and accuracy. Do not record from it.
-**Runtime:** ~26:59 (≈ 27.0 min) estimated: 4,570 English-equivalent spoken words at 175 wpm (3,724 Telugu-script words), plus ~52 s for Colab cells running in the build. Allow ~28 min with drawing pauses.
+**Runtime:** ~26:19 (≈ 26.3 min) estimated: 4,454 English-equivalent spoken words at 175 wpm (3,669 Telugu-script words), plus ~52 s for Colab cells running in the build. Allow ~27–28 min with drawing pauses.
 **Legend:** ⏱ timestamp (start–end) · 🎙 what he says · 🖊 what to draw, write or show (in order) · 💻 what to show in Colab (block names match the notebook headings exactly)
 
 > **Production note on numbering:** Video A = **Day 9** and Video B = **Day 10** are assumed, so this video opens as **Day 11**. If the numbering changes, update segment A, the "Day 9 / Day 10" callbacks (listed in production-notes §10), the "only 11 videos" line in L2 and the title.
@@ -33,16 +33,16 @@
 ---
 
 ## [B] Recap of Days 9–10 + last quiz answers + catch-up
-⏱ **00:37 – 01:58**
+⏱ **00:37 – 01:50**
 
 🎙
 > So first, let's recap once. On Day 9 we drew a small network, right? Study hours and sleep hours go in, two hidden neurons, one output, 9 knobs in total. I guessed those knobs myself. Sita studied 6 hours but slept only 3. With those knobs the network said 38%, it said fail. But Sita actually passed.
 >
-> On Day 10 we saw how a network learns: forward pass, loss, backpropagation, gradient-descent update. You remember this loop, right? And at the end of the last video I said, "this loop repeats thousands of times." I'm circling this repeat arrow. Today's whole video is about this one arrow, you see.
+> On Day 10 we saw how it learns: forward pass, loss, backpropagation, gradient-descent update, and I said, "this loop repeats thousands of times." I'm circling this repeat arrow. Today's whole video is about this one arrow, you see.
 >
 > Quick answers to the last quiz. ReLU(−5) = 0, ReLU(3) = 3. 2 − 0.1 × 4 = 1.6; the slope was positive, so the weight went down. And Sita's h2 was off, its output was 0, so its blame was zero, and that's why that weight didn't change.
 >
-> At the end of the last video I asked three questions, right? What do we call each round? How many students' data do we give at once? What happens if the step size is too big? Today is the answers to those three. And I made one promise: "inside one line, model.fit(), this same loop runs." Today we'll run that line ourselves. If you haven't watched Day 9 and Day 10, please watch those two first and come back.
+> And I asked three questions, right? What do we call each round? How many students' data do we give at once? What happens if the step size is too big? Today's video answers those three. And the promise: "inside one line, model.fit(), this same loop runs." Today we'll run that line ourselves. If you haven't watched Day 9 and Day 10, please watch those two first and come back.
 
 🖊
 1. Redraw (or flash) the Day 9 network: **S, L → h1, h2 → output**, with "9 knobs = weights + biases".
@@ -54,7 +54,7 @@
 ---
 
 ## [C] Agenda
-⏱ **01:58 – 02:16**
+⏱ **01:50 – 02:08**
 
 🎙
 > So today's agenda, I'm writing it with the pen. First is the epoch. Second is the batch. Third is the learning rate. Fourth, what happens if there are too many epochs: overfitting. And last, today's main attraction: the build in Google Colab. We'll ask Sita again, this time with knobs the machine learned.
@@ -71,10 +71,10 @@
 ---
 
 ## [E] Reassurance + honesty beat + notes
-⏱ **02:16 – 02:59**
+⏱ **02:08 – 02:50**
 
 🎙
-> Many people think, "Anna, Colab, code, Keras… we don't know programming, we can't do this," right? Don't be scared at all. Today I won't teach even one line as syntax. For every code block, I'll just tell you which drawing we've already made on the board it matches. The notebook link will be in the description; you just have to press "Run all".
+> Many people think, "Anna, Colab, code, Keras… we don't know programming, we can't do this," right? Don't be scared at all. Today I won't teach the code line by line as syntax. For every code block, I'll just show you which drawing on the board it matches. The notebook link is in the description; just press "Run all".
 >
 > Let me tell you something honestly. The first time I trained a model, when lines like "Epoch 1/100, 10/10, loss…" were scrolling on the screen, I didn't understand a single bit of it. By the end of this video, you'll be able to read every number on that screen yourself. These settings are part of training every deep learning model, so everyone, take notes.
 
@@ -87,7 +87,7 @@
 ## [F] CONCEPT 1: Epoch
 
 ### F1. Announce + definition + keyword
-⏱ **02:59 – 03:34**
+⏱ **02:50 – 03:24**
 
 🎙
 > So the first topic: the epoch. In the last video we said "repeat", right? There's a unit for measuring that repeat. That's the epoch. I'm showing the definition on screen, write it down.
@@ -101,10 +101,10 @@
 2. Underline **"entire training data"** and write beside it: **"ALL students, once = 1 epoch"**.
 
 ### F2. Revision analogy + board (60 students)
-⏱ **03:34 – 04:12**
+⏱ **03:24 – 04:00**
 
 🎙
-> To put it even more simply: before exams we do revision, right? First revision: the whole syllabus once. Second revision: the whole thing again. One revision = one epoch, you see. Reading one chapter isn't a revision, right? Only the whole syllabus counts as one round.
+> To put it even more simply: before exams we do revision, right? First revision: the whole syllabus once. Second revision: the whole thing again. One revision = one epoch, you see. One chapter isn't a revision, right?
 >
 > Let's see it on the board. Suppose a class has 60 students; that's our training data. I'm drawing 60 dots. So when the network has looked at all 60 of them once, completely, that's Epoch 1. Again from the start: Epoch 2, 3, 4, 5. As the epochs go up, the loss comes down little by little, like the ball going down the Day 10 valley.
 
@@ -115,7 +115,7 @@
 4. Small doodle: a notebook with "1st revision ✔ 2nd ✔ 3rd ✔" = "1 revision = 1 epoch".
 
 ### F3. Doubt + one-liner
-⏱ **04:12 – 04:40**
+⏱ **04:00 – 04:28**
 
 🎙
 > You might have a doubt: "Anna, what's the use of showing the same students again and again? Isn't once enough?" It isn't. Gradient descent takes small, small steps, right? In one round it doesn't reach the valley bottom. That's why it needs many rounds. So is more always better? There's a twist in that; I'll tell you in the fourth topic.
@@ -131,7 +131,7 @@
 ## [H] CONCEPT 2: Batch
 
 ### H1. Announce + definition + answer-sheet bundles
-⏱ **04:40 – 05:53**
+⏱ **04:28 – 05:35**
 
 🎙
 > So the epoch is done. Second question: how many students' data do we give at once? In the last video I said, right, that in real training it's not one person's blame: they average the blame of many students and then update. That group is called a batch. Write down the definition.
@@ -140,7 +140,7 @@
 >
 > What does that mean? The network takes a small group, say 10 people. For those 10 it does the forward pass, the loss and backprop, averages their blame, and updates the 9 knobs once. So one batch, one update, you see. Remember this.
 >
-> A teacher corrects answer sheets, right? If there are 60 papers, she takes 10 papers as one bundle. She corrects that bundle, notes the common mistakes, and in the next class she changes her teaching a little. Then the next bundle. One bundle = one batch. The small change after each bundle = one update. When all 60 papers are done = one epoch. But don't take this as the exact example: the teacher changes her teaching; the network changes its weights.
+> A teacher corrects answer sheets, right? 60 papers: she takes 10 as one bundle, corrects it, notes the common mistakes and changes her teaching a little. Then the next bundle. One bundle = one batch. That small change = one update. All 60 papers done = one epoch. But don't take this as the exact example: the teacher changes her teaching; the network changes its weights.
 
 🖊
 1. Definition card (English). Underline **"before making one update"**.
@@ -149,14 +149,14 @@
 4. Disclaimer chip: *"Teacher changes teaching; network changes weights. Same papers come back every epoch."*
 
 ### H2. Board: 60 students in batches of 10 (the rule)
-⏱ **05:53 – 06:34**
+⏱ **05:35 – 06:14**
 
 🎙
 > Now on the board. I'm boxing those 60 dots in tens: Batch 1 to Batch 6. Under each box, a spanner, meaning "update". So one epoch has 6 updates. Now write down this rule, it's very important:
 >
 > Updates per epoch = students ÷ batch size. Total updates = epochs × updates per epoch.
 >
-> 60 ÷ 10 = 6. If we do 5 epochs? 5 × 6 = 30 updates. See, it's just simple division. Technically, each update is also called an iteration, or a step. The one step we took for Priya on Day 10 was one iteration, you see. And the Day 10 loop goes round once for every batch. So in 5 epochs, that loop went round 30 times.
+> 60 ÷ 10 = 6. If we do 5 epochs? 5 × 6 = 30 updates. Technically, each update is also called an iteration, or a step. The one step we took for Priya on Day 10 was one iteration, you see. And the Day 10 loop goes round once for every batch. So in 5 epochs, that loop went round 30 times.
 
 🖊
 1. On the 60-dot grid, draw **6 boxes of 10**, labelled **Batch 1 … Batch 6 (batch size = 10)**.
@@ -170,12 +170,12 @@
 6. Next to the Day 10 loop in the corner, write: **"runs once per BATCH"**.
 
 ### H3. Three flavours + why batches + shuffling
-⏱ **06:34 – 07:16**
+⏱ **06:14 – 06:57**
 
 🎙
 > We can set the batch size to anything. Batch size 1: an update after every student; that's called stochastic gradient descent. Batch size 60: the whole class as one batch, one update per epoch; that's called batch gradient descent. In between, things like 10, 32, 64: mini-batch gradient descent. That's what everyone actually uses.
 >
-> So why don't we give all the data at once? One: real projects have lakhs, crores of examples, and they don't all fit in memory at once. In batches, the GPU processes each batch fast, in parallel. Two: instead of one update per epoch we get many, so learning starts sooner. And before every epoch it shuffles the students, like a teacher mixing the papers and tying new bundles.
+> So why don't we give all the data at once? One: real projects have lakhs, crores of examples, and they don't all fit in memory at once. In batches, the GPU processes each batch fast, in parallel. Two: instead of one update per epoch we get many, so learning starts sooner. And before every epoch Keras shuffles the students, like a teacher mixing the papers and tying new bundles.
 
 🖊
 1. Side table:
@@ -189,7 +189,7 @@
 3. Small shuffle doodle: two bundles with arrows crossing → **"shuffle before every epoch"**.
 
 ### H4. Doubts + one-liner
-⏱ **07:16 – 07:52**
+⏱ **06:57 – 07:32**
 
 🎙
 > Lots of people get confused here: epoch, batch, iteration. Don't get confused. A batch is one piece of the data. An iteration is one update made with that one piece. An epoch is all of the data once, and it has many iterations.
@@ -208,10 +208,10 @@
 ## [I] CONCEPT 3: Learning rate
 
 ### I1. Announce + definition + "not computer speed"
-⏱ **07:52 – 08:39**
+⏱ **07:32 – 08:20**
 
 🎙
-> Now the third question: what happens if the step size is too big? On Day 10 we saw the gradient-descent rule, right: new weight = old weight − step size × slope. The official name for that step size is the learning rate. Write down the definition.
+> Now the third question: what happens if the step size is too big? On Day 10 we saw the gradient-descent rule, right: new weight = old weight − step size × slope. And I told you that step size is called the learning rate. Today, the details. Write down the definition.
 >
 > *"The learning rate is a number that controls how big a step gradient descent takes each time it updates the weights. If it is too small, learning is very slow. If it is too large, the steps overshoot the lowest point, and the loss can bounce around or even blow up."*
 >
@@ -223,7 +223,7 @@
 3. Red chip: **❌ learning rate ≠ computer speed · ✅ = size of each knob change**.
 
 ### I2. The valley: too small / good / too big (drawing first)
-⏱ **08:39 – 09:56**
+⏱ **08:20 – 09:32**
 
 🎙
 > I'm drawing the Day 10 valley again. Loss vs weight, a star at the bottom: the best weight. I'm putting the ball high on the left side. Now let's see what happens with three learning rates.
@@ -234,7 +234,7 @@
 >
 > Three: the learning rate is very big. Red. In one jump it crossed the bottom and landed on the opposite wall. Jump again, back to this side. It keeps bouncing back and forth and never reaches the bottom. And if it's even bigger? Every jump goes higher, it flies right out of the valley, and the loss keeps going up. That's what we call overshoot; in the worst case, they say it diverges.
 >
-> Remember when you learned to ride a cycle? If you jerk the handle hard as soon as it wobbles, you zigzag back and forth across the road. If you correct too gently, you drift off into the drain. So the learning rate is the same. But don't take this as the exact example: on a cycle we correct by feel, while gradient descent corrects by calculating the slope.
+> Remember learning to ride a cycle? Jerk the handle hard at every wobble, and you zigzag across the road. Correct too gently, and you drift into the drain. But don't take this as the exact example: on a cycle we correct by feel, while gradient descent calculates the slope and corrects.
 
 🖊
 1. Redraw the Day 10 **U-shaped valley**: x = weight, y = loss, ⭐ at the bottom ("best weight"), ball high on the left wall.
@@ -246,10 +246,10 @@
 7. Optional small grey numbers for pause-and-note viewers (valley loss = (w − 3)², start w = 0, best w = 3): *lr 0.01 → 0.06, 0.12, 0.18 … · lr 0.25 → 1.5, 2.25, 2.63 … ⭐ · lr 1.0 → 6, 0, 6, 0 … · lr 1.1 → 6.6, −1.3, 8.2 … 💥*
 
 ### [G] Mid-roll CTA (cuts in mid-concept)
-⏱ **09:56 – 10:29**
+⏱ **09:32 – 10:03**
 
 🎙
-> Sorry for interrupting the video in the middle. Pause this video for a second and like it. And click the three dots and hype it. If you hype it, our video reaches many more beginners like you. Lots of you asked, "Anna, is it always theory, when is the practical?", right? Here it is: today is the practical. Many of the people watching this series still haven't subscribed. Every subscription you make pushes our whole team to make more videos like this. Thank you. So let's come back to the learning rate, this time with numbers.
+> Sorry for interrupting the video in the middle. Pause this video for a second and like it. And click the three dots and hype it. If you hype it, our video reaches many more beginners like you. Lots of you asked, "Anna, is it always theory, when is the practical?", right? Here it is: today is the practical. If you haven't subscribed yet, do it now: that's what pushes our team to make the next videos faster. Thank you. So let's come back to the learning rate, this time with numbers.
 
 🖊
 - Like / three-dots → **Hype** / Subscribe animation. Keep the valley drawing faded underneath so the cut back to the numbers is seamless.
@@ -257,18 +257,18 @@
 > **Note:** his usual stat is "90% of viewers are not subscribed". Only say a number if YouTube Studio supports it on the day of recording; otherwise keep the generic line above.
 
 ### I3. Priya + Student F with three learning rates (the one worked example of the theory half)
-⏱ **10:29 – 11:51**
+⏱ **10:03 – 11:23**
 
 🎙
-> This is the only calculation in today's theory. Don't stress, it's what we did on Day 10. You remember Priya: she studied 2 hours, 60% attendance, and passed. w1 = 0.8, w2 = 0.04, b = −4. z comes to 0, meaning 50-50, loss 0.693. The slope for w1 is −1. So new w1 = 0.8 − learning rate × (−1), that is, 0.8 + learning rate. That's all.
+> This is the only calculation in today's theory. Don't stress, it's what we did on Day 10. You remember Priya: she studied 2 hours, 60% attendance, and passed. w1 = 0.8, w2 = 0.04, b = −4. z comes to 0, meaning 50-50, loss 0.693. The slope for w1 is −1. So new w1 = 0.8 − learning rate × (−1), that is, 0.8 + learning rate.
 >
-> Let's call one more student. Remember Student F from Day 9? He studied only 1 hour, 50% attendance, and actually failed. With the original knobs, 23%: it correctly said fail. Loss 0.263. Add the two students' losses: 0.956.
+> One more student: remember Student F from Day 9? He studied only 1 hour, 50% attendance, and actually failed. With the original knobs, 23%: it correctly said fail. Loss 0.263. Add the two students' losses: 0.956.
 >
 > So, learning rate 0.01: w1 = 0.81. Priya's loss goes from 0.693 to 0.683. It barely moved. Too small.
 >
 > Learning rate 0.1, the one we used last video: w1 = 0.9. Priya's loss is 0.598, and Student F is still fail. The two together: 0.885, it went down. Good.
 >
-> Learning rate 3: w1 = 3.8. Priya: 99.75% pass, loss almost zero. Feels like "wow", right? But look at Student F: z = 3.8 + 2 − 4 = 1.8. It says 86% pass! A boy who studied one hour and failed, it says 86% pass. The two together go from 0.956 to 1.955. It doubled! When the step is too big, it fixes one person and breaks another. That's overshoot, in numbers, you see. If you have a calculator, check it yourselves.
+> Learning rate 3: w1 = 3.8. Priya: 99.75% pass, loss almost zero. Feels like "wow", right? But look at Student F: z = 3.8 + 2 − 4 = 1.8. It says 86% pass, for a boy who studied one hour and failed! The two together go from 0.956 to 1.955. It doubled! When the step is too big, it fixes one person and breaks another. That's overshoot, in numbers, you see. If you have a calculator, check it yourselves.
 
 🖊
 1. Two student cards: **Priya: 2 h, 60%, PASSED** · **Student F (Day 9): 1 h, 50%, FAILED**. Neuron card: **w1 = 0.8, w2 = 0.04, b = −4 · slope for w1 (Priya) = −1 → new w1 = 0.8 + learning rate**.
@@ -284,7 +284,7 @@
 4. Footnote (small): *loss uses ln (natural log). Student F's loss = −ln(1 − P(pass)), because the truth is Fail.*
 
 ### I4. How to choose + parameter vs hyperparameter + one-liner
-⏱ **11:51 – 12:45**
+⏱ **11:23 – 12:16**
 
 🎙
 > So if you ask, "Anna, what's the correct learning rate?", there's no fixed answer. It changes with the problem. In practice people try and see: things like 0.1, 0.01, 0.001.
@@ -293,7 +293,7 @@
 >
 > *"Parameters are the weights and biases that the network learns by itself during training. Hyperparameters are the settings we choose before training, such as the number of epochs, the batch size, the learning rate, and the number of layers and neurons."*
 >
-> Don't get confused. Our 9 knobs are parameters; the machine learns those itself. Epochs, batch size and learning rate are hyperparameters; we decide those beforehand. Simply put: the machine sets the parameters, we set the hyperparameters.
+> Don't get confused. Our 9 knobs are parameters; the machine learns them. Epochs, batch size and learning rate are hyperparameters; we decide them beforehand. Simply put: the machine sets the parameters, we set the hyperparameters.
 >
 > So the one-liner for the learning rate: the number that says how big a step gradient descent takes in each update is the learning rate. Too small, and it's slow; too big, and it overshoots. That simple.
 
@@ -310,16 +310,16 @@
 ## [J] CONCEPT 4: Overfitting (too many epochs)
 
 ### J1. The twist + previous-year papers + definition
-⏱ **12:45 – 14:10**
+⏱ **12:16 – 13:40**
 
 🎙
 > So now, the twist I held back at the epoch. "Anna, the more epochs we put, the better it learns, right? Not 100, let's put 10,000." Not always.
 >
-> There's always one guy among us, right? He practises the same 5 previous-year question papers again and again. The first two or three times, the concepts make sense; that's good. But if he does them 50 times? Now it's not the concept; he mugs up the answers. If the question changes a little in the exam: flat. So exactly the same thing happens to a network. That's called overfitting. Write down the definition.
+> There's always one guy among us, right? He practises the same 5 previous-year question papers again and again. The first two or three times, the concepts make sense; that's good. But if he does them 50 times? Now it's not the concept; he mugs up the answers. If the question changes a little in the exam: flat. The same thing happens to a network. That's called overfitting. Write down the definition.
 >
 > *"Overfitting happens when a model learns the training data too closely, including its noise and random luck, so it does very well on the training data but poorly on new, unseen data."*
 >
-> What does that mean? There's a real pattern in the data: if you study more, the chance of passing is higher. But there's also some luck. One student studied 4.4 hours and passed, another studied 4.5 hours and failed; that day just didn't go well. An overfitted model mugs up that luck too, as if it were a rule. New students don't have that luck, right? That's why it fails on them. On Day 9 I said, "there's a chance it mugs up the training data and then fails on the testing data", right? This is that.
+> What does that mean? There's a real pattern in the data: if you study more, the chance of passing is higher. But there's also some luck. One student studied 4.4 hours and passed, another studied 4.5 hours and failed; that day just didn't go well. An overfitted model mugs up that luck too, as if it were a rule. New students don't have that luck, so it fails on them. On Day 9 I said, "there's a chance it mugs up the training data and then fails on the testing data", right? This is that.
 >
 > There's also the opposite. With too few epochs, the network hasn't learned properly yet. That's called underfitting.
 
@@ -330,12 +330,12 @@
 4. Mini scale: **UNDERFITTING (too few epochs, hasn't learned) ← ✔ just right → OVERFITTING (too many, memorised)**.
 
 ### J2. Validation data = mock test (and ≠ test data)
-⏱ **14:10 – 15:02**
+⏱ **13:40 – 14:31**
 
 🎙
 > So how do we find out whether the network is mugging up or really learning? In the earlier videos we saw training vs testing, right? Here there's one more small idea: validation data. Like the weekly mock tests at coaching centres.
 >
-> Same idea. From the training students, we set a few aside. The network doesn't learn from them; the knobs don't change because of them. After every epoch we just check the loss on them, that's all. That's validation data, you see: our mock test.
+> From the training students, we set a few aside. The network doesn't learn from them; the knobs don't change because of them. After every epoch we just check the loss on them, that's all. That's validation data, you see: our mock test.
 >
 > Don't get confused here: validation data and test data are not the same. Validation is the mock test: used while preparation is going on, to decide how many epochs and which learning rate. Test is the final exam: only once, at the end. If we look at the test data and keep changing settings again and again, it's like seeing the question paper before writing the exam.
 
@@ -345,7 +345,7 @@
 3. Chip: *"Tuning on the test set = seeing the question paper before the exam."*
 
 ### J3. The two loss curves (the key drawing) + best epoch
-⏱ **15:02 – 15:46**
+⏱ **14:31 – 15:15**
 
 🎙
 > Now the most important drawing in this topic; write it down. x-axis: epochs. y-axis: loss. Blue line, training loss: down, down, all the way to almost zero. Orange line, validation loss, meaning the mock test: at first it also comes down, at one point it's at its lowest, and after that it goes back up. See, the two lines have separated. Better on the training students, worse on new students. So that gap is the overfitting signal, you see.
@@ -362,7 +362,7 @@
 7. Grey name-drop: *"early stopping (Keras helper, name only)"*.
 
 ### J4. Doubt: is it epochs alone? + one-liner
-⏱ **15:46 – 16:15**
+⏱ **15:15 – 15:44**
 
 🎙
 > Now a doubt: "Anna, so does it always overfit if there are many epochs?" No. When does overfitting mostly happen? When there are a lot of knobs, very little data and a lot of epochs: when all three come together. I'll show both cases for real in Colab: one that doesn't overfit and one that does.
@@ -378,12 +378,12 @@
 ## [K] BUILD: Train our network in Google Colab (Keras)
 
 ### K0. Bridge: the loop = model.fit, open Colab
-⏱ **16:15 – 16:47**
+⏱ **15:44 – 16:19**
 
 🎙
 > So the theory is done. Now today's most exciting part: the build! Next to the Day 10 loop I'm writing one line: model.fit. In a little while you'll see for yourselves that these two are the same thing.
 >
-> Google Colab is a free notebook that runs Python in your browser; you don't need to install anything. This notebook's link is in the description. Open it, then Runtime, Run all. You don't even need a GPU: it finishes in two or three minutes on the free CPU.
+> Google Colab is a free notebook: you open it in the browser, the code runs on Google's computers, and you don't need to install anything. This notebook's link is in the description. Open it, then Runtime, Run all. You don't even need a GPU: it finishes in two or three minutes on the free CPU.
 
 🖊
 - Left half of the screen: the board with the **Day 9 network** (S, L → h1, h2 → output, 9 knobs labelled) and the **Day 10 loop**. Write **"model.fit() = this loop ↺"** next to the loop.
@@ -394,10 +394,10 @@
 - Keep the split screen for the whole build: board left, Colab right.
 
 ### K1. Blocks 1–3: tools, class data, training vs testing
-⏱ **16:47 – 17:58**
+⏱ **16:19 – 17:28**
 
 🎙
-> Block 1: Get our tools ready. numpy: a big calculator. matplotlib: it draws graphs. Keras: the neural-network toolkit, with TensorFlow working underneath it like the engine. Keras is like a ready-made masala packet, you see. On Day 10 we ground it by hand; here it comes ready. But how much to add, meaning epochs, batch size and learning rate, we have to decide that ourselves.
+> Block 1: Get our tools ready. numpy: a big calculator. matplotlib: it draws graphs. Keras: the neural-network toolkit, with TensorFlow working underneath it like the engine. Keras is like a ready-made masala packet, you see: on Day 10 we ground it by hand, here it comes ready. But how much to add, epochs, batch size, learning rate, we decide ourselves.
 >
 > Block 2: Make our class data. 500 pretend students. Each student has two features, study hours and sleep hours, and one label, pass or fail, meaning the answer key. To create the data we used a hidden rule: calculate marks, add a little luck, and 35 marks means pass. But we don't show this rule to the network; it only gets the 500 examples, just like real data. Out of 500, 347 passed: 69%.
 >
@@ -413,10 +413,10 @@
 - **Block 3: Training data vs testing data** → highlight **`Training students: 400`** and **`Testing students : 100`**. Text pop: "6 hours ÷ 10 → 0.6".
 
 ### K2. Block 4: the network we drew → "9 = 9"
-⏱ **17:58 – 18:50**
+⏱ **17:28 – 18:19**
 
 🎙
-> Block 4: Build the network we drew. This is my favourite moment today. Look at this block and the Day 9 drawing on the board side by side. Input: 2 inputs, study and sleep. Dense 2, relu: 2 hidden neurons with ReLU, our h1 and h2. Dense means fully connected; on Day 9 we drew four lines, right? That's it. Dense 1, sigmoid: one output neuron; it gives the pass probability. One line = one layer, you see.
+> Block 4: Build the network we drew. This is my favourite moment today. Look at this block and the Day 9 drawing side by side. Input: 2 inputs, study and sleep. Dense 2, relu: 2 hidden neurons with ReLU, our h1 and h2. Dense means fully connected; on Day 9 we drew four lines, right? That's it. Dense 1, sigmoid: one output neuron; it gives the pass probability. One line = one layer, you see.
 >
 > Now look at the summary: hidden layer 6, output layer 3. Trainable params: 9! On Day 9 we counted on the board, right: 4 weights, 2 biases, 2 weights, 1 bias, 9 in total. 9 = 9. It's the same network we drew, you see. Only one difference: this time the knobs start random, and the machine learns them itself.
 
@@ -428,7 +428,7 @@
 - **Block 4: Build the network we drew** → zoom on the `model.summary()` table. Circle **hidden_layer … 6**, **output_layer … 3** and **Trainable params: 9**. (It also shows "36.00 B"; don't read it.)
 
 ### K3. Block 5: compile = loss + gradient descent + step size
-⏱ **18:50 – 19:18**
+⏱ **18:19 – 18:47**
 
 🎙
 > Block 5: Compile. Here we're telling the network "how to learn". Three choices. Loss: binary crossentropy. This is the log loss we saw on Day 10, for pass/fail. Optimizer: SGD. This is our gradient descent. Learning rate: 0.1, the same step size we used for Priya. Metrics: accuracy. This is just for us to read. On Day 10 I said, right: we train on loss and report accuracy. This block gives no output; it's only settings.
@@ -440,14 +440,14 @@
 - **Block 5: Compile (choose the loss, the gradient-descent version and the learning rate)** → highlight the three words in turn: `binary_crossentropy`, `SGD(learning_rate=0.1)`, `accuracy`. Text pop: "no output, just settings".
 
 ### K4. Block 6: fit = the Day 10 loop, 1,000 times
-⏱ **19:18 – 20:32**
+⏱ **18:47 – 19:56**
 
 🎙
 > Now Block 6: Fit. This is the line I promised in the last video. Inside this one line the whole Day 10 loop runs: forward, loss, backprop, update, repeat. The blame calculation we did by hand for Sita happens automatically here.
 >
-> Three settings, meaning today's theory. Validation split 0.2: the last 80 of the 400 are the mock test. So the ones who actually train are 320. Batch size 32: 320 ÷ 32 = 10 batches per epoch. Epochs: 100. How many updates in total? 100 × 10 = 1,000. Write this calculation in your notes. In the last video we said "thousands of times", right? These are those steps.
+> Three settings, meaning today's theory. Validation split 0.2: the last 80 of the 400 are the mock test. So the ones who actually train are 320. Batch size 32: 320 ÷ 32 = 10 batches per epoch. Epochs: 100. How many updates in total? 100 × 10 = 1,000. Write this calculation in your notes.
 >
-> Look at the screen. "Epoch 1/100": that's the epoch counter. Next to it, "10/10": the 10 batches in that epoch are done. I told you a little while ago that the first time, I didn't understand this screen. Now you understand it. Epoch 1: loss 0.532, accuracy 70%. Epoch 50: 0.229. Epoch 100: loss 0.193, accuracy 92–93%. The mock-test loss went from 0.439 to 0.159. So the network learned, you see!
+> Look at the screen. "Epoch 1/100": that's the epoch counter. Next to it, "10/10": the 10 batches in that epoch are done. I told you a little while ago that the first time, I didn't understand this screen. Now you understand it. Epoch 1: loss 0.532, accuracy 70%. Epoch 50: 0.229. Epoch 100: loss 0.193, accuracy about 93%. The mock-test loss went from 0.439 to 0.159. So the network learned, you see!
 
 🖊
 - Draw a fat arrow from the Day 10 loop to the `model.fit` line. On the loop write **"× 10 batches × 100 epochs = 1,000 times"**.
@@ -459,7 +459,7 @@
 - Scroll and freeze on Epoch 1 (**loss 0.5319, accuracy 0.7031, val_loss 0.4389**), Epoch 50 (**loss 0.2287**) and Epoch 100 (**loss 0.1926, accuracy 0.9250, val_loss 0.1589**).
 
 ### K5. Blocks 7–8: the loss curves + the final exam (90%)
-⏱ **20:32 – 21:16**
+⏱ **19:56 – 20:40**
 
 🎙
 > Block 7: Look at the loss curves. Training loss and validation loss are both coming down together, right? The orange line didn't turn up. That means it's not mugging up; it's really learning.
@@ -477,16 +477,16 @@
 - **Block 8: Final exam (evaluate on the test data)** → zoom on **`Test loss : 0.199`** and **`Test accuracy : 90%`**.
 
 ### K6. Block 9: Sita flips from 38% to 95% + the 9 learned knobs
-⏱ **21:16 – 22:19**
+⏱ **20:40 – 21:46**
 
 🎙
-> Now today's climax. Block 9: Predict for Sita, Ravi and Kiran. Sita's card is on the board: on Day 9, 38%, fail, but she actually passed. Now let's ask the trained network. When predicting, we also have to divide the hours by 10, the same as in training. It's already in the notebook.
+> Now today's climax. Block 9: Predict for Sita, Ravi and Kiran. Sita's card is on the board: on Day 9, 38%, fail, but she actually passed. Now let's ask the trained network. When predicting, we divide the hours by 10 too, the same as in training; the notebook already does it.
 >
 > Sita: 95%, PASS! From 38% to 95%. Ravi: 87%, pass. Kiran: 13%, fail.
 >
 > Look. We didn't change Sita; she still studied 6 hours and slept 3. What changed is the knobs, you see. I didn't guess those knobs; the machine found them itself from 320 students' data. And predict is nothing special: it's the same forward pass we did on the board on Day 9, with new knobs.
 >
-> The next cell has the 9 knobs the machine found. For example, in h1 the study weight is 3.58 and the sleep weight is 1.07. The network learned that for this data, study matters more. But these are for the ÷10 inputs; don't compare them directly with the Day 9 numbers.
+> The next cell has the 9 knobs the machine found. For example, in h1 the study weight is 3.58 and the sleep weight is 1.07. Both inputs are hours, on the same scale, so here we can compare: for this data, study matters more. But these are for the ÷10 inputs; don't compare them with the Day 9 numbers.
 
 🖊
 - Replace the corner Sita card: cross out **"38% ✗ (guessed knobs)"** and write **"95% ✓ PASS (learned knobs)"** in green. Caption: **"Same Sita. New knobs. Found from 320 students' data."**
@@ -499,7 +499,7 @@
 - Show the **"The 9 knobs the machine found by itself"** output; point only at study→h1 3.58 and sleep→h1 1.07.
 
 ### K7. Experiment 1: learning rate too small, about right, too big
-⏱ **22:19 – 23:19**
+⏱ **21:46 – 22:45**
 
 🎙
 > Now let's prove the theory. Experiment 1: Learning rate too small, about right, too big. Same network, same data, same starting knobs; only the learning rate changes. A fair race, you see: 0.001, 0.1, 20.0.
@@ -520,14 +520,14 @@
 - Show the "Step size matters" plot; trace the zigzagging lr = 20.0 line with the cursor.
 
 ### K8. Experiment 2: too many epochs → overfitting, for real
-⏱ **23:19 – 24:16**
+⏱ **22:45 – 23:42**
 
 🎙
 > Experiment 2: Too many epochs, and memorising instead of learning. Now we're deliberately creating the perfect situation for mugging up. A big network, 4,417 knobs. But only 30 students to learn from. 500 epochs. The optimizer is Adam, the "smarter gradient descent" I named on Day 10. A different 80 people for the mock test.
 >
 > Look at the graph: our board drawing, for real! Training loss goes down, down: 0.0006 at 500 epochs, training accuracy 100%. Feels perfect, right? But look at the validation loss: best at epoch 35, 0.185. After that, up, up: 0.903 at 500, almost 5 times worse. So it mugged up the 30 students, you see. The grey dashed line, best epoch 35: it should have stopped there.
 >
-> And our 9-knob model? In Block 7, its validation loss came down all the way through the 100 epochs. 9 knobs, 320 students: no room for mugging up.
+> And our 9-knob model? In Block 7, its validation loss kept coming down for all 100 epochs. 9 knobs, 320 students: no room for mugging up.
 
 🖊
 - Put the board's overfitting drawing (J3) side by side with the real plot. Write on it: **"best epoch = 35"**, **"training loss → 0.0006 (100% on 30 students)"**, **"validation 0.185 → 0.903 (~5× worse)"**, **"బట్టీ zone"**.
@@ -538,12 +538,12 @@
 - **Optional: a slightly bigger network** → skip on camera (it's for viewers; result in production-notes §7).
 
 ### K9. "Your numbers may differ" + the stuck-at-68% fix + homework
-⏱ **24:16 – 25:14**
+⏱ **23:42 – 24:36**
 
 🎙
 > One important note. Your numbers may come out a little different: 89 or 91 instead of 90%, Sita 93 instead of 95. That's normal. Random starting knobs, shuffling and computer differences can change the decimals. The story stays the same.
 >
-> If your accuracy gets stuck around 68% and every student gets the same %, don't panic; it's not your mistake. In our small network, both ReLU neurons got switched off right at the start, you see. On Day 10 we saw that when Sita's h2 was off, its blame was zero, right? Same thing. So if no blame comes, it doesn't learn. In Block 4, change the seed from 42 to 7 and run it again.
+> If your accuracy gets stuck around 68% and every student gets the same %, don't panic; it's not your mistake. It means both ReLU neurons were switched off right from the start. On Day 10, Sita's h2 was off, so its blame was zero, right? Same thing: no blame, no learning. In Block 4, change the seed from 42 to 7 and run it again.
 >
 > The homework is at the end of the notebook. One: with 5 epochs, what test accuracy do you get? Two: with batch size 320, how many batches does each epoch show? Three: with learning rate 1.0, too big or OK? Put your results in the comments.
 
@@ -559,7 +559,7 @@
 ---
 
 ## [L1] Video recap + comment quiz
-⏱ **25:14 – 26:09**
+⏱ **24:36 – 25:31**
 
 🎙
 > And that's it for the day! What we covered today: the epoch, one round over all the data. The batch, the small group seen for one update. The learning rate, the size of each step. Parameters vs hyperparameters. Overfitting, meaning mugging up, and catching it with a mock test. And in Keras we built our own network, trained it, and took Sita from 38% to 95%. All of these come under AI, ML, deep learning, and training a neural network, you see.
@@ -577,14 +577,14 @@
 ---
 
 ## [L2] Outro + Part 4 teaser + sign-off
-⏱ **26:09 – 26:59**
+⏱ **25:31 – 26:19**
 
 🎙
-> If it doesn't all click after watching once, that's fine. You have the notebook. Once you run it with your own hands, you'll understand more than from watching the video ten times. All the notes, and the Colab notebook link, I'm putting in the description.
+> Don't just watch this video and stop. Open the notebook and run it once with your own hands; you'll understand more than from watching the video ten times. All the notes, and the Colab notebook link, I'm putting in the description.
 >
 > Now, the next video. Until now we worked with numbers, but how does AI see a photo? In the next video: what computer vision is, what a CNN is, and again in Colab, we'll build an image classifier that reads handwritten digits, 0 to 9. Whoever wants that video, like this video.
 >
-> And it's not late yet: only 11 videos are done. If you sit for one day, you can cover them all. Send this video to friends who say "I want to learn AI but I'm scared of coding."
+> And it's not late yet: only 11 videos are done. Sit for one day and you can cover them all. Send this video to friends who say "I want to learn AI but I'm scared of coding."
 >
 > Thank you so much for watching, signing off, Tech Boy Deepak.
 
