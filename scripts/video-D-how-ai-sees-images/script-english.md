@@ -2,7 +2,7 @@
 
 **Series:** AI Learning Series, **Day 12** on the channel (Deep Learning Part 4). This covers plan Day 31 (what is computer vision?), Day 32 (what is a CNN? filters, feature maps, pooling) and Day 35 (build an image classifier: MNIST in Colab). Plan Days 33–34 go to Part 5.
 **Recording script:** `script-telugu.md`. This file is a faithful English rendering of it, with the same segments, timestamps and cues. It is for checking content and accuracy. Do not record from it.
-**Runtime:** @@RUNTIME@@
+**Runtime:** ~25:06 (≈ 25.1 min): 4,295 English-equivalent spoken words at 175 wpm (24:33) plus ~33 s of Colab run pauses. Allow ~27 min with drawing pauses.
 **Legend:** ⏱ timestamp (start–end) · 🎙 what he says · 🖊 what to draw, write or show (in order) · 💻 Colab screen-share cues (block names match the notebook) · 🔁 live result: say the number on your own screen if it differs
 
 > **Production note on numbering:** Parts 1–3 are assumed to go out as Days 9, 10 and 11, so this video opens as **Day 12**. If the channel numbering changes, update the day number in segment A, the "only 12 videos" line in segment L, the title card, the title and the description (the notebook's title cell also says "Day 12").
@@ -10,10 +10,10 @@
 ---
 
 ## [A0] Cold-open hook + pitch
-⏱ **@@A0@@**
+⏱ **00:00 – 00:33**
 
 🎙
-> After exams, answer sheets get corrected, right? Next to each question the teacher writes the marks in red pen: 7, 5, 9. You read that handwritten 7 in one second. But a computer? To it, it's just a photo: some numbers. So how does a computer look at those numbers and say "this is a 7"? Today we teach a computer to read. By the end of the video you'll train a model in Colab yourself and watch it read handwritten digits almost 99% correctly. If you want to learn AI from the basics, from scratch, subscribe to our channel. Let's dive into the video.
+> After exams, the teacher writes the marks next to each question in red pen, right? 7, 5, 9. You read that handwritten 7 in one second. But to a computer it's just a photo: some numbers, you see. So how does it say "this is a 7"? So today we teach a computer to read. By the end of the video you'll train a model in Colab yourself and watch it read handwritten digits almost 99% correctly. If you want to learn AI from the basics, from scratch, subscribe to our channel. Let's dive into the video.
 
 🖊
 - Close-up B-roll: a red-pen "7" being written in the marks box of an answer sheet.
@@ -22,10 +22,10 @@
 ---
 
 ## [A] Welcome + headline promise
-⏱ **@@A@@**
+⏱ **00:33 – 00:47**
 
 🎙
-> Hey guys, welcome back to AI Learning Series Day 12! We've already reached Day 12, you see. Today's video is very special: until now we've only worked with numbers. Today, for the first time, we go into images. How AI sees images: how AI actually looks at an image and understands it. That's today.
+> Hey guys, welcome back to AI Learning Series Day 12! We've already reached Day 12, you see. Until now we've only worked with numbers, right? Today, for the first time, we go into images. How AI sees images: that's today.
 
 🖊
 - Title card: **AI Learning Series · Day 12 · How AI Sees Images** *(renumber if needed)*
@@ -34,18 +34,14 @@
 ---
 
 ## [B] Recap of Days 9–11 + catch-up
-⏱ **@@B@@**
+⏱ **00:47 – 02:01**
 
 🎙
-> So first, let's recap once. This is our fourth video in deep learning. On Day 9 we saw what's inside a neural network: the neuron, inputs × weights + bias, then activation, then output. Layers: input, hidden, output. And our small network: study hours and sleep hours go in, two hidden neurons, one output. 9 knobs in total: those are the weights and biases.
+> So first, let's recap once. On Day 9 we saw the neuron: inputs × weights + bias, then activation, then output. Layers, and our small network: study hours and sleep hours in, two hidden neurons, one output: 9 knobs. So on Day 10 we saw how it learns: ReLU, sigmoid, loss, gradient descent, backprop, and that loop: forward → loss → backprop → update → repeat.
 >
-> On Day 10 we saw how that network learns: ReLU, sigmoid, loss, gradient descent, backpropagation. Remember the loop? Forward pass → loss → backprop → update → repeat.
+> On Day 11 we built that same 9-knob network in Keras. model.summary showed 9 parameters, right? Compile, fit: 320 students, batch size 32, 10 batches per epoch, 100 epochs: that's 1,000 updates, you see. On test students the model had never seen, we got 90%. And Sita: with the knobs we guessed she got 38%, remember? The trained network said 95% pass.
 >
-> On Day 11, for the first time, we built it ourselves in Keras. The same 9-knob network: model.summary showed 9 parameters, right? We compiled it and fit it: 320 training students, batch size 32, so 10 batches per epoch, 100 epochs, 1,000 updates in total. When we evaluated on test students the model had never seen, we got 90%. And our Sita: with the knobs we guessed on Day 9 the network said 38%, remember? The trained network correctly said 95% pass.
->
-> At the end of the last video we left you with a question, right? Until now we worked with numbers, so how does AI see a photo? And on Day 9 I drew a picture: an answer-sheet photo goes into the network, and the network learns the features by itself: first lines and edges, then letters, then words. Back then we left it as a black box. Today we open that box.
->
-> If you haven't watched Days 9, 10 and 11, please watch them once and come back. Every concept from those three videos comes back today.
+> At the end of the last video we left you with a question, right? Until now, numbers; so how does AI see a photo? And on Day 9 I drew a picture: an answer-sheet photo goes into the network, and the network learns the features by itself: first lines and edges, then letters, then words. Back then we left it as a black box. So today we open that box. If you haven't watched Days 9 to 11, watch them once and come back: every concept comes back today.
 
 🖊
 1. One neuron doodle: **inputs × weights + bias → activation → output**.
@@ -57,10 +53,10 @@
 ---
 
 ## [C] Agenda
-⏱ **@@C@@**
+⏱ **02:01 – 02:21**
 
 🎙
-> So what are we going to discuss today? I'm writing it with the pen, look. First is computer vision: how an image actually looks to a computer. Second is CNN, the Convolutional Neural Network: filters, feature maps, pooling. That's today's main topic. Third, we build an image classifier ourselves, in Google Colab: a model that reads handwritten digits. Right after learning the theory, you'll see it working with your own eyes.
+> So what are we going to see today? I'm writing it with the pen. First is computer vision: how an image looks to a computer. Second is CNN, the Convolutional Neural Network: filters, feature maps, pooling. This is the main topic. Third, we build an image classifier ourselves in Google Colab: a model that reads handwritten digits.
 
 🖊
 - Handwrite a numbered list:
@@ -72,12 +68,10 @@
 ---
 
 ## [E] Reassurance + stakes + notes
-⏱ **@@E@@**
+⏱ **02:21 – 02:53**
 
 🎙
-> What do many people think? "What is this, anna, convolution, pooling, feature maps... even the names are scary." Right? Don't be afraid at all. There's no new maths today. We draw a small grid, multiply 9 numbers and add them. That's all. A Class 10 student can check it on a phone calculator. And I'll tell you a secret: there's very little new to learn in a CNN. Weights, bias, ReLU, loss, backprop: you already know all of them. After listening you'll say, "Is that all, anna? We thought this was hard."
->
-> Whether it's Google Lens or AI that looks at X-rays to help doctors, a lot of the AI tools that work with images are built on these ideas. So it's very important. Everyone, take notes.
+> Many people think, "What is this, anna, convolution, pooling... even the names are scary," right? Don't be afraid at all. There's no new maths today: we multiply 9 numbers and add them, that simple. A Class 10 student can check it on a calculator. And a secret: there's almost nothing new in a CNN. Weights, bias, ReLU, loss, backprop: you already know all of them. Whether it's Google Lens or X-ray screening tools, a lot of the AI that works with images is built on these ideas. So it's very important. Everyone, take notes.
 
 🖊
 - Sticky note: **"New today: only how the neurons are connected. Everything else you already know ✔"**
@@ -87,16 +81,14 @@
 ## [F] CONCEPT 1: Computer vision
 
 ### F1. Announce + definition + name unpack
-⏱ **@@F1@@**
+⏱ **02:53 – 03:32**
 
 🎙
-> So the first topic: computer vision. I'm showing the definition on screen. Write it down.
+> So the first topic: computer vision. The definition is on screen. Write it down.
 >
 > *"Computer vision is the field of AI that enables computers to get useful information from images and videos: what is in them, where it is, or what it says."*
 >
-> What does that mean? It's right there in the name: vision for a computer, meaning sight. We have eyes: we see, we understand. A computer has a camera. But taking a photo with a camera is one thing, and understanding what's in that photo is another. That understanding part is what we call computer vision, you see.
->
-> Look at three phrases in the definition. "What is in them": what's in the photo, a cat or a dog. "Where it is": where it is in the photo. "What it says": what's written in it. Remember these three; they'll come back in a little while.
+> What does that mean? It's right there in the name: vision for a computer, meaning sight. So a camera can take a photo, but understanding what's in that photo is a different thing. That understanding part is what we call computer vision, you see. Remember three phrases: what's in it, a cat or a dog; where it is; and what's written in it. These will come back in a little while.
 
 🖊
 1. Definition card (English). ✍️ "Write it down".
@@ -104,18 +96,14 @@
 3. Underline the three phrases: **what · where · what it says**.
 
 ### F2. An image is a grid of numbers (drawing first)
-⏱ **@@F2@@**
+⏱ **03:32 – 04:39**
 
 🎙
-> Now the most important point in this topic. A question: how does a photo look to a computer? Does it look the way it looks to us? No. To a computer, a photo is just numbers: a table of numbers, you see.
->
-> Look at the board. I'm drawing a small 6 by 6 grid: 36 little squares. Like the maths graph book we had in school, right? Now I'll write a "1" in it by filling some squares: a little flag on top, a vertical line in the middle, a base at the bottom. Each of these little squares is called a pixel: picture element.
->
-> Now how does the computer store this? One number per pixel. Black is 0, full white is 255. The ones in between are grey shades. In the digits dataset we use today, the ink is white on a black background. So where there's ink it's 255, and where it's empty it's 0. Here: the left side is what we see, the right side is what the computer sees. Same image, two forms. Write down the definition:
+> Now the most important point here. How does a photo look to a computer? The way it looks to us? No. Just numbers: a table of numbers, you see. Look at the board: a small 6 by 6 grid, 36 squares, like our school graph book. Now I'll fill some squares and write a "1": a flag on top, a vertical line in the middle, a base at the bottom. Each of these little squares is what we call a pixel, you see: picture element. And every pixel is one number: black 0, full white 255, grey in between. In today's dataset the ink is white on a black background, so ink is 255 and empty is 0. The left side is what we see, the right side is what the computer sees. Write down the definition:
 >
 > *"A digital image is a grid of tiny squares called pixels. In a grayscale image, each pixel is one number from 0 (black) to 255 (white)."*
 >
-> When you fill squares in a graph book, a picture appears, right? An image is just the same: tiny squares, each square one number. Real photos have lakhs or crores of those squares; that's the only difference.
+> When you fill squares in a graph book you get a picture, right? An image is just as simple. Real photos have lakhs or crores of those squares; that's the only difference.
 
 🖊
 1. Draw a **6 × 6 grid**. Shade the "1": row 1 col 3; row 2 cols 2–3 (flag); rows 3–5 col 3; row 6 cols 2–4 (base).
@@ -133,12 +121,10 @@
 4. Definition card (English). ✍️
 
 ### F3. Colour = 3 numbers + the size ladder
-⏱ **@@F3@@**
+⏱ **04:39 – 05:10**
 
 🎙
-> What about a colour photo? Three numbers per pixel: Red, Green, Blue. That's what we call RGB. If you look at your phone screen with a magnifying glass, every pixel has three tiny lights: one red, one green, one blue. The colour depends on how brightly each light glows. Red 255, green 0, blue 0: pure red. All three 255: white. All three 0: black. Write it down: grayscale means one number per pixel, colour means three numbers per pixel. These three are called channels.
->
-> Now look at the size. Our small grid: 6 × 6 = 36 numbers. In the dataset for today's build, each image is 28 × 28: that's 784 numbers. Remember the phone-photo calculation from Day 9? 12 megapixels means about 1.2 crore pixels, into 3 colours: about 3.6 crore numbers! For one photo.
+> So, a colour photo? Three numbers per pixel: Red, Green, Blue, RGB. Every pixel on your phone screen is three tiny lights. Red 255, green 0, blue 0: pure red. All three 255: white. All three 0: black. Write it down: grayscale means one number per pixel, colour means three. These are what we call channels, you see. Now the size: our grid is 36 numbers. In today's dataset, 28 × 28 = 784. And the Day 9 phone photo: 12 megapixels × 3, about 3.6 crore numbers for one photo!
 
 🖊
 1. One pixel blown up into three boxes: **R | G | B = 255 | 0 | 0 → red**. Below: **255 | 255 | 255 → white · 0 | 0 | 0 → black**.
@@ -146,20 +132,12 @@
 3. Size ladder: **6 × 6 = 36 → 28 × 28 = 784 → 12 MP photo × 3 ≈ 3.6 crore numbers**.
 
 ### F4. Three vision tasks + where we see them + "not always deep learning"
-⏱ **@@F4@@**
+⏱ **05:10 – 06:13**
 
 🎙
-> So in computer vision there are mainly three kinds of jobs. I told you the three phrases in the definition, right? These are they.
+> Computer vision has three main jobs: the same three phrases. The first is image classification: one label for the whole image, "this digit is 7". The thing that predicts a category is classification: we saw it on Day 6, right? 0 to 9 means 10 categories: multi-class. The second is object detection: a box around each object, like a traffic camera putting a box around a number plate. The third is segmentation: a label for every pixel: road, person, sky. So what we do today is classification, you see.
 >
-> The first is image classification: one label for the whole image. "This digit is 7", "this leaf has a disease". We saw it on Day 6, right? The thing that predicts a category is classification. For images it's the same. And digits means 0 to 9: 10 categories. So it's the multi-class classification we saw on Day 6, you see.
->
-> The second is object detection: it finds each object in the image and draws a box around it. In a traffic-camera photo it puts a box to show where the car is and where the number plate is.
->
-> The third is segmentation: a label for every single pixel. These pixels are road, these pixels are a person, these pixels are sky. What we do today is the first one: classification.
->
-> Let's look at the ones we see every day. Google Lens: point the camera at a flower and it tells you its name. In Hyderabad, traffic cameras read number plates, but the police verify before a challan is sent. There are apps for farmers: take a photo of a leaf and they tell you which pest, which disease. In hospitals, AI that looks at an X-ray and flags a chance of TB: we talked about it on Day 9, right?
->
-> But don't get confused here: computer vision doesn't always mean deep learning. When you pay with UPI you scan a QR code, right? That's a camera and an image too. But reading a QR code has fixed rules, a fixed method. There's no need to train a model for it. So where do we need deep learning? When there's so much variety that you can't write rules. Handwriting: everyone's is different, right? Faces, leaves, X-rays: that's where deep learning comes in.
+> The ones we see every day: Google Lens tells you a flower's name. Hyderabad traffic cameras read number plates, and the police verify before a challan is sent. There are apps that look at a leaf photo and tell farmers the pest or disease. But don't get confused: computer vision isn't always deep learning. A UPI QR-code scan is a camera and an image too, but it's read with fixed rules; there's no model to train. That means deep learning is needed when there's too much variety to write rules: handwriting, faces, leaves, X-rays.
 
 🖊
 1. Three small boxes side by side (✍️ write the three names):
@@ -171,18 +149,16 @@
 3. QR code icon with a red stamp: **"Camera ✔, deep learning ✘ (fixed rules)"**. Next to it: **"DL = when rules are impossible to write: handwriting, faces, leaves"**.
 
 ### F5. Why a plain Dense network struggles: three fingers
-⏱ **@@F5@@**
+⏱ **06:13 – 07:24**
 
 🎙
-> Now you should get a doubt: "Anna, an image is just numbers, right? On Day 11 we gave numbers to a Dense network and trained it. Won't it be enough to give these 784 numbers to the same network?" Good question. If you give them, it works, but there are three problems. I'll show you three fingers. Write them down.
+> Now a doubt: "Anna, an image is just numbers, right? Isn't it enough to give these 784 numbers to the Day 11 Dense network?" It works, but there are three problems. Three fingers: write them down.
 >
-> First finger: far too many weights. Dense means fully connected: every input is connected to every neuron, we saw that on Day 9. Say 784 pixels and 128 neurons. 784 × 128 weights, plus 128 biases: 1,00,480 parameters! The Day 11 network had 9 parameters; here, one layer alone has a lakh. And for a 12-megapixel colour photo, one layer alone would need about 460 crore weights. Impossible, right?
+> First finger: far too many weights. Dense means fully connected. 784 pixels to 128 neurons: 784 × 128, plus 128 biases: 1,00,480 parameters! Day 11 had just 9. For a 12-megapixel colour photo, one layer alone would need about 460 crore. Impossible, right?
 >
-> Second finger: the idea of "being next to each other" is lost. To give it to a Dense layer, we first have to lay this grid out as one long line. That's called flatten. Row 1, then row 2, then row 3. Now look: in the grid, this pixel and the pixel right below it are next to each other on the same stroke. But in the line? They've ended up 28 places apart. A Dense network doesn't know in advance that "these two are neighbours". But in images, all the meaning is in the neighbours: a stroke is just neighbouring pixels going the same way together, right?
+> Second finger: the neighbours are lost. To give it to Dense, the grid has to be laid out as one long line, row after row. That's called flatten. This pixel and the pixel below it are on the same stroke. But in the line they're 28 places apart! So Dense doesn't know they're neighbours. But in images all the meaning is in the neighbours.
 >
-> Third finger: when the digit moves a little. If you write the same 7 shifted 3 pixels to the right, for us it's the same 7. But for a Dense network it's almost a new pattern: the numbers have all moved to different positions, right? Our team tested it: a Dense network that got 97% right on normal test digits fell to 49% when every digit was shifted 3 pixels. More than half wrong!
->
-> So what's the answer to these three problems? That's our next topic.
+> Third finger: when the digit moves a little. Shift a 7 three pixels to the right: for us it's the same 7, for Dense it's almost a new pattern. Our team tested it: a Dense network that scored 97% on normal digits fell to 49% when every digit was shifted 3 pixels! So what's the answer to these three problems? Our next topic.
 
 🖊
 Draw three fingers ✋ and write one problem per finger (✍️):
@@ -191,12 +167,10 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 3. **Shifted digit = new pattern:** a "7", and the same "7" moved 3 squares right. Caption: **"Dense: 97% → 49% when shifted 3 pixels"**.
 
 ### F6. Doubt + one-line recap
-⏱ **@@F6@@**
+⏱ **07:24 – 07:43**
 
 🎙
-> One more small doubt: "Anna, face unlock is also image classification, right?" Strictly speaking, no. It's verification: it checks "is this face the same as the face that was registered earlier, or not?" It uses neural networks, but the job is different. It isn't putting the image into one of the categories 0 to 9.
->
-> Simple: to a computer an image is a grid of numbers. Finding patterns in those numbers and understanding what's in the image, where it is and what's written in it: that is computer vision.
+> One more doubt: is face unlock image classification? Strictly, no. It's verification: "is this the same face as the registered one?" It uses neural networks, but the job is different. Simple: finding patterns in a grid of numbers to understand what's in the image, where it is and what's written in it: that is computer vision.
 
 🖊
 - Small chip: **Face unlock = verification ("same person?"), not classification**.
@@ -207,16 +181,14 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 ## [H] CONCEPT 2: CNN (Convolutional Neural Network)
 
 ### H1. Announce + definition + name unpack
-⏱ **@@H1@@**
+⏱ **07:43 – 08:26**
 
 🎙
-> So computer vision is done. Now today's main concept: CNN. Full form: Convolutional Neural Network. Write down the definition.
+> So computer vision is done. Now the main concept: CNN, the Convolutional Neural Network. Write down the definition.
 >
 > *"A Convolutional Neural Network (CNN) is a neural network designed for grid-like data such as images. Instead of connecting every pixel to every neuron, it slides small learnable filters across the image to detect local patterns, and stacks layers to combine them into bigger shapes and objects."*
 >
-> What does that mean? The name has two parts. "Neural network": we know this. The same neurons, the same weights, the same layers. "Convolutional": this is the new word. Convolution, simply put, means sliding a small window across the image and doing a small calculation at every spot. That's all.
->
-> Three keywords in the definition. "Small learnable filters": small filters, and they learn. "Local patterns": patterns in a small area: a stroke, a corner. "Stacks layers": putting one layer on top of another and combining small patterns into bigger shapes.
+> The name has two parts. "Neural network": we know it: the same neurons, weights, layers. "Convolutional": this is the new word. That means sliding a small window across the image and doing a small calculation at every spot: that simple. The keywords: small learnable filters; local patterns, like a stroke or a corner; and layers stacked to make bigger shapes.
 
 🖊
 1. Definition card (English). ✍️
@@ -224,18 +196,14 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 3. Underline: **small learnable filters · local patterns · stacks layers**.
 
 ### H2. Filter = the teacher's 3 × 3 window (and it is our old neuron)
-⏱ **@@H2@@**
+⏱ **08:26 – 09:35**
 
 🎙
-> Now what is a filter? Write down the definition:
+> So what's a filter? Write it down:
 >
 > *"A filter (also called a kernel) is a small grid of weights, usually 3 × 3. It looks at one small patch of the image at a time, multiplies each pixel by its weight, adds them up (plus a bias) and gives one number. Then it slides to the next position."*
 >
-> Let me give an example. Suppose a teacher has a small piece of cardboard with a tiny 3 by 3 window cut out in the middle. She puts that window on an answer sheet and looks for only one thing: "Is there a tick mark here?" She starts at the top-left and slides it a little at a time until she has looked at the whole page. For each position she writes a score on a separate paper: a clear tick here, 3; nothing here, 0. That score sheet is what we call a feature map. Another teacher with a different window looks for "is there a cross mark?": that's another filter.
->
-> And a secret: what does this filter do? 9 pixels × 9 weights, add them all, add a bias. We've seen this somewhere, right? The Day 9 neuron! Inputs × weights + bias. A filter is just our old neuron, looking through a small window, that's all.
->
-> But don't take this as the exact example. The teacher already knows what a tick mark looks like. A CNN filter knows nothing at first: it starts with random numbers and learns from data. I'll say this again in a little while; it's very important.
+> An example: a teacher has a piece of cardboard with a small 3 by 3 window cut out in the middle. She slides it over an answer sheet looking for only one thing: a tick mark. For each position she writes a score on a separate paper: a clear tick, 3; nothing, 0. That score sheet is what we call a feature map, you see. Another teacher with another window looks for cross marks: that's another filter. And a secret: 9 pixels × 9 weights, add, plus a bias. We've seen that somewhere, right? The Day 9 neuron! So a filter is just our old neuron looking through a small window. But don't take this as the exact example: the teacher already knows what a tick looks like. A CNN filter starts with random numbers and learns from data. Very important; I'll say it again.
 
 🖊
 1. Definition card (English). ✍️
@@ -245,10 +213,10 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 5. Chip: **"Teacher knows the pattern; a CNN filter LEARNS it."**
 
 ### [G] Mid-roll CTA
-⏱ **@@G@@**
+⏱ **09:35 – 10:00**
 
 🎙
-> Sorry for interrupting in the middle of the video. Pause this video for one second and like it. And click the three dots and hit hype: if you hype it, this video reaches many more beginners like you. Many of the people watching this series still haven't subscribed. For today's video our team ran and tested this Colab notebook in advance, so you don't get any errors. Your one like, your one subscribe gives our team that same energy. So please support us. So, let's go back to our filter.
+> Sorry for interrupting in the middle of the video. Pause for one second and like it. Click the three dots and hit hype: it'll reach many more beginners like you. Many of the people watching this series still haven't subscribed. Our team tested today's Colab notebook in advance so you don't get errors; your like and subscribe gives us that same energy. Please support us. So, let's go back to the filter.
 
 🖊
 - Like / three-dots → **Hype** / Subscribe animation. Keep the filter definition card visible underneath so the cut back is seamless.
@@ -256,26 +224,22 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 > **Note:** his usual stat is "90% of viewers are not subscribed". Only say a number if YouTube Studio supports it on the day of recording; otherwise keep the generic line above.
 
 ### H3. The worked convolution: one window, then the whole feature map (the one worked example)
-⏱ **@@H3@@**
+⏱ **10:00 – 12:11**
 
 🎙
-> Don't stress about the maths: it's only multiply and add. Let's go slowly.
+> Don't stress about the maths: it's only multiply and add. Let's go slowly. Let's take our "1" grid. To keep it simple, I'm writing 255 as 1: ink is 1, empty is 0. That means we divided by 255; we'll do the same in the build. Now a filter, which I'm choosing myself: three rows, 1, 0, −1 in every row. When it's "bright on the left, dark on the right", it gives a big number: so it catches the right edge of a vertical stroke. This is what we call a vertical edge filter, you see.
 >
-> Let's take our "1" grid. To keep it simple this time, I'm writing 255 as 1: 1 if there's ink, 0 if not. That means we divided by 255, you see. We'll do the same thing in the build.
+> Step 1: this red 3 by 3 square on the top-left corner. Inside: 0 0 1, 0 1 1, 0 0 1. Multiply each pixel by the filter number in the same position. Left column: filter 1, pixels all 0: 0. Middle: filter 0: 0. Right column: filter −1, pixels 1, 1, 1: that gives −1, −1, −1. Add them: −3. I'm writing −3 in the first box of the feature map.
 >
-> Now a filter. I'm choosing one myself: 1, 0, −1 in every row. Three rows. What does it mean? If it's "bright on the left, dark on the right", it gives a big number. So it catches the right edge of a vertical stroke. This is called a vertical edge filter.
+> Step 2: one pixel to the right. Patch: 0 1 0, 1 1 0, 0 1 0. Left column 0, 1, 0 times 1: 1. The rest are 0. Total 1.
 >
-> Step 1: I'm putting this red 3 by 3 square on the top-left corner of the grid. The 9 pixels inside: first row 0 0 1, second row 0 1 1, third row 0 0 1. Now multiply each pixel by the number in the same position in the filter. The left column has filter 1, pixels 0, 0, 0: all 0. The middle column has filter 0: anything times 0 is 0. The right column has filter −1, pixels 1, 1, 1: that gives −1, −1, −1. Add them all: −3. I'm writing this −3 in the first box of the feature map.
+> Step 3: one more. Patch: 1 0 0, 1 0 0, 1 0 0. Left column 1, 1, 1: 3! A big number. Why? The stroke is on the left, the right is empty: exactly the pattern the filter is looking for. A perfect match, you see.
 >
-> Step 2: I'm moving the window one pixel to the right. Now the patch is 0 1 0, 1 1 0, 0 1 0. Left column 0, 1, 0, times 1: total 1. Middle: 0. The right column is all 0. Total: 1.
->
-> Step 3: one more pixel to the right. Patch: 1 0 0, 1 0 0, 1 0 0. Left column 1, 1, 1, times 1: 3. The rest are 0. Total: 3! That's a big number. Why? Right here, our "1"'s vertical stroke is on the left side and the right side is empty. That's exactly the pattern the filter is looking for: a perfect match.
->
-> If we keep sliding like this over the whole grid (a 3 by 3 window on a 6 by 6 image), there are 4 positions in a row, and 4 rows like that, so we get a 4 by 4 feature map. I'm showing the full map on screen. Look: the third column is all 3, 3, 3, 3. What the map says is "there's a vertical edge here from top to bottom". And the first column is all −3: that's the opposite edge, the left side of the stroke, dark to bright. To catch that one you need a different, flipped filter. Write down the feature-map definition:
+> So, keep sliding like this: 4 positions per row, 4 rows: a 4 by 4 feature map. The full map is on screen. The third column is all 3s: "there's a vertical edge here from top to bottom". The first column is all −3: the opposite edge, which a flipped filter would catch. Write it down:
 >
 > *"A feature map is the grid of numbers a filter produces as it slides over the image. Big values show where the filter's pattern was found."*
 >
-> Simply put, a feature map is a heat map: a map showing everywhere in the image that the filter's pattern appears, you see. When I first studied CNNs, I didn't understand what a feature map was at all. It clicked only when I drew a small grid like this on paper and calculated it by hand. If you have a calculator, check the remaining boxes yourself.
+> Simply put, it's a heat map showing everywhere the filter's pattern appears, you see. To be honest, when I first studied CNNs I didn't understand feature maps at all. It clicked when I drew a small grid like this on paper and calculated it by hand. Check the remaining boxes yourself with a calculator.
 
 🖊
 1. Redraw the "1" grid with **0 / 1** values (note "÷ 255"):
@@ -306,22 +270,14 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 6. Definition card (English). ✍️
 
 ### H4. ReLU + max pooling
-⏱ **@@H4@@**
+⏱ **12:11 – 13:15**
 
 🎙
-> Next step: ReLU on this map. We saw it on Day 10, right? Negative becomes 0; positive stays the same number. So all the −3s become 0. Negative means "this pattern isn't here", so we've made it 0. Sita's h2 neuron switched OFF, remember? The same ReLU.
->
-> Now pooling. Write down the definition:
+> Next: ReLU on this map, which we saw on Day 10: negative becomes 0. So all the −3s become 0: "the pattern isn't here". The same ReLU that switched off Sita's h2. Now pooling. Write it down:
 >
 > *"Max pooling shrinks a feature map by keeping only the largest value in each small block, usually 2 × 2. It keeps the strongest signal and makes the network a little less sensitive to small shifts."*
 >
-> I'm splitting this 4 by 4 map into four 2 by 2 blocks by drawing thick lines. In each block we keep only the biggest number. Top-left block: 0, 1, 0, 1, biggest 1. Top-right: 3, 0, 3, 0, so 3. Bottom-left: all 0, so 0. Bottom-right: 3, 0, 3, 1, so 3. So from 16 numbers to 4 numbers: 1, 3, 0, 3.
->
-> An example: your report card has four unit tests in one subject. Suppose the principal says, "I don't need four marks; just tell me the best one." Max pooling is just like that: only the best one from each block. Look: the map has shrunk to a quarter, but the message isn't lost: "there's a strong vertical stroke on the right side". You can still see it in those 3, 3.
->
-> Don't get confused here: max pooling means maximum, not average. There is a pooling that takes the average too, but what we use today is max.
->
-> Why pooling? Two reasons. One: the size goes down, so the calculations go down. Two: even if the stroke moves one pixel here or there, the max in that 2 by 2 block often doesn't change, right? So small shifts don't bother it much.
+> We split the 4 by 4 map into four 2 by 2 blocks and keep only the biggest in each. Top-left 0, 1, 0, 1: 1. Top-right: 3. Bottom-left, all 0: 0. Bottom-right: 3. So from 16 numbers to 4: 1, 3, 0, 3. Like a principal saying, "I don't need all four unit-test marks, just tell me the best one." The map became a quarter of the size, but the message isn't lost: a strong vertical stroke on the right side. Don't get confused: max pooling means maximum, not average. Why pool at all? Fewer numbers, fewer calculations. And even if the stroke moves one pixel, the block's max often doesn't change.
 
 🖊
 1. Redraw the map with the −3s crossed out → 0, labelled **"ReLU"**:
@@ -337,16 +293,14 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 5. Chip: **MAX, not average**.
 
 ### H5. Different filters see different things + filters are LEARNED + parameter sharing
-⏱ **@@H5@@**
+⏱ **13:15 – 14:43**
 
 🎙
-> Now another interesting thing. If we turn the same filter sideways (first row 1 1 1, middle 0 0 0, bottom −1 −1 −1), it's a horizontal edge filter: it catches horizontal strokes. I'm showing the result on screen. Put it on our "1" and after pooling it's almost all 0: 1, 0, 0, 0. Because a "1" has almost no horizontal strokes. Put the same filter on a "7", and the first row of the map comes out as 3, 2, 2, 1. That's the horizontal bar on top of the 7! So a "1" lights up the vertical detector, and a "7" lights up the horizontal detector at the top. Combine detectors like these and you can tell digits apart, right?
+> Now if we turn this same filter sideways, 1 1 1, 0 0 0, −1 −1 −1, it's a horizontal edge filter. On our "1", after pooling it's almost all 0: 1, 0, 0, 0; a "1" has no horizontal strokes. On a "7": the map's first row is 3, 2, 2, 1: the bar on top! So a 1 lights up the vertical detector, and a 7 the horizontal one. Combine detectors and you can tell digits apart, right?
 >
-> Now a very, very important point. Write it down: in a real CNN, nobody designs the filters. Today on the board I chose 1, 0, −1, just like we assumed w = 0.8 on Day 7, only to show you. In a real CNN every filter starts with random numbers. During training, backprop changes them just like the other weights. The network itself learns which patterns to look for. On Day 9 we said "the network learns the features by itself", right? This is what that means.
+> Now a very, very important point. Write it down: in a real CNN, nobody designs the filters. I chose 1, 0, −1 only for class, like assuming w = 0.8 on Day 7. Real filters start random, and backprop changes them like the other weights. The network itself learns which patterns to look for. On Day 9 we said "it learns the features by itself", right? This is what that means.
 >
-> And another magic. How many numbers are in one filter? 9 weights + 1 bias = 10. Those same 10 numbers are used at every position in the image. Because whether a vertical stroke is at the top-left or the bottom-right, a vertical stroke is a vertical stroke, right? Like using one rubber stamp across the whole page: the same stamp. This is called parameter sharing. In our build, the first layer has 32 filters: 32 × 10 = 320 parameters. In a Dense layer, just 784 pixels to 32 neurons is 25,120. See the difference? First-finger problem solved.
->
-> Second finger, neighbours? A filter always looks at 3 by 3 neighbouring pixels together. It doesn't turn the grid into a line. Solved. Third finger, a shifted digit? The same filter searches everywhere, so it finds the stroke wherever it is. Pooling helps a little more.
+> And one filter = 9 weights + 1 bias = 10 numbers, and the same ones at every position in the image, because a vertical stroke is a vertical stroke wherever it is. Like one rubber stamp across the whole page. This is what we call parameter sharing, you see. Our first layer has 32 filters: 320 parameters. In a Dense layer, just 784 pixels to 32 neurons is 25,120. First finger solved. A filter always looks at neighbours together: second finger solved. The same filter searches everywhere, so a shifted stroke is found too, with a little help from pooling: third finger mostly solved.
 
 🖊
 1. Slide: the horizontal filter `1 1 1 / 0 0 0 / −1 −1 −1`, and two results side by side:
@@ -359,16 +313,10 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 5. Go back to the three fingers and tick each: **✔ fewer weights · ✔ neighbours kept · ✔ (mostly) finds it anywhere**.
 
 ### H6. The full CNN stack
-⏱ **@@H6@@**
+⏱ **14:43 – 15:33**
 
 🎙
-> So now the whole CNN in one picture. This is the most important drawing in this video. Write it down.
->
-> Image → Conv + ReLU → Pool → Conv + ReLU → Pool → Flatten → Dense → Softmax → answer.
->
-> Read it like a factory line. The first Conv layer: lots of filters, catching small edges and strokes. Pool: shrinks the size. The second Conv layer works on the first layer's feature maps, so it combines edges into bigger shapes: corners, loops, things like the bar on top of a 7. Pool again. Then Flatten: laying it out as a line is no problem now, because the important features have already come out. Then Dense, our normal Day 9 network, takes the final decision: "there's a loop on top and a vertical stroke on the right, so this is a 9".
->
-> Edges → shapes → which digit. On Day 9 I gave the example of a relative walking towards you from far away, right? Simple to complex. Same idea. But one difference: from far away we see the outline first; a CNN sees the small edges first. Use this example only for the idea that "simple features combine into complex features". And real filters aren't as neat as our labels: most of the time you can't name one "the loop detector".
+> Now the whole CNN in one picture: today's most important drawing. Write it down. Image → Conv + ReLU → Pool → Conv + ReLU → Pool → Flatten → Dense → Softmax → answer. Read it like a factory line. The first Conv catches small edges. Pool: shrink. The second Conv combines edges into shapes: corners, loops, the bar on top of a 7. Pool again. So Flatten isn't a problem now, because the important features have already come out. Then Dense, our Day 9 network, decides: "loop on top, vertical stroke on the right: this is a 9". Edges → shapes → which digit. Simple to complex, like the Day 9 example of a relative coming from far away, but only for that idea: a CNN sees small edges first. And most of the time real filters don't have neat names like "loop detector".
 
 🖊
 - Big pipeline across the bottom of the board (keep it there for the build):
@@ -377,18 +325,14 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 - Chip: **"Analogy: simple → complex only. CNN sees small edges first. Real filters rarely have neat names."**
 
 ### H7. Softmax: percentages that add to 100
-⏱ **@@H7@@**
+⏱ **15:33 – 16:32**
 
 🎙
-> The last box: softmax. On Day 10 I only told you the name; now let's see it. Write down the definition:
+> The last box: softmax. On Day 10 I only told you the name. Write it down:
 >
 > *"Softmax turns the output layer's raw scores into probabilities that are all positive and add up to 100%. The biggest score gets the biggest share."*
 >
-> The last layer has 10 neurons: 0 to 9, one for each digit. Each neuron gives a score, which can be any number. To keep it simple, let's take three digits: "1" has score 3, "7" has 1.5, "4" has 0.5. Softmax does two steps. One: it makes every score positive with e to the power, the same e from the Day 7 sigmoid, 2.718. Two: it divides each by the total, so they all add up to 100. Result: "1" is 76.6%, "7" is 17.1%, "4" is 6.3%. Add them: 100%. The formula is in the corner; the machine does it. If you're interested, check it on a calculator with the e^x button.
->
-> And a beautiful connection. What if there are only two classes? Pass and fail. If we give Student D scores 2.4 and 0, what does softmax give? 91.7% and 8.3%. With the Day 7 sigmoid we got exactly 91.7%, right? So the sigmoid is just softmax with two classes, you see.
->
-> Don't get confused here: softmax doesn't pick an answer; it gives percentages. Taking the biggest one as the answer is a separate, last step, like the 50% threshold after the sigmoid. And 99% means "the model is 99% sure", not "always correct". We'll actually see this in the build.
+> The last layer has 10 neurons, a score for each digit. Let's take three: "1" gets 3, "7" gets 1.5, "4" gets 0.5. Softmax makes each score positive with e to the power (the same e, 2.718), then divides by the total. Result: "1" is 76.6%, "7" 17.1%, "4" 6.3%. Total 100%. The formula is in the corner; the machine does it. And what if there are only two classes, pass and fail? Give Student D scores 2.4 and 0 and you get 91.7% and 8.3%: exactly the Day 7 sigmoid! The sigmoid is two-class softmax, you see. Don't get confused: softmax gives percentages; picking the biggest is a separate last step, like the 50% threshold. And 99% means 99% sure, not always correct. You'll see this in the build.
 
 🖊
 1. Definition card (English). ✍️
@@ -406,14 +350,10 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 5. Chip: **"Softmax gives %s · picking the biggest = a separate step · 99% sure ≠ always right"**.
 
 ### H8. Same learning loop + doubts + one-line recap
-⏱ **@@H8@@**
+⏱ **16:32 – 17:10**
 
 🎙
-> Now your doubt: "Anna, how does a CNN train? Is it some new method?" No! Remember the Day 10 loop? Forward pass, loss, backprop, gradient-descent update, repeat. Exactly the same. The loss is the same log loss too: −ln(the percentage given to the correct digit). If the true digit is "1" (the model gave 76.6%, right?), the loss is 0.27. Not wrong, but it can still improve. Backprop sends that error backwards and gives blame not only to the Dense weights but also to the 9 numbers inside the filters. Gradient descent changes them a little. So there's no new learning in a CNN. Weights, bias, ReLU, softmax, loss, backprop, epochs: we know all of them. Only one thing is new: how the neurons are connected.
->
-> Another doubt: "Does a CNN not care where the digit is?" Not completely. Much better than Dense, but not immune. I'll show you the real numbers after the build.
->
-> Simple: sliding small filters over the image to find patterns, shrinking with pooling, combining layer by layer, and finally giving percentages with softmax: that is a CNN. That simple.
+> A doubt: "Anna, is CNN training some new method?" No! The same Day 10 loop: forward, loss, backprop, update, repeat. The same log loss: if the true digit is "1" and the model gives 76.6%, the loss is 0.27. Backprop sends that blame to the 9 numbers in the filters too, and gradient descent changes them a little. So how it learns isn't new. How the neurons are connected: that's the only new thing. Doesn't a CNN care where the digit is? Not completely: real numbers after the build. Simple: sliding filters to find patterns, shrinking with pooling, stacking layers, and giving percentages with softmax: that is a CNN. That simple.
 
 🖊
 1. Point to the Day 10 loop in the corner: **Forward → Loss → Backprop → Update ↺** and add an arrow from "Backprop" into the filter drawing: **"blame reaches the filters too"**.
@@ -426,14 +366,10 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 ## [I] CONCEPT 3: Build an image classifier (MNIST in Colab)
 
 ### I1. Open the notebook + the dataset
-⏱ **@@I1@@**
+⏱ **17:10 – 17:44**
 
 🎙
-> So the theory is done. Now my favourite part: the build. Let's make an image classifier ourselves. The notebook link is in the description: open it and run it along with me. I won't go into the code line by line. I'll tell you in concept terms what each block does, and show you where the things we drew on the board are in the code.
->
-> The dataset is called MNIST. Handwritten digits, 0 to 9: 70,000 small photos. 60,000 for training, 10,000 for testing. In computer vision it's like "hello world": lots of people do this as their first project. Reading handwritten marks on an answer sheet, reading the PIN code on a postal cover: this is a simple version of those, you see.
->
-> In Colab, Runtime → Change runtime type. A normal CPU is enough; training may take a few minutes. If you select a T4 GPU, it's even faster.
+> So the theory is done. Now my favourite part: the build. The notebook link is in the description; run it along with me. No line-by-line code: I'll say what each block does and show where it is on the board. So the dataset is MNIST: 70,000 handwritten digits, 60,000 for training, 10,000 for testing. It's the "hello world" of computer vision: a simple version of reading answer-sheet marks or the PIN code on a postal cover, you see. Runtime → Change runtime type: a normal CPU is enough, a few minutes of training; with a T4 GPU it's even faster.
 
 💻
 - Screen-share Colab with `part-4-build-an-image-classifier.ipynb` open at the title cell. Cursor on the "plan, block by block" list.
@@ -444,12 +380,10 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 - Put the 7-box flow on the side of the board (tick each as it runs): **Load & look → ÷255 → Build CNN → Compile + Train → Test → Predict → Mistakes**.
 
 ### I2. Block 1: Setup + Block 2: Load the dataset
-⏱ **@@I2@@**
+⏱ **17:44 – 18:14**
 
 🎙
-> Block 1: Setup. We load the tools: NumPy for numbers, Matplotlib for pictures, Keras for deep learning, the same Keras we used on Day 11. We fix the seed so the random starting weights come out the same every time. Run.
->
-> Block 2: Load the dataset. MNIST is built into Keras. Run it: training images 60,000, 28, 28. That means 60,000 images, each 28 by 28. Test images 10,000. And the labels: the correct answer for every image, our answer key. It's the supervised learning we saw in earlier videos: features are the pixels, the label is the digit.
+> Block 1: Setup: NumPy for numbers, Matplotlib for pictures, and Keras, the one we used on Day 11. We fix the seed so the starting weights are the same every time. Run. Block 2: Load the dataset: MNIST is right inside Keras. 60,000 training images, 28 by 28; 10,000 test images; and a label for every image: our answer key. That means features are pixels, the label is the digit.
 
 💻
 - Run **Block 1: Setup** (prints the TensorFlow / Keras versions). *(run pause ~3 s)*
@@ -459,10 +393,10 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 - Tick box 1 "Load & look". Write **features = pixels · label = digit (answer key)**.
 
 ### I3. Block 3: An image is just a grid of numbers
-⏱ **@@I3@@**
+⏱ **18:14 – 18:37**
 
 🎙
-> Block 3: "An image is just a grid of numbers". We're printing the first training image as numbers. Look at the screen... pause for one second and look: the background is all 0s, and in the middle there are big numbers like 253, 255. If you follow those big numbers with your eyes... you can see a 5, right! The label is also 5. On the board we drew 6 by 6; this is the same thing, 28 by 28. Below, 18 images as pictures, with their labels.
+> Block 3: "An image is just a grid of numbers". The first training image as numbers. Pause and look: 0s all around, big numbers like 253, 255 in the middle. Follow them with your eyes... you can see a 5, right! The label is 5 too. On the board, 6 by 6; here, 28 by 28. Below, 18 images as pictures.
 
 💻
 - Run the first cell of **Block 3**. Zoom into the printed 28 × 28 grid; trace the 5 with the cursor. Show `Label: 5`. *(run pause ~2 s)*
@@ -472,10 +406,10 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 - Point from the screen to the board's 6 × 6 "1": **"same idea, 28 × 28 = 784 numbers"**.
 
 ### I4. Block 4: Prepare the data
-⏱ **@@I4@@**
+⏱ **18:37 – 18:56**
 
 🎙
-> Block 4: Prepare the data. Two small jobs. One: we divide every pixel by 255, so they all come between 0 and 1. On the board we wrote 255 as 1, right? Same thing. With small, similar-sized numbers, learning is smooth. Two: we add a channel. It's grayscale, so 1 channel. For colour it would be 3: R, G, B. Look at the output: 60,000, 28, 28, 1, min 0, max 1.
+> Block 4: Prepare the data: divide by 255, so everything is between 0 and 1, just like we did on the board, right? small numbers keep learning smooth. And add one channel: 1 for grayscale, it would be 3 for colour. New shape: 60,000, 28, 28, 1: min 0, max 1.
 
 💻
 - Run **Block 4: Prepare the data**. Highlight `New shape: (60000, 28, 28, 1) | min: 0.0 | max: 1.0`. *(run pause ~2 s)*
@@ -484,14 +418,10 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 - Tick box 2 "÷255". Point to the board's "÷ 255 → 0/1" grid.
 
 ### I5. Block 5: Build a small CNN
-⏱ **@@I5@@**
+⏱ **18:56 – 19:38**
 
 🎙
-> Block 5: Build a small CNN. This block = the CNN stack we drew on the board! Read it from top to bottom. Conv2D, 32, 3 by 3: 32 filters, each one 3 by 3. This is the filter layer we drew on the board, but here there are 32 filters, all starting random. Activation relu: ReLU on the feature map. MaxPooling2D 2 by 2: our pooling. Conv2D 64 again, MaxPooling again. Flatten. Dense 64: our normal Day 9 layer. And last, Dense 10, softmax: 10 digits, 10 percentages.
->
-> We've also written the sizes in the comments: 28 to 26, 13 after pooling, then 11, pool to 5. On the board, a 3 by 3 on a 6 by 6 gave a 4 by 4, right? It went down by 2. Here too, 28 to 26. Same.
->
-> Run it and look at model.summary. Remember the 9 parameters on Day 11? Here: 1,21,930. An interesting thing: about 84% of them are in that one Dense 64 layer alone, 1,02,464. The two Conv layers together have only 18,816. Because the filters are shared, right? That's why.
+> Block 5: Build a small CNN. This block = the CNN stack we drew on the board! Top to bottom: Conv2D 32, 3 by 3: our filter layer, but 32 filters, all starting random, with relu. MaxPooling2D 2 by 2: our pooling. Conv2D 64 again, pooling. Flatten. Dense 64: the Day 9 layer. Dense 10, softmax: 10 percentages. The sizes: 28 to 26, the way 6 became 4 on the board, then 13, 11, 5. Run it and look at model.summary: Day 11 had 9 parameters; here 1,21,930. And about 84%, that is 1,02,464, sit in that one Dense 64 layer! The two Conv layers together have only 18,816, because the filters are shared, right?
 
 💻
 - Show **Block 5: Build a small CNN** code cell. Move the cursor down the layers one by one while he names them; on screen, draw an arrow from each code line to the matching box of the board pipeline.
@@ -502,14 +432,10 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 - Card: **121,930 params · Dense(64) = 102,464 (84%) · both Conv layers = 18,816**.
 
 ### I6. Block 6: Compile + Block 7: Train
-⏱ **@@I6@@**
+⏱ **19:38 – 20:37**
 
 🎙
-> Block 6: Compile, just like on Day 11. Optimizer adam: the smarter gradient descent whose name I told you in Video B. Loss: sparse categorical crossentropy. The name is long; don't be scared. It's the same Day 10 log loss, for 10 classes: −ln(the percentage given to the correct digit). "Sparse" only means the labels are plain numbers like 7, that's all. Metrics accuracy: we train on loss and report accuracy.
->
-> Block 7: Train, model.fit. The Day 10 loop runs right here. Epochs 5: it goes through all the training images 5 times. Batch size 128: look at 128 images, then one update. Validation split 0.1: that means we keep 6,000 images aside and, after every epoch, do a mock test. So it trains on 54,000 images: 54,000 ÷ 128 is 422 batches per epoch. You'll see 422/422 on screen. I'm running it...
->
-> Look: after epoch 1, accuracy is about 92.8%. Epoch 2: 97.9. By epoch 5: 99.1%. Loss came down from 0.25 to 0.03. Validation accuracy, on those 6,000 images the model doesn't learn from: about 99%. Look at the graph going up epoch by epoch. On Day 11 it took 100 epochs; here 5 are enough, because here there are 54,000 examples, 422 updates in every epoch.
+> Block 6: Compile, like Day 11. Optimizer adam: the smarter gradient descent whose name I told you on Day 10. Loss: sparse categorical crossentropy. A big name; don't be scared: the Day 10 log loss for 10 classes: −ln(the percentage given to the correct digit). "Sparse" means the labels are plain numbers like 7, that's all. Metric: accuracy. Block 7: Train: model.fit, our Day 10 loop. 5 epochs, batch size 128, validation split 0.1: it keeps 6,000 images aside for a mock test. So 54,000 ÷ 128: 422 batches per epoch, that's the 422/422: write this calculation down. I'm running it... Epoch 1: accuracy about 92.8%. Epoch 5: 99.1%. Loss from 0.25 to 0.03. Validation, on images it doesn't learn from: about 99%. On Day 11 we needed 100 epochs; here 5 are enough, because each epoch already has 422 updates, you see.
 
 💻
 - Show **Block 6: Compile**, run it (instant).
@@ -521,12 +447,10 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 - Card: **54,000 ÷ 128 = 421.9 → 422 batches per epoch**.
 
 ### I7. Block 8: Test on 10,000 new images
-⏱ **@@I7@@**
+⏱ **20:37 – 21:01**
 
 🎙
-> Block 8: Test on 10,000 new images. Now the real exam. The model has never seen these 10,000 images even once. Like doing 60,000 practice questions at a coaching centre and then getting 10,000 new questions in the final exam. Run... Test accuracy: 98.85%! That means about 9,885 correct out of 10,000. Only 115 wrong. 5 epochs, one small notebook: handwritten digits at 98.85%!
->
-> Write it down: the honest score is always on test data, not on training data. The number on your screen may come out a little different, 98.6, 99.0; that's normal, it changes a little depending on the computer. If you get about 99%, your model is working correctly.
+> Block 8: Test on 10,000 new images: the real exam. Images the model has never seen even once, like new questions after coaching-centre practice. Test accuracy: 98.85%! That means about 9,885 correct, only 115 wrong. Write it down: the honest score is on test data, not training data. Your number may be a little different, 98.6, 99.0: that's normal. If you get about 99%, it's working.
 
 💻
 - Show **Block 8: Test on 10,000 new images**, run. Zoom: 🔁 `Test accuracy: 98.85%   (test loss: 0.0352)` and `That is about 9885 correct out of 10,000.` *(run pause ~2 s)*
@@ -535,10 +459,10 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 - Tick box 5 "Test". Big stamp: **98.85% · 9,885 / 10,000 ✔** 🔁 ✍️ **"Honest score = TEST data, not training data"**.
 
 ### I8. Block 9: Predict one image
-⏱ **@@I8@@**
+⏱ **21:01 – 21:21**
 
 🎙
-> Block 9: Predict one image. Now let's give it just one image. Test image number 0: this is a handwritten 7. Remember the 7 the teacher wrote at the start? Run... 10 percentages came out. 7: 99.999%! All the others are almost 0. In the bar chart there's only one tall bar, at 7. These are softmax percentages: add them all and you get 100. Model says 7, true answer 7. Change idx and try other images: 1, 2, 3, anything up to 9999.
+> Block 9: Predict one image: test image 0, a handwritten 7, like the 7 the teacher wrote at the start. Run... 7: 99.999%! The rest are almost 0: just one tall bar. Softmax percentages, total 100. Model says 7, true answer 7. Change idx and try any image up to 9999.
 
 💻
 - Show **Block 9: Predict one image**, run with `idx = 0`. Zoom into the list: 🔁 `7:  99.999%`, all others `0.000%`, and `Model says: 7 | True answer: 7`. Show the image + bar chart. *(run pause ~2 s)*
@@ -547,14 +471,10 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 - Tick box 6 "Predict". Sketch the bar chart: one tall bar at **7 (99.999%)**, flat everywhere else. Note: **"softmax: all 10 add to 100%"**.
 
 ### I9. Block 10: The images it got wrong
-⏱ **@@I9@@**
+⏱ **21:21 – 22:05**
 
 🎙
-> Block 10: The images it got wrong. My favourite block of all. Of the 115 the model got wrong, let's look at the first 10. Run... Look. Image 18: true answer 3, the model said 5, 44% sure. Be honest: when you look at that 3, it looks like a 5 to you too, right? Image 717: a 0, but a loop that leans to one side; the model said 5, 56%. Even a teacher would squint at handwriting like this.
->
-> The list below has the top 2 guesses: in 9 of these 10, the correct answer was the model's second choice! In image 18 it gave 39% to 3. So the model had a doubt; it was close to the correct answer.
->
-> But look at this one: image 449. True 3, the model said 5, 99% sure! I told you at softmax, right? 99% sure doesn't mean correct. Confidence is one thing, correctness is another. Remember this.
+> Block 10: The images it got wrong: my favourite block. The first 10 of the 115 mistakes. Image 18: true 3, the model said 5, 44% sure. Be honest: doesn't that 3 look like a 5 to you too? Image 717: a 0 leaning to one side; the model said 5. Even a teacher would squint at these. In the top-2 list: in 9 of these 10, the correct answer was the model's second choice; in image 18 it gave 39% to 3: so the model had a doubt, you see. But image 449: true 3, the model said 5, 99% sure! I told you at softmax, right? 99% sure doesn't mean correct. Confidence is one thing, correctness another. Remember this.
 
 💻
 - Show **Block 10: The images it got wrong**, run the first cell: 🔁 `Wrong: 115 out of 10000 test images` and the 2 × 5 picture grid. Circle **image 18** ("True 3 | Said 5 (44% sure)") and **image 717** ("True 0 | Said 5"). *(run pause ~3 s)*
@@ -565,12 +485,10 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 - Write ✍️: **"99% sure ≠ correct. Confidence ≠ correctness."** and **"9 of 10: right answer = 2nd guess"** 🔁.
 
 ### I10. Block 11 (optional): Try it yourself + Block 12: Homework, Fashion-MNIST
-⏱ **@@I10@@**
+⏱ **22:05 – 22:47**
 
 🎙
-> Block 11, optional: Try it yourself. In (a) we put the same 1, 0, −1 filter we drew on the board onto a real 7. In the vertical map the 7's slanted stroke lights up; in the horizontal map the bar on top of the 7 lights up: exactly what we saw on the board. In (b), 8 of the 32 feature maps from the first layer of the real trained CNN. These are filters the model learned by itself; nobody designed them. Some catch edges, some catch other patterns. On Day 9 we said "first lines and edges", right? Here it is, in front of your eyes.
->
-> Block 12: Homework, Fashion-MNIST. In Block 2, change one line: fashion_mnist instead of mnist. Runtime → Run all. Same code, same CNN, but now not digits: 10 kinds of clothes and shoes: T-shirt, trouser, sneaker, bag. Will the accuracy be higher or lower than for digits? Which items does it confuse most? Tell me your accuracy in the comments.
+> Block 11, optional: Try it yourself. In (a) we put the board's 1, 0, −1 filter on a real 7: in the vertical map the slanted stroke lights up, in the horizontal map the bar on top. In (b), 8 feature maps from filters the trained model learned by itself: nobody designed them. Some are catching edges: Day 9's "first lines and edges", in front of your eyes. Block 12: Homework, Fashion-MNIST: one line in Block 2, fashion_mnist instead of mnist, then Run all. So, the same CNN, now 10 kinds of clothes and shoes. Higher than digits or lower? What does it confuse? Tell me your accuracy in the comments.
 
 💻
 - Run **Block 11 (optional): Try it yourself** (a): show "Original / Vertical filter + ReLU / Horizontal filter + ReLU" for test image #0. Cursor on the top bar in the horizontal map and the slanted stroke in the vertical map. *(run pause ~2 s)*
@@ -581,12 +499,10 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 - Homework card: **Block 2 → `keras.datasets.fashion_mnist` → Runtime → Run all → comment your test accuracy + the items it confuses**.
 
 ### I11. Why CNNs for images: the comparison card + one doubt
-⏱ **@@I11@@**
+⏱ **22:47 – 23:28**
 
 🎙
-> One last card. With the same 5 epochs, our team also trained a normal Dense network: Flatten, Dense 128, Dense 10. On the test: 97.0%. Our CNN: 98.85%. Does it feel like a small difference? Dense makes about 299 mistakes, the CNN 115: about 2.6 times fewer mistakes. And when every digit is shifted 3 pixels: Dense 49%, CNN 88%. The CNN dropped too; it's not immune, I told you earlier, right? But it's much better. The fix is to also give shifted and rotated copies during training. That's called data augmentation: name only. That's why we use CNNs for images. Write it down.
->
-> One doubt: "Anna, if I take a photo of my own handwriting and give it, will it read it?" Given directly, it'll struggle. In MNIST the digits are centred, 28 by 28, white ink on a black background. You'd have to crop your photo the same way, resize it and flip the colours. Otherwise the accuracy can drop a lot. 99% means "99% on MNIST-style digits".
+> One last card. Our team also trained a normal Dense network with the same 5 epochs: 97.0% on test, about 299 mistakes; the CNN has 115: about 2.6 times fewer. With every digit shifted 3 pixels: Dense 49%, CNN 88%. The CNN dropped too, it's not immune, but it's much better. The usual fix is data augmentation, meaning you also give shifted copies in training: name only. Why CNNs for images? That's why. Write it down. And if you give it a photo of your handwriting, will it read it? Directly, it'll struggle: MNIST digits are centred, 28 by 28, white on black. You'd first crop, resize and flip the colours. 99% means 99% on MNIST-style digits.
 
 🖊
 - Final card ✍️:
@@ -602,10 +518,10 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 ---
 
 ## [J] Comment quiz
-⏱ **@@J@@**
+⏱ **23:28 – 24:03**
 
 🎙
-> Now today's quiz: tell me in the comments. One: a colour photo is 100 by 100 pixels. How many numbers does the computer see? Two: the vertical filter, 1, 0, −1 in every row, on this patch: 1, 0, 0 in every row. What number comes out? Three: max-pool this 2 by 2 block: 2, 7, 0, 5. Four, a trick question: which of these is not deep-learning image classification? (a) Google Lens telling a flower's name, (b) scanning a UPI QR code, (c) an app that looks at a leaf photo and tells the disease. Let's see who gets all four right. And don't forget your Fashion-MNIST accuracy too.
+> Now today's quiz: tell me in the comments. One: a colour photo is 100 by 100 pixels: how many numbers for the computer? Two: the vertical filter, 1, 0, −1 in every row, on this patch: 1, 0, 0 in every row. What number comes out? Three: max-pool this 2 by 2 block: 2, 7, 0, 5. Four, a trick question: which is not deep-learning image classification? (a) Google Lens naming a flower, (b) a UPI QR-code scan, (c) an app that looks at a leaf photo and tells the disease. Let's see who gets all four right. Don't forget your Fashion-MNIST accuracy too.
 
 🖊
 - Quiz card:
@@ -618,10 +534,10 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 ---
 
 ## [K] Video recap
-⏱ **@@K@@**
+⏱ **24:03 – 24:25**
 
 🎙
-> And that's it for the day! In this video we covered computer vision: an image is a grid of numbers, one number for grayscale, three for colour. CNN: filters, feature maps, ReLU, max pooling, softmax, and the machine learns the filters itself. And we built an image classifier ourselves on MNIST: about 99% test accuracy. All of these come in AI, in machine learning, in deep learning, in the branch called computer vision, you see.
+> And that's it for the day! In this video: computer vision, an image is a grid of numbers; CNN: filters, feature maps, ReLU, max pooling, softmax, and the machine learns the filters itself; and we built a classifier ourselves on MNIST, about 99% test accuracy. All of these come in AI, in ML, in deep learning, in the computer vision branch, you see.
 
 🖊
 - Taxonomy line: **AI → ML → Deep Learning → Computer Vision → CNN → MNIST classifier (≈ 99%)**.
@@ -630,16 +546,14 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 ---
 
 ## [L] Outro
-⏱ **@@L@@**
+⏱ **24:25 – 25:06**
 
 🎙
-> Even if convolution isn't completely clear after one watch, don't stress. Take a paper, draw a 6 by 6 grid and calculate one window yourself: it'll click.
+> Even if convolution isn't fully clear in one go, don't stress: draw a 6 by 6 grid on paper and calculate one window yourself; it'll click. So the notes (definitions, drawings, numbers) and the Colab notebook link are both in the description.
 >
-> All the notes (definitions, board drawings, numbers) are going in the description. And the Colab notebook link is in the description too. Run it, do the homework.
+> Today AI learned to see. In the next video: how does AI read text? How does ChatGPT understand our sentence? NLP, RNN, LSTM and Transformers: the T in ChatGPT is Transformer. If you want that video, like this one.
 >
-> Today AI learned to see images. In the next video: how does AI read text? How does ChatGPT understand our sentence? NLP, RNN, LSTM and Transformers: the T in ChatGPT is Transformer. How AI reads text. Whoever wants that video, like this video.
->
-> And it's not late yet: just 12 videos are done. Sit for one day and you can cover them all. Add your friends to this AI Learning Series too. The more support you give, the better the videos we'll bring you.
+> It's not late yet: just 12 videos, and you can cover them if you sit for one day. Add your friends to the AI Learning Series too.
 >
 > Thank you so much for watching, signing off, Tech Boy Deepak.
 
