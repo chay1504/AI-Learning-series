@@ -5,8 +5,8 @@
 |---|---|---|---|---|
 | **Part 1: Inside a Neural Network** | Day 9 | 21–24 | What is deep learning · artificial neuron · layers · weights & biases | ✅ Scripted (`scripts/video-A-…`) |
 | **Part 2: How a Neural Network Learns** | Day 10 | 25–28 | Activation (ReLU, sigmoid) · loss · gradient descent · backpropagation | ✅ Scripted (`scripts/video-B-…`) |
-| **Part 3: Train Your First Neural Network** | Day 11 | 29–30 | Epochs, batches, learning rate · build and train a network in Keras (Colab) | 🛠 In progress (`scripts/video-C-…`, `notebooks/part-3-…`) |
-| **Part 4: How AI Sees Images** | Day 12 | 31, 32, 35 | Computer vision · CNN (filters, feature maps, pooling) · build an image classifier (MNIST, Colab) | 🛠 In progress (`scripts/video-D-…`, `notebooks/part-4-…`) |
+| **Part 3: Train Your First Neural Network** | Day 11 | 29–30 | Epochs, batches, learning rate · build and train a network in Keras (Colab) | ✅ Scripted & reviewed (`scripts/video-C-…`, `notebooks/part-3-…`) |
+| **Part 4: How AI Sees Images** | Day 12 | 31, 32, 35 | Computer vision · CNN (filters, feature maps, pooling) · build an image classifier (MNIST, Colab) | ✅ Scripted & reviewed (`scripts/video-D-…`, `notebooks/part-4-…`) |
 | Part 5: How AI Reads Text (suggested) | Day 13 | 33–34 | NLP · RNN vs LSTM vs Transformer, which leads into the LLM phase | ⏳ Not scripted yet |
 
 ### Why the split looks like this
