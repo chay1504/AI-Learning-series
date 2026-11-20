@@ -2,7 +2,7 @@
 
 **Series:** AI Learning Series, **Day 12** on the channel (Deep Learning Part 4). This covers plan Day 31 (what is computer vision?), Day 32 (what is a CNN? filters, feature maps, pooling) and Day 35 (build an image classifier: MNIST in Colab). Plan Days 33–34 (NLP; RNN vs LSTM vs Transformer) are the next part.
 **Previous episodes:** Day 9 "Inside a Neural Network" · Day 10 "How a Neural Network Learns" · Day 11 "Train Your First Neural Network" (Keras, 9-knob network).
-**Runtime:** ~25:06 (≈ 25.1 min): 4,295 English-equivalent spoken words at 175 wpm (24:33) plus ~33 s of Colab run pauses. Allow ~27 min with drawing pauses.
+**Runtime:** ~25:43 (≈ 25.7 min): 4,394 English-equivalent spoken words at 175 wpm (25:07) plus ~36 s of Colab run pauses. Allow ~27 min with drawing pauses.
 **Companion files:** `script-english.md` (the same script in English, for checking content) · `production-notes.md` (titles, description, drawings list, Colab prep, quiz answers, accuracy notes) · notebook: `notebooks/part-4-build-an-image-classifier.ipynb`
 
 **Legend**
@@ -48,26 +48,29 @@
 ---
 
 ## [B] Recap of Days 9–11 + catch-up
-⏱ **00:47 – 02:01**
+⏱ **00:47 – 02:20**
 
 🎙
 > సో ఫస్ట్ ఒక్కసారి recap చేసుకుందాం. Day 9 లో neuron చూసినం — inputs × weights + bias, తర్వాత activation, తర్వాత output. Layers, and మన చిన్న network: study hours, sleep hours లోపలికి, రెండు hidden neurons, ఒక output — 9 knobs. సో Day 10 లో అది ఎట్లా నేర్చుకుంటదో చూసినం — ReLU, sigmoid, loss, gradient descent, backprop, and ఆ loop: forward → loss → backprop → update → repeat.
 >
-> Day 11 లో అదే 9-knob network ని Keras లో build చేసినం. model.summary లో 9 parameters కనిపించినాయి కదా. Compile, fit — 320 students, batch size 32, ఒక epoch కి 10 batches, 100 epochs — అంటే 1,000 updates అన్నమాట. Model చూడని test students మీద 90% వచ్చింది. And Sita — మనం guess చేసిన knobs తో 38% అన్నది కదా, trained network 95% pass అని చెప్పింది.
+> Day 11 లో epoch, batch, learning rate, overfitting చూసినం — validation అంటే mock test, test అంటే final exam. And అదే 9-knob network ని Keras లో build చేసినం. model.summary లో 9 parameters కనిపించినాయి కదా. 320 students, batch size 32, 100 epochs — అంటే 1,000 updates అన్నమాట. Model చూడని test students మీద 90% వచ్చింది. And Sita — మనం guess చేసిన knobs తో 38% అన్నది కదా, trained network 95% pass అని చెప్పింది.
 >
-> లాస్ట్ వీడియో end లో ఒక question తో వదిలేసినం కదా — ఇప్పటిదాకా numbers, మరి AI ఒక photo ని ఎట్లా చూస్తది? And Day 9 లో నేను ఒక బొమ్మ గీసిన — answer sheet photo network లోకి వెళ్తది, network దానంతట అదే features నేర్చుకుంటది: ఫస్ట్ lines, edges, తర్వాత letters, words. అప్పుడు దాన్ని ఒక black box లాగా వదిలేసినం. సో ఈరోజు ఆ box ని open చేస్తున్నాం. Day 9 నుంచి 11 వరకు చూడకుంటే ఒక్కసారి చూసి రండి — ప్రతి concept ఈరోజు మళ్ళీ వస్తది.
+> లాస్ట్ quiz answers fast గా చెప్తా. ఒకటి: 60 ÷ 20 = 3 batches, 10 epochs — 30 updates. రెండు: అది overfitting, బట్టీ — epoch 6 దగ్గరే ఆపేయాలి. మూడు: Dense 3 అయితే 6 + 3 + 3 + 1 = 13 params.
+>
+> లాస్ట్ వీడియో end లో ఒక question తో వదిలేసినం కదా — ఇప్పటిదాకా numbers, మరి AI ఒక photo ని ఎట్లా చూస్తది? And Day 9 లో నేను ఒక బొమ్మ గీసిన — answer sheet photo network లోకి వెళ్తది, network దానంతట అదే features నేర్చుకుంటది: ఫస్ట్ lines, edges, తర్వాత letters, words. అది ఎట్లా చేస్తదో అప్పుడు చూడలేదు. సో ఈరోజు ఆ box ని open చేస్తున్నాం. Day 9 నుంచి 11 వరకు చూడకుంటే ఒక్కసారి చూసి రండి — ప్రతి concept ఈరోజు మళ్ళీ వస్తది.
 
 🖊
 1. One neuron doodle: **inputs × weights + bias → activation → output**.
 2. The 9-knob network: **S, L → h1, h2 → output**, with "9 knobs".
 3. The Day 10 loop in a corner: **Forward → Loss → Backprop → Update → repeat ↺**.
-4. Day 11 sticky note: **Keras · 320 students · batch 32 → 10 batches/epoch · 100 epochs = 1,000 updates · test 90% · Sita 38% → 95% ✔**.
+4. Day 11 sticky note: **epoch · batch · learning rate · overfitting (validation = mock test, test = final exam) · Keras · 320 students · batch 32 → 10 batches/epoch · 100 epochs = 1,000 updates · test 90% · Sita 38% → 95% ✔**.
+   Quick card: Day 11 quiz answers **30 updates · overfitting → stop near epoch 6 · 13 params**.
 5. Flash Day 9's board: **answer-sheet photo → [network] → Pass**, with "edges → letters → words". Draw a big box around the network labelled **"black box → TODAY we open it 🔓"**.
 
 ---
 
 ## [C] Agenda
-⏱ **02:01 – 02:21**
+⏱ **02:20 – 02:39**
 
 🎙
 > సో ఈరోజు ఏమేం చూడబోతున్నాం అంటే — pen తో రాస్తున్నా. ఫస్ట్ వచ్చేసి computer vision — computer కి image ఎట్లా కనిపిస్తది. సెకండ్ వచ్చేసి CNN — Convolutional Neural Network: filters, feature maps, pooling. ఇదే main topic. థర్డ్ వచ్చేసి మనమే Google Colab లో ఒక image classifier build చేద్దాం — handwritten digits చదివే model.
@@ -82,7 +85,7 @@
 ---
 
 ## [E] Reassurance + stakes + notes
-⏱ **02:21 – 02:53**
+⏱ **02:39 – 03:12**
 
 🎙
 > చాలా మంది "ఏంటన్నా, convolution, pooling… పేర్లే భయంగా ఉన్నాయి" అనుకుంటారు కదా. అస్సలు భయపడకండి. ఈరోజు కొత్త maths ఏం లేదు — 9 numbers multiply చేసి add చేస్తాం, అంతే సింపుల్. Class 10 student calculator లో check చేయొచ్చు. And ఒక secret — CNN లో కొత్తది దాదాపు ఏం లేదు. Weights, bias, ReLU, loss, backprop — అన్నీ మీకు ఆల్రెడీ తెలుసు. Google Lens అయినా, X-ray screening tools అయినా — images తో పని చేసే చాలా AI ఈ ideas మీదే build అయింది. సో చాలా important. అందరూ notes రాసుకోండి.
@@ -95,7 +98,7 @@
 ## [F] CONCEPT 1: Computer vision
 
 ### F1. Announce + definition + name unpack
-⏱ **02:53 – 03:32**
+⏱ **03:12 – 03:51**
 
 🎙
 > సో ఫస్ట్ topic — computer vision. Definition screen మీద ఉంది, రాసుకోండి.
@@ -110,10 +113,10 @@
 3. Underline the three phrases: **what · where · what it says**.
 
 ### F2. An image is a grid of numbers (drawing first)
-⏱ **03:32 – 04:39**
+⏱ **03:51 – 04:58**
 
 🎙
-> ఇప్పుడు ఇక్కడ most important point. Computer కి photo ఎట్లా కనిపిస్తది? మనకి కనిపించినట్టే ఆ? No. కేవలం numbers — ఒక numbers table అన్నమాట. Board చూడండి — ఒక చిన్న 6 by 6 grid, 36 squares, మన school graph book లాగా. ఇప్పుడు కొన్ని squares నింపి ఒక "1" రాస్తా — పైన flag, మధ్యలో నిలువు గీత, కింద base. ఈ ఒక్కో చిన్న square నే pixel అంటాం అన్నమాట — picture element. And ప్రతి pixel ఒక number: black 0, full white 255, మధ్యలో grey. ఈరోజు dataset లో black background మీద white ink — సో ink 255, ఖాళీ 0. Left side మనకి కనిపించేది, right side computer కి కనిపించేది. Definition రాసుకోండి:
+> ఇప్పుడు ఇక్కడ most important point. Computer కి photo ఎట్లా కనిపిస్తది? మనకి కనిపించినట్టే ఆ? No. జస్ట్ numbers ఏ — ఒక numbers table అన్నమాట. Board చూడండి — ఒక చిన్న 6 by 6 grid, 36 squares, మన school graph book లాగా. ఇప్పుడు కొన్ని squares నింపి ఒక "1" రాస్తా — పైన flag, మధ్యలో నిలువు గీత, కింద base. ఈ ఒక్కో చిన్న square నే pixel అంటాం అన్నమాట — picture element. And ప్రతి pixel ఒక number: black 0, full white 255, మధ్యలో grey. ఈరోజు dataset లో black background మీద white ink — సో ink 255, ఖాళీ 0. Left side మనకి కనిపించేది, right side computer కి కనిపించేది. Definition రాసుకోండి:
 >
 > *"A digital image is a grid of tiny squares called pixels. In a grayscale image, each pixel is one number from 0 (black) to 255 (white)."*
 >
@@ -135,7 +138,7 @@
 4. Definition card (English). ✍️
 
 ### F3. Colour = 3 numbers + the size ladder
-⏱ **04:39 – 05:10**
+⏱ **04:58 – 05:29**
 
 🎙
 > సో మరి colour photo? ప్రతి pixel కి మూడు numbers — Red, Green, Blue, RGB. మీ phone screen లో ప్రతి pixel మూడు చిన్న lights. Red 255, green 0, blue 0 — pure red. మూడూ 255 — white. మూడూ 0 — black. రాసుకోండి: grayscale అంటే pixel కి ఒక number, colour అంటే మూడు. వీటినే channels అంటాం అన్నమాట. ఇక size — మన grid 36 numbers. ఈరోజు dataset లో 28 × 28 = 784. And Day 9 phone photo — 12 megapixels × 3 — ఒక్క photo కి దాదాపు 3.6 కోట్ల numbers!
@@ -146,12 +149,12 @@
 3. Size ladder: **6 × 6 = 36 → 28 × 28 = 784 → 12 MP photo × 3 ≈ 3.6 crore numbers**.
 
 ### F4. Three vision tasks + where we see them + "not always deep learning"
-⏱ **05:10 – 06:13**
+⏱ **05:29 – 06:33**
 
 🎙
 > Computer vision లో మూడు main పనులు — అవే మూడు phrases. ఫస్ట్ వన్ వచ్చేసి image classification — మొత్తం image కి ఒక్క label, "ఈ digit 7". Category predict చేసేదే classification — Day 6 లో చూసినం కదా. 0 నుంచి 9 అంటే 10 categories — multi-class. సెకండ్ వన్ వచ్చేసి object detection — ప్రతి object చుట్టూ ఒక box, traffic camera number plate చుట్టూ box వేసినట్టు. థర్డ్ వన్ వచ్చేసి segmentation — ప్రతి pixel కి label: road, మనిషి, sky. సో ఈరోజు మనం చేసేది classification అన్నమాట.
 >
-> రోజూ చూసేవి — Google Lens flower పేరు చెప్తది. Hyderabad traffic cameras number plates చదువుతాయి, challan పంపే ముందు police verify చేస్తారు. Leaf photo చూసి farmers కి pest, disease చెప్పే apps ఉన్నాయి. కానీ కన్ఫ్యూజ్ అవ్వద్దు — computer vision అంటే ఎప్పుడూ deep learning కాదు. UPI QR code scan కూడా camera, image ఏ — కానీ అది fixed rules తో చదువుతారు, model train చేయాల్సిన పని లేదు. అంటే rules రాయలేనంత variety ఉన్నప్పుడు deep learning కావాలి — handwriting, faces, leaves, X-rays.
+> మనం రోజూ చూసేవి చెప్తా — Google Lens flower పేరు చెప్తది. Hyderabad traffic cameras number plates చదువుతాయి, challan పంపే ముందు police verify చేస్తారు. Leaf photo చూసి farmers కి pest, disease చెప్పే apps ఉన్నాయి. కానీ కన్ఫ్యూజ్ అవ్వద్దు — computer vision అంటే ఎప్పుడూ deep learning కాదు. UPI QR code scan కూడా camera, image ఏ — కానీ అది fixed rules తో చదువుతారు, model train చేయాల్సిన పని లేదు. అంటే rules రాయలేనంత variety ఉన్నప్పుడు deep learning కావాలి — handwriting, faces, leaves, X-rays.
 
 🖊
 1. Three small boxes side by side (✍️ write the three names):
@@ -163,7 +166,7 @@
 3. QR code icon with a red stamp: **"Camera ✔, deep learning ✘ (fixed rules)"**. Next to it: **"DL = when rules are impossible to write: handwriting, faces, leaves"**.
 
 ### F5. Why a plain Dense network struggles: three fingers
-⏱ **06:13 – 07:24**
+⏱ **06:33 – 07:47**
 
 🎙
 > ఇప్పుడు doubt — "అన్నా, image అంటే numbers ఏ కదా. ఈ 784 numbers ని Day 11 Dense network కి ఇస్తే సరిపోదా?" పని చేస్తది, కానీ మూడు problems ఉన్నాయి. మూడు fingers — రాసుకోండి.
@@ -172,7 +175,7 @@
 >
 > సెకండ్ finger — neighbours పోతారు. Dense కి ఇవ్వాలి అంటే grid ని ఒక్క పొడవాటి line లాగా పరచాలి — row తర్వాత row. దీన్నే flatten అంటాం. ఈ pixel, దాని కింద ఉండే pixel — ఒకే గీత మీద ఉన్నాయి. కానీ line లో 28 places దూరం! సో Dense కి అవి neighbours అని తెలియదు. కానీ images లో meaning అంతా neighbours లోనే ఉంటది.
 >
-> థర్డ్ finger — digit కొంచెం జరిగితే. 7 ని 3 pixels right కి జరిపితే మనకి same 7, Dense కి దాదాపు కొత్త pattern. మా team test చేసింది: normal digits మీద 97% చెప్పిన Dense network, ప్రతి digit ని 3 pixels జరిపితే 49% కి పడిపోయింది! సో ఈ మూడు problems కి answer ఏంటి అంటే — మన next topic.
+> థర్డ్ finger — digit కొంచెం జరిగితే. 7 ని 3 pixels right కి జరిపితే మనకి same 7, Dense కి దాదాపు కొత్త pattern. Notebook చివర్లో Block 13 లో మీరే check చేయొచ్చు: normal digits మీద 97% వచ్చిన Dense network, ప్రతి digit ని 3 pixels జరిపితే 49% కి పడిపోయింది! సో ఈ మూడు problems కి answer ఏంటి అంటే — మన next topic.
 
 🖊
 Draw three fingers ✋ and write one problem per finger (✍️):
@@ -181,7 +184,7 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 3. **Shifted digit = new pattern:** a "7", and the same "7" moved 3 squares right. Caption: **"Dense: 97% → 49% when shifted 3 pixels"**.
 
 ### F6. Doubt + one-line recap
-⏱ **07:24 – 07:43**
+⏱ **07:47 – 08:06**
 
 🎙
 > ఇంకో doubt — face unlock image classification ఆ? Strictly కాదు — అది verification: "ఈ face register చేసిన face ఒకటేనా?" Neural networks వాడుతారు, కానీ పని వేరు. సింపుల్ — numbers grid లో patterns కనిపెట్టి, image లో ఏముందో, ఎక్కడ ఉందో, ఏం రాసి ఉందో అర్థం చేసుకునేదే computer vision.
@@ -195,7 +198,7 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 ## [H] CONCEPT 2: CNN (Convolutional Neural Network)
 
 ### H1. Announce + definition + name unpack
-⏱ **07:43 – 08:26**
+⏱ **08:06 – 08:49**
 
 🎙
 > సో computer vision అయిపోయింది. ఇప్పుడు main concept — CNN, Convolutional Neural Network. Definition రాసుకోండి.
@@ -210,7 +213,7 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 3. Underline: **small learnable filters · local patterns · stacks layers**.
 
 ### H2. Filter = the teacher's 3 × 3 window (and it is our old neuron)
-⏱ **08:26 – 09:35**
+⏱ **08:49 – 09:59**
 
 🎙
 > మరి filter అంటే? రాసుకోండి:
@@ -227,7 +230,7 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 5. Chip: **"Teacher knows the pattern; a CNN filter LEARNS it."**
 
 ### [G] Mid-roll CTA
-⏱ **09:35 – 10:00**
+⏱ **09:59 – 10:23**
 
 🎙
 > వీడియో మధ్యలో interrupt చేస్తున్నందుకు sorry. ఒక్క second pause చేసి like చేయండి. Three dots క్లిక్ చేసి hype చేయండి — మీలాంటి ఇంకా చాలా మంది beginners కి reach అవుతది. ఈ series చూసేవాళ్ళలో చాలా మంది ఇంకా subscribe చేయలేదు. ఈరోజు Colab notebook ని మా team ముందే test చేసింది, మీకు errors రాకుండా — మీ like, subscribe మాకు అదే energy ఇస్తది. ప్లీజ్ support చేయండి. సో మళ్ళీ filter దగ్గరికి వద్దాం.
@@ -238,7 +241,7 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 > **Note:** his usual stat is "90% of viewers are not subscribed". Only say a number if YouTube Studio supports it on the day of recording; otherwise keep the generic line above.
 
 ### H3. The worked convolution: one window, then the whole feature map (the one worked example)
-⏱ **10:00 – 12:11**
+⏱ **10:23 – 12:35**
 
 🎙
 > Maths గురించి టెన్షన్ పడకండి — multiply and add మాత్రమే. స్లో స్లోగా చూద్దాం. మన "1" grid తీసుకుందాం. Simple గా ఉండడానికి 255 ని 1 అని రాస్తున్నా — ink 1, ఖాళీ 0. అంటే 255 తో divide చేసినం; build లో కూడా ఇదే చేస్తాం. ఇప్పుడు ఒక filter — నేనే choose చేస్తున్నా: మూడు rows, ప్రతి row లో 1, 0, −1. "Left bright, right dark" ఉంటే పెద్ద number ఇస్తది — అంటే నిలువు గీత right edge ని పట్టుకుంటది. దీన్నే vertical edge filter అంటాం అన్నమాట.
@@ -283,8 +286,10 @@ Draw three fingers ✋ and write one problem per finger (✍️):
    Highlight the column of 3s: **"vertical edge here, top to bottom"**. Note on the −3 column: **"opposite edge (needs a flipped filter)"**.
 6. Definition card (English). ✍️
 
+> **Note (keep only if true):** the two lines "when I first studied CNNs I didn't understand feature maps… it clicked when I drew a grid on paper" are a personal claim. Keep them only if this really happened to him; otherwise cut them (about −8 s). See production-notes §8.3.
+
 ### H4. ReLU + max pooling
-⏱ **12:11 – 13:15**
+⏱ **12:35 – 13:38**
 
 🎙
 > నెక్స్ట్ — ఈ map మీద ReLU, Day 10 లో చూసినం: negative అయితే 0. సో −3 లు అన్నీ 0 — "ఇక్కడ pattern లేదు". Sita h2 ని off చేసిన అదే ReLU. ఇప్పుడు pooling. రాసుకోండి:
@@ -307,12 +312,12 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 5. Chip: **MAX, not average**.
 
 ### H5. Different filters see different things + filters are LEARNED + parameter sharing
-⏱ **13:15 – 14:43**
+⏱ **13:38 – 15:08**
 
 🎙
-> ఇప్పుడు ఇదే filter ని పక్కకి తిప్పితే — 1 1 1, 0 0 0, −1 −1 −1 — horizontal edge filter. మన "1" మీద pool చేసినాక దాదాపు అంతా 0: 1, 0, 0, 0 — "1" లో అడ్డ గీతలు లేవు. "7" మీద — map ఫస్ట్ row 3, 2, 2, 1 — పైన అడ్డ గీత! సో 1 vertical detector ని వెలిగిస్తది, 7 horizontal detector ని. Detectors కలిపితే digits ని వేరు చేయొచ్చు కదా.
+> ఇప్పుడు ఇదే filter ని పక్కకి తిప్పితే — 1 1 1, 0 0 0, −1 −1 −1 — horizontal edge filter. మన "1" మీద pool చేసినాక దాదాపు అంతా 0: 1, 0, 0, 0 — "1" అంటే ముఖ్యంగా నిలువు గీత ఏ కదా. "7" మీద — map ఫస్ట్ row 3, 2, 2, 1 — పైన అడ్డ గీత! సో 1 vertical detector ని వెలిగిస్తది, 7 horizontal detector ని. Detectors కలిపితే digits ని వేరు చేయొచ్చు కదా.
 >
-> ఇప్పుడు చాలా చాలా important point, రాసుకోండి: real CNN లో filters ని ఎవరూ design చేయరు. 1, 0, −1 నేను class కోసం మాత్రమే choose చేసిన — Day 7 లో w = 0.8 assume చేసినట్టు. Real filters random తో start అవుతాయి, backprop వాటిని మిగతా weights లాగే మారుస్తది. ఏ patterns వెతకాలో network ఏ నేర్చుకుంటది — Day 9 లో "features ని దానంతట అదే నేర్చుకుంటది" అన్నాం కదా, దాని అర్థం ఇదే.
+> ఇప్పుడు చాలా చాలా important point, రాసుకోండి: real CNN లో filters ని ఎవరూ design చేయరు. 1, 0, −1 నేను class కోసం మాత్రమే choose చేసిన — Day 7 లో w = 0.8 assume చేసినట్టు. Real filters random తో start అవుతాయి, backprop, gradient descent కలిసి వాటిని మిగతా weights లాగే మారుస్తాయి. ఏ patterns వెతకాలో network ఏ నేర్చుకుంటది — Day 9 లో "features ని దానంతట అదే నేర్చుకుంటది" అన్నాం కదా, దాని అర్థం ఇదే.
 >
 > And ఒక filter = 9 weights + 1 bias = 10 numbers, image లో ప్రతి position లో అవే — ఎందుకంటే నిలువు గీత ఎక్కడ ఉన్నా నిలువు గీత ఏ. Page మొత్తం ఒకే rubber stamp లాగా. దీన్నే parameter sharing అంటాం అన్నమాట. మన ఫస్ట్ layer లో 32 filters — 320 parameters. Dense లో 784 pixels నుంచి 32 neurons కే 25,120. ఫస్ట్ finger solve. Filter ఎప్పుడూ neighbours ని కలిపి చూస్తది — సెకండ్ finger solve. Same filter అన్ని చోట్లా వెతుకుతది కాబట్టి జరిగిన గీత కూడా దొరుకుతది, pooling కొంచెం help — థర్డ్ finger దాదాపు solve.
 
@@ -321,16 +326,16 @@ Draw three fingers ✋ and write one problem per finger (✍️):
    - On the **"1"** → pooled **[1 0 / 0 0]** ("almost nothing")
    - On a **"7"** (show the tiny 6 × 6 "7") → map first row **3 2 2 1** ("the top bar!") → pooled **[3 2 / 0 1]**
    Caption: **"1 lights up the vertical detector · 7 lights up the horizontal detector"**.
-2. Big boxed note ✍️: **Filters are LEARNED, not hand-designed. Start random → backprop updates them.** Small: *"Board filter = for class only (like w = 0.8 on Day 7)"*.
+2. Big boxed note ✍️: **Filters are LEARNED, not hand-designed. Start random → backprop + gradient descent update them.** Small: *"Board filter = for class only (like w = 0.8 on Day 7)"*.
 3. Rubber-stamp doodle: one stamp pressed all over a page → **"same 10 numbers everywhere = parameter sharing"**.
 4. Card: **1 filter = 9 + 1 = 10 · 32 filters = 320 · Dense 784 → 32 = 25,120**.
 5. Go back to the three fingers and tick each: **✔ fewer weights · ✔ neighbours kept · ✔ (mostly) finds it anywhere**.
 
 ### H6. The full CNN stack
-⏱ **14:43 – 15:33**
+⏱ **15:08 – 15:58**
 
 🎙
-> ఇప్పుడు మొత్తం CNN ఒక్క picture లో — ఈరోజు most important drawing. రాసుకోండి. Image → Conv + ReLU → Pool → Conv + ReLU → Pool → Flatten → Dense → Softmax → answer. Factory line లాగా చదవండి. ఫస్ట్ Conv — చిన్న edges పట్టుకుంటది. Pool — shrink. సెకండ్ Conv — edges కలిపి shapes: మూలలు, loops, 7 పైన అడ్డ గీత. మళ్ళీ Pool. సో Flatten ఇప్పుడు problem కాదు, ముఖ్యమైన features ఆల్రెడీ బయటకి వచ్చినాయి. తర్వాత Dense — మన Day 9 network — "పైన loop, right లో నిలువు గీత — ఇది 9" అని decide చేస్తది. Edges → shapes → which digit. Day 9 లో దూరం నుంచి వచ్చే relative example లాగా simple నుంచి complex — ఆ idea కి మాత్రమే, CNN ఫస్ట్ చిన్న edges చూస్తది. And real filters కి "loop detector" లాంటి neat పేర్లు చాలాసార్లు ఉండవు.
+> ఇప్పుడు మొత్తం CNN ఒక్క picture లో — ఈరోజు most important drawing. రాసుకోండి. Image → Conv + ReLU → Pool → Conv + ReLU → Pool → Flatten → Dense → Softmax → answer. Factory line లాగా చదవండి. ఫస్ట్ Conv — చిన్న edges పట్టుకుంటది. Pool — shrink. సెకండ్ Conv — edges కలిపి shapes: మూలలు, loops, 7 పైన అడ్డ గీత. మళ్ళీ Pool. సో Flatten ఇప్పుడు problem కాదు, ముఖ్యమైన features ఆల్రెడీ బయటకి వచ్చినాయి. తర్వాత Dense — మన Day 9 network — "పైన loop, right లో నిలువు గీత — ఇది 9" అని decide చేస్తది. Edges → shapes → which digit. Day 9 లో దూరం నుంచి వచ్చే relative example లాగా simple నుంచి complex — ఆ idea వరకే, CNN ఫస్ట్ చిన్న edges చూస్తది. And real filters కి "loop detector" లాంటి neat పేర్లు చాలాసార్లు ఉండవు.
 
 🖊
 - Big pipeline across the bottom of the board (keep it there for the build):
@@ -339,7 +344,7 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 - Chip: **"Analogy: simple → complex only. CNN sees small edges first. Real filters rarely have neat names."**
 
 ### H7. Softmax: percentages that add to 100
-⏱ **15:33 – 16:32**
+⏱ **15:58 – 16:57**
 
 🎙
 > Last box — softmax. Day 10 లో పేరు మాత్రమే చెప్పిన. రాసుకోండి:
@@ -364,10 +369,10 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 5. Chip: **"Softmax gives %s · picking the biggest = a separate step · 99% sure ≠ always right"**.
 
 ### H8. Same learning loop + doubts + one-line recap
-⏱ **16:32 – 17:10**
+⏱ **16:57 – 17:37**
 
 🎙
-> Doubt — "అన్నా, CNN training ఏదైనా కొత్త method ఆ?" కాదు! అదే Day 10 loop — forward, loss, backprop, update, repeat. అదే log loss — true digit "1", model 76.6% ఇస్తే loss 0.27. Backprop ఆ blame ని filters లో ఉండే 9 numbers కి కూడా పంపుతది, gradient descent వాటిని కొంచెం మారుస్తది. సో ఎట్లా నేర్చుకుంటది — అది కొత్త కాదు. Neurons ఎట్లా connect అయి ఉంటాయి — అదొక్కటే కొత్త. Digit ఎక్కడ ఉన్నా CNN పట్టించుకోదా? పూర్తిగా కాదు — real numbers build తర్వాత. సింపుల్ — filters slide చేసి patterns కనిపెట్టి, pool తో shrink చేసి, layers stack చేసి, softmax తో percentages ఇచ్చేదే CNN. అంతే సింపుల్.
+> Doubt — "అన్నా, CNN training ఏదైనా కొత్త method ఆ?" కాదు! అదే Day 10 loop — forward, loss, backprop, update, repeat. అదే log loss — true digit "1", model 76.6% ఇస్తే loss 0.27. Backprop ఆ blame ని filters లో ఉండే numbers కి కూడా పంపుతది, gradient descent వాటిని కొంచెం మారుస్తది. ఇది రాసుకోండి: ఎట్లా నేర్చుకుంటది — అది కొత్త కాదు. Neurons ఎట్లా connect అయి ఉంటాయి — అదొక్కటే కొత్త. "అన్నా, digit ఎక్కడ ఉన్నా CNN పట్టుకుంటదా?" పూర్తిగా కాదు — real numbers build అయినాక చూపిస్తా. సింపుల్ — filters slide చేసి patterns కనిపెట్టి, pool తో shrink చేసి, layers stack చేసి, softmax తో percentages ఇచ్చేదే CNN. అంతే సింపుల్.
 
 🖊
 1. Point to the Day 10 loop in the corner: **Forward → Loss → Backprop → Update ↺** and add an arrow from "Backprop" into the filter drawing: **"blame reaches the filters too"**.
@@ -380,7 +385,7 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 ## [I] CONCEPT 3: Build an image classifier (MNIST in Colab)
 
 ### I1. Open the notebook + the dataset
-⏱ **17:10 – 17:44**
+⏱ **17:37 – 18:12**
 
 🎙
 > సో theory అయిపోయింది. ఇప్పుడు నాకు ఇష్టమైన part — build. Notebook link description లో ఉంది, నాతో పాటు run చేయండి. Line by line code కాదు — ప్రతి block ఏం చేస్తదో చెప్పి, board మీద ఎక్కడ ఉందో చూపిస్తా. సో dataset పేరు వచ్చేసి MNIST: 70,000 handwritten digits, 60,000 training కి, 10,000 testing కి. Computer vision లో "hello world" — answer sheet marks, postal cover మీద PIN code చదవడానికి ఒక simple version అన్నమాట. Runtime → Change runtime type: normal CPU సరిపోతది, training కి కొన్ని నిమిషాలు; T4 GPU అయితే ఇంకా fast.
@@ -394,7 +399,7 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 - Put the 7-box flow on the side of the board (tick each as it runs): **Load & look → ÷255 → Build CNN → Compile + Train → Test → Predict → Mistakes**.
 
 ### I2. Block 1: Setup + Block 2: Load the dataset
-⏱ **17:44 – 18:14**
+⏱ **18:12 – 18:42**
 
 🎙
 > Block 1: Setup — numbers కి NumPy, బొమ్మలకి Matplotlib, and Keras — Day 11 లో వాడిందే. Seed fix చేస్తున్నాం, starting weights ప్రతిసారి same రావడానికి. Run. Block 2: Load the dataset — MNIST Keras లోనే ఉంది. 60,000 training images, 28 by 28; 10,000 test images; ప్రతి image కి label — మన answer key. అంటే features pixels, label digit.
@@ -407,7 +412,7 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 - Tick box 1 "Load & look". Write **features = pixels · label = digit (answer key)**.
 
 ### I3. Block 3: An image is just a grid of numbers
-⏱ **18:14 – 18:37**
+⏱ **18:42 – 19:05**
 
 🎙
 > Block 3: "An image is just a grid of numbers". ఫస్ట్ training image numbers లాగా. Pause చేసి చూడండి — చుట్టూ 0 లు, మధ్యలో 253, 255 లాంటి పెద్ద numbers. కళ్ళతో follow చేస్తే… ఒక 5 కనిపిస్తది కదా! Label కూడా 5. Board మీద 6 by 6, ఇక్కడ 28 by 28. కింద 18 images బొమ్మల్లాగా.
@@ -420,7 +425,7 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 - Point from the screen to the board's 6 × 6 "1": **"same idea, 28 × 28 = 784 numbers"**.
 
 ### I4. Block 4: Prepare the data
-⏱ **18:37 – 18:56**
+⏱ **19:05 – 19:24**
 
 🎙
 > Block 4: Prepare the data — 255 తో divide, అన్నీ 0 నుంచి 1 మధ్యలో, board మీద చేసినట్టే కదా; చిన్న numbers తో learning smooth. And ఒక channel add — grayscale కి 1, colour అయితే 3. New shape: 60,000, 28, 28, 1 — min 0, max 1.
@@ -432,7 +437,7 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 - Tick box 2 "÷255". Point to the board's "÷ 255 → 0/1" grid.
 
 ### I5. Block 5: Build a small CNN
-⏱ **18:56 – 19:38**
+⏱ **19:24 – 20:05**
 
 🎙
 > Block 5: Build a small CNN — ఈ block = board మీద గీసిన CNN stack! పై నుంచి కిందకి: Conv2D 32, 3 by 3 — మన filter layer, కానీ 32 filters, అన్నీ random తో start, relu తో. MaxPooling2D 2 by 2 — మన pooling. మళ్ళీ Conv2D 64, pooling. Flatten. Dense 64 — Day 9 layer. Dense 10, softmax — 10 percentages. Sizes: 28 నుంచి 26 — board మీద 6 నుంచి 4 అయినట్టు — తర్వాత 13, 11, 5. Run చేసి model.summary — Day 11 లో 9 parameters, ఇక్కడ 1,21,930. And దాదాపు 84%, అంటే 1,02,464, ఆ ఒక్క Dense 64 లోనే! రెండు Conv layers కలిపి 18,816 మాత్రమే — filters share అవుతాయి కదా.
@@ -444,12 +449,13 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 🖊
 - Tick box 3 "Build CNN". Under the board pipeline write the real sizes: **28×28 → 26×26×32 → 13×13×32 → 11×11×64 → 5×5×64 → 1,600 → 64 → 10**.
 - Card: **121,930 params · Dense(64) = 102,464 (84%) · both Conv layers = 18,816**.
+- Small footnote on the card (don't read it out): *2nd Conv: each filter looks at all 32 maps → 3 × 3 × 32 + 1 = 289 numbers · × 64 filters = 18,496 · + 320 = 18,816*.
 
 ### I6. Block 6: Compile + Block 7: Train
-⏱ **19:38 – 20:37**
+⏱ **20:05 – 21:10**
 
 🎙
-> Block 6: Compile — Day 11 లాగే. Optimizer adam — Day 10 లో పేరు చెప్పిన smarter gradient descent. Loss — sparse categorical crossentropy. పెద్ద పేరు, భయపడకండి — Day 10 log loss, 10 classes కి: −ln(correct digit కి ఇచ్చిన percentage). "Sparse" అంటే labels 7 లాంటి plain numbers, అంతే. Metric accuracy. Block 7: Train — model.fit, మన Day 10 loop. 5 epochs, batch size 128, validation split 0.1 — 6,000 images ని mock test కోసం పక్కన పెడ్తది. సో 54,000 ÷ 128 — ఒక epoch కి 422 batches, అదే 422/422 — ఈ లెక్క రాసుకోండి. Run చేస్తున్నా… Epoch 1 — accuracy దాదాపు 92.8%. Epoch 5 — 99.1%. Loss 0.25 నుంచి 0.03. Validation — నేర్చుకోని images మీద — దాదాపు 99%. Day 11 లో 100 epochs కావాల్సి వచ్చింది, ఇక్కడ 5 చాలు — ఎందుకంటే ఒక్కో epoch లోనే 422 updates అన్నమాట.
+> Block 6: Compile — Day 11 లాగే. Optimizer adam — Day 10 లో పేరు చెప్పిన smarter gradient descent. Loss — sparse categorical crossentropy. పెద్ద పేరు, భయపడకండి — Day 10 log loss, 10 classes కి: −ln(correct digit కి ఇచ్చిన percentage). "Sparse" అంటే labels 7 లాంటి plain numbers, అంతే. Metric accuracy. Block 7: Train — model.fit, మన Day 10 loop. 5 epochs, batch size 128, validation split 0.1 — 6,000 images ని mock test కోసం పక్కన పెడ్తది. సో 54,000 ÷ 128 = 421.9, round up — ఒక epoch కి 422 batches, అదే 422/422 — ఈ లెక్క రాసుకోండి. Run చేస్తున్నా… Epoch 1 — accuracy దాదాపు 92.8%. Epoch 5 — 99.1%. Loss 0.25 నుంచి 0.03. Validation — నేర్చుకోని images మీద — దాదాపు 99%, training కి దగ్గరగానే. Day 11 లో చూసిన overfitting gap ఏం లేదు. Day 11 లో 100 epochs కావాల్సి వచ్చింది, ఇక్కడ 5 చాలు — ఎందుకంటే ఒక్కో epoch లోనే 422 updates అన్నమాట.
 
 💻
 - Show **Block 6: Compile**, run it (instant).
@@ -461,7 +467,7 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 - Card: **54,000 ÷ 128 = 421.9 → 422 batches per epoch**.
 
 ### I7. Block 8: Test on 10,000 new images
-⏱ **20:37 – 21:01**
+⏱ **21:10 – 21:35**
 
 🎙
 > Block 8: Test on 10,000 new images — real exam. Model ఒక్కసారి కూడా చూడని images — coaching centre practice తర్వాత కొత్త questions లాగా. Test accuracy — 98.85%! అంటే దాదాపు 9,885 correct, 115 మాత్రమే తప్పు. రాసుకోండి: honest score test data మీదే, training data మీద కాదు. మీ number కొంచెం different రావొచ్చు — 98.6, 99.0 — normal. దాదాపు 99% వస్తే పని చేస్తున్నట్టే.
@@ -473,7 +479,7 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 - Tick box 5 "Test". Big stamp: **98.85% · 9,885 / 10,000 ✔** 🔁 ✍️ **"Honest score = TEST data, not training data"**.
 
 ### I8. Block 9: Predict one image
-⏱ **21:01 – 21:21**
+⏱ **21:35 – 21:54**
 
 🎙
 > Block 9: Predict one image — test image 0, ఒక handwritten 7, starting లో teacher రాసిన 7 లాగా. Run… 7 వచ్చేసి — 99.999%! మిగతావి దాదాపు 0, ఒక్కటే పొడవాటి bar. Softmax percentages, total 100. Model says 7, true answer 7. idx మార్చి 9999 వరకు ఏ image అయినా try చేయండి.
@@ -485,7 +491,7 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 - Tick box 6 "Predict". Sketch the bar chart: one tall bar at **7 (99.999%)**, flat everywhere else. Note: **"softmax: all 10 add to 100%"**.
 
 ### I9. Block 10: The images it got wrong
-⏱ **21:21 – 22:05**
+⏱ **21:54 – 22:39**
 
 🎙
 > Block 10: The images it got wrong — నాకు ఇష్టమైన block. 115 mistakes లో ఫస్ట్ 10. Image 18 — true 3, model 5 అన్నది, 44% sure. నిజం చెప్పండి, ఆ 3 మీకు కూడా 5 లాగే అనిపిస్తది కదా? Image 717 — ఒక వైపు వంగిన 0, model 5 అన్నది. ఇలాంటివి teacher కూడా కళ్ళు చిన్నవి చేసి చూస్తది. Top-2 list లో — ఈ 10 లో 9 సార్లు correct answer model కి second choice; image 18 లో 3 కి 39% ఇచ్చింది — అంటే model కి doubt ఉంది అన్నమాట. కానీ image 449 — true 3, model 5 అన్నది, 99% sure! Softmax దగ్గర చెప్పిన కదా — 99% sure అంటే correct కాదు. Confidence వేరు, correctness వేరు. గుర్తుపెట్టుకోండి.
@@ -499,7 +505,7 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 - Write ✍️: **"99% sure ≠ correct. Confidence ≠ correctness."** and **"9 of 10: right answer = 2nd guess"** 🔁.
 
 ### I10. Block 11 (optional): Try it yourself + Block 12: Homework, Fashion-MNIST
-⏱ **22:05 – 22:47**
+⏱ **22:39 – 23:21**
 
 🎙
 > Block 11, optional: Try it yourself. (a) లో board మీద 1, 0, −1 filter ని real 7 మీద వేసినం — vertical map లో వాలు గీత, horizontal map లో పైన అడ్డ గీత వెలుగుతది. (b) లో trained model దానంతట అదే నేర్చుకున్న filters నుంచి 8 feature maps — ఎవరూ design చేయలేదు. కొన్ని edges పట్టుకుంటున్నాయి — Day 9 లో "ఫస్ట్ lines, edges", మీ కళ్ళ ముందు. Block 12: Homework, Fashion-MNIST — Block 2 లో ఒక్క line: mnist బదులు fashion_mnist, తర్వాత Run all. సో same CNN, ఇప్పుడు 10 రకాల బట్టలు, shoes. Digits కంటే ఎక్కువ వస్తదా, తక్కువా? ఏవి confuse అవుతది? మీ accuracy comments లో చెప్పండి.
@@ -512,11 +518,14 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 🖊
 - Homework card: **Block 2 → `keras.datasets.fashion_mnist` → Runtime → Run all → comment your test accuracy + the items it confuses**.
 
-### I11. Why CNNs for images: the comparison card + one doubt
-⏱ **22:47 – 23:28**
+### I11. Block 13 (optional): Dense vs CNN, and shifted digits + one doubt
+⏱ **23:21 – 24:04**
 
 🎙
-> Last card. మా team same 5 epochs తో normal Dense network కూడా train చేసింది — test లో 97.0%, దాదాపు 299 mistakes; CNN కి 115 — దాదాపు 2.6 times తక్కువ. ప్రతి digit ని 3 pixels జరిపితే — Dense 49%, CNN 88%. CNN కూడా పడింది, immune కాదు — కానీ చాలా better. Usual fix — data augmentation, అంటే training లో జరిపిన copies కూడా ఇవ్వడం — పేరు మాత్రమే. Images కి CNN ఎందుకు అంటే — అందుకే. రాసుకోండి. And మీ handwriting photo ఇస్తే చదువుతదా? Direct గా కష్టం — MNIST digits center లో, 28 by 28, black మీద white. ముందు crop, resize చేసి colours తిప్పాలి. 99% అంటే MNIST లాంటి digits మీద 99%.
+> Last card — Block 13, optional. Same 5 epochs తో ఒక normal Dense network కూడా train చేసినం — test లో 97.0%, దాదాపు 299 mistakes; CNN కి 115 — దాదాపు 2.6 times తక్కువ. ప్రతి digit ని 3 pixels జరిపితే — Dense 49%, CNN 88%. CNN కూడా పడింది, immune కాదు — కానీ చాలా better. Usual fix — data augmentation, అంటే training లో జరిపిన copies కూడా ఇవ్వడం — పేరు మాత్రమే. Images కి CNN ఎందుకు అంటే — అందుకే. రాసుకోండి. And మీ handwriting photo ఇస్తే చదువుతదా? Direct గా కష్టం — MNIST digits center లో, 28 by 28, black మీద white. ముందు crop, resize చేసి colours తిప్పాలి. 99% అంటే MNIST లాంటి digits మీద 99%.
+
+💻
+- Scroll to **Block 13 (optional): Dense vs CNN, and shifted digits** and run it (pre-run once before recording; time-lapse the Dense training wait). *(run pause ~3 s after time-lapse)* Zoom into the table: 🔁 `Dense | 97.01% | 49.46%` and `CNN | 98.85% | 87.75%`, then the "Test image 0 / Shifted 3 px right" pictures.
 
 🖊
 - Final card ✍️:
@@ -532,7 +541,7 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 ---
 
 ## [J] Comment quiz
-⏱ **23:28 – 24:03**
+⏱ **24:04 – 24:40**
 
 🎙
 > ఇప్పుడు ఈరోజు quiz — comments లో చెప్పండి. ఒకటి: colour photo 100 by 100 pixels — computer కి ఎన్ని numbers? రెండు: vertical filter — ప్రతి row 1, 0, −1 — ఈ patch మీద: ప్రతి row 1, 0, 0. ఏ number వస్తది? మూడు: ఈ 2 by 2 block ని max pool చేయండి — 2, 7, 0, 5. నాలుగు: trick question — ఏది deep learning image classification కాదు? (a) Google Lens flower పేరు, (b) UPI QR code scan, (c) leaf photo చూసి disease చెప్పే app. నాలుగూ ఎవరు correct చెప్తారో చూద్దాం. Fashion-MNIST accuracy కూడా మర్చిపోకండి.
@@ -548,7 +557,7 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 ---
 
 ## [K] Video recap
-⏱ **24:03 – 24:25**
+⏱ **24:40 – 25:02**
 
 🎙
 > And that's it for the day! ఈ video లో — computer vision: image అంటే numbers grid; CNN: filters, feature maps, ReLU, max pooling, softmax — filters ని machine ఏ నేర్చుకుంటది; and MNIST మీద మనమే classifier build చేసినం, దాదాపు 99% test accuracy. ఇవన్నీ AI లో, ML లో, deep learning లో — computer vision branch లో వస్తాయి అన్నమాట.
@@ -560,7 +569,7 @@ Draw three fingers ✋ and write one problem per finger (✍️):
 ---
 
 ## [L] Outro
-⏱ **24:25 – 25:06**
+⏱ **25:02 – 25:43**
 
 🎙
 > Convolution ఒక్కసారికి పూర్తిగా clear కాకపోయినా టెన్షన్ పడకండి — paper మీద 6 by 6 grid గీసి ఒక్క window మీరే calculate చేయండి, click అయితది. సో notes — definitions, drawings, numbers — and Colab notebook link, రెండూ description లో ఉన్నాయి.
