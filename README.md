@@ -16,6 +16,6 @@ Coming next: a style breakdown of these videos (research, scripting, story flow,
 
 | # | Video | Length | Transcript |
 |---|---|---|---|
-| 01 | [Is AI DEAD? 😱😱 Watch this immediately](https://youtu.be/3f2htScPUUs) | 18:09 | pending |
-| 02 | [5 Skills To Learn Before 2027](https://youtu.be/tEe-fAOz-zk) | 11:57 | pending |
+| 01 | [Is AI DEAD? 😱😱 Watch this immediately](https://youtu.be/3f2htScPUUs) | 18:09 | [`transcripts/01-is-ai-dead.md`](transcripts/01-is-ai-dead.md) |
+| 02 | [5 Skills To Learn Before 2027](https://youtu.be/tEe-fAOz-zk) | 11:57 | [`transcripts/02-5-skills-to-learn-before-2027.md`](transcripts/02-5-skills-to-learn-before-2027.md) |
 | 03 | [No more IT jobs in India, Why?](https://youtu.be/QCTlFtM709s) | 19:55 | [`transcripts/03-no-more-it-jobs-in-india.md`](transcripts/03-no-more-it-jobs-in-india.md) |
