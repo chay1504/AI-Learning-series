@@ -28,7 +28,7 @@ To make a new video, give Claude a topic on this branch; the `deepak-breakdown-s
 | # | Video | Runtime | Files |
 |---|---|---|---|
 | 05 | How big will the gaming industry be? (GTA 6 money → industry → India → AI) | ~12 min | [`scripts/05-gaming-industry-future/`](scripts/05-gaming-industry-future): `research.md` · `script-english.md` · `script-telugu.md` · `production-notes.md` · `research-briefs/` |
-| 04 | AI layoffs 2026: the numbers + 5 things to do (India + US) | ~11 min | [`scripts/04-ai-layoffs-2026/`](scripts/04-ai-layoffs-2026): `research.md` · `script-english.md` · `script-telugu.md` · `production-notes.md` · `research-briefs/` |
+| 04 | AI layoffs 2026: the real story + 5 new AI jobs (India + US) | ~10.5 min | [`scripts/04-ai-layoffs-2026/`](scripts/04-ai-layoffs-2026): `research.md` · `script-english.md` · `script-telugu.md` · `production-notes.md` · `research-briefs/` |
 | 03 | How does GTA 6 make money? (short) | ~6–7 min | [`scripts/03-how-gta6-makes-money/`](scripts/03-how-gta6-makes-money): `research.md` · `script-english.md` · `script-telugu.md` · `production-notes.md` |
 | 02 | The money behind GTA 6 | ~17 min | [`scripts/02-gta6-money/`](scripts/02-gta6-money): `research.md` · `script-english.md` · `script-telugu.md` · `production-notes.md` · `research-briefs/` |
 | 01 | Elon Musk isn't building companies, he's building an ecosystem | ~22–23 min | [`scripts/01-elon-musk-ecosystem/`](scripts/01-elon-musk-ecosystem): `research.md` · `script-english.md` · `script-telugu.md` · `production-notes.md` · `research-briefs/` |

@@ -139,21 +139,21 @@ Part 1 proves the shift with numbers. Part 2 gives five moves.
 
 ---
 
-## 3. Part 2: insights, the 5 moves (brief D, tied to Part 1)
+## 3. Part 2: the rule for every job + 5 new AI jobs (brief D; rewritten 22 Nov 2026 after feedback)
 
-| # | Move | Why (the data) | What to do in 6 months |
-|---|---|---|---|
-| 1 | **Become AI-native in your current role** | Google: about **75%** of new code is AI-generated, up from 25% in late 2024 [V]. 65.9% of developers use AI assistants [S]. AI Engineer is #1 on LinkedIn Jobs on the Rise in the US and **fastest-growing in Hyderabad** [V] | Use a coding agent daily. Learn LLM APIs, RAG and agents/MCP. Automate your own repetitive tasks first |
-| 2 | **Learn the new skill stack: context engineering → loop engineering → evals** | Prompt engineer as a title is "flatlining" (Indeed) [V]. **Context engineering** (Lütke/Karpathy, Jun 2025) [V]. **Loop engineering** (Addy Osmani, 7 Jun 2026; IBM explainer): the agent tries, a checker says pass or fail, and it retries until done. It grew from the "Ralph Wiggum loop" [V]. "The verifier is the bottleneck" [S] | Write goals, checkers and stop conditions. **QA/testers can pivot to AI evals**, i.e. testing AI systems |
-| 3 | **Move closer to the customer and the business** | **FDE:** India postings about **19×** in a year (Indeed) [V]; global >1,000% vs 13% for all tech (Lightcast) [V]. OpenAI lists an Applied AI Engineer role in Delhi [V]. **Chief AI Officer:** 76% of companies have one, up from 26% (IBM 2026) [V]. A Telugu techie, **Hariprasad Rebala**, became CAIO at Sonata Software (Aug 2026) [V] | Pair coding with communication and domain knowledge (banking, healthcare, retail). Seniors: AI product manager or AI governance (IAPP AIGP) |
-| 4 | **Build proof of work, not just certificates** | **60%** of US hiring pros say AI makes skills harder to judge, so they want proof (WGU) [S]. Lightcast: AI skills pay **28%** more, **43%** with 2+ AI skills [V]. PwC: 62% premium [S] | Build 3 public projects (a RAG app on your domain, an agent with evals, a "deployment" write-up). Post on GitHub/LinkedIn. Use certifications as keyword filters, not as the main proof |
-| 5 | **Go where the hiring is, and protect yourself** | India: **GCCs** and Hyderabad +9% [V]. US: **the weighted lottery favours higher wage levels**, and the grace-period rule is under threat [V/S] | India: target GCCs and AI teams. US students: aim for roles above Level I wage, and consider cap-exempt employers (universities and research). Everyone: keep a 60-day plan (savings, referrals, a transfer-ready resume) |
+**The rule for every job (not a job itself): become AI-native.** Google says about 75% of its new code is AI-generated, up from 25% in late 2024 [V]. Use AI daily and automate your own repetitive tasks.
 
-**Bonus terminology:**
-- **Data annotation is splitting:** xAI cut 500 generalists but promised 10× more expert tutors [V].
-- **Fun new titles:** "Claude Evangelist" and "professional vibe coder" (TNW). Niche, so don't present them as career advice [S].
+| # | Job | Who it suits | What it is / a day in the job | Evidence | Learn in 6 months |
+|---|---|---|---|---|---|
+| 1 | **AI Engineer / Applied AI Engineer** | Freshers, developers | Builds products on top of LLMs: RAG chatbots over company documents, and agents. Example: a bank's loan-policy bot over 500 PDFs | #1 on LinkedIn Jobs on the Rise in the US (2nd year); fastest-growing in Hyderabad and Bengaluru [V]. India postings +59.5% (LinkedIn) [S]. Fresher pay ₹6–9 LPA [S/U]. US Applied AI median TC ~$250K (Levels.fyi, big-tech skewed) [S] | Python, LLM APIs, RAG, agents/MCP, context engineering |
+| 2 | **AI Evals Engineer** (with loop engineering) | Testers / QA | Tests whether AI is accurate and safe, e.g. writes 1,000 tricky questions for a support bot before launch | Emerging; no posting counts, so say "emerging" [S]. Loop engineering coined Jun 2026 (Osmani; IBM explainer) [V]. "The verifier is the bottleneck" [S]. Square Enix wants AI to do 70% of QA by 2027 [V]. Nasscom: testing is being automated [S] | Test design, Python, LLM-as-judge, eval frameworks; let an agent loop on a task with tests |
+| 3 | **Forward Deployed Engineer (FDE)** | Mid-level developers who are good with people | Embeds with the client and makes AI work on their messy data, e.g. two weeks with doctors at a hospital | India postings ~19× in a year (Indeed) [V]; global >1,000% vs 13% for all tech (Lightcast) [V]. OpenAI lists an Applied AI Engineer role in Delhi [V]. US AI-lab base ~$200–320K (reported) [S]. Palantir origin [V] | Coding + communication + one domain |
+| 4 | **AI Product Manager** | BAs, PMs, engineers with a few years' experience | Decides which AI product to build and how to measure it, e.g. "suggest dishes or auto-reorder?" | ~12,400 US AI product postings; median ~$195K; **only ~2% junior** (Axial Search) [S] | AI basics, evaluating AI quality, turning a business problem into an AI product |
+| 5 | **Chief AI Officer (CAIO)** | Seniors (10+ yrs) | Owns company-wide AI strategy and risk | 26% → **76%** of companies (IBM CEO Study 2026) [V]. US federal agencies must have one (OMB M-25-21) [V]. **Hariprasad Rebala**, CAIO at Sonata Software (Aug 2026) [V]. Wipro made Nagendra Bandaru CEO of its AI segment [V]. Ladder: AI Lead → Head of AI → **Director of AI (#2 fastest-growing in Bengaluru, LinkedIn)** [V] → CAIO. Caveat: BCG says ~3 in 4 CEOs call themselves the main AI decision-maker [V]. AI governance team under the CAIO (IAPP AIGP) [V] | Leadership plus AI literacy; governance (AIGP) |
 
----
+**Dropped after feedback:** "build proof of work" (too generic) and "go where the hiring is" as a separate move. GCCs and Hyderabad now appear in the story (Act 3), and the US 60-day plan is in Act 3b.
+
+**Story device:** Ravi (a tester at a service company) and Sita (a developer at a product company), batch of 2022, Hyderabad. They are **illustrative characters** from the AI Learning Series, not real people. Every number attached to the story is real.
 
 ## 4. Analogy
 
