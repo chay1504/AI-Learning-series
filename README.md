@@ -7,10 +7,13 @@ This branch is **separate from the AI Learning Series**. The AI Learning Series 
 ## Layout
 
 ```
-transcripts/   Reference videos: Telugu original + English translation, timestamped
+transcripts/                         Reference videos: Telugu original + English translation, timestamped
+research/style-dna-report.md         Forensic style DNA: arc, research habits, numbers, devices, Telugu voice, CTAs, checklist
+.claude/skills/deepak-breakdown-script/SKILL.md   Reusable skill: topic -> research doc -> English + Telugu scripts
+scripts/<NN>-<slug>/                 One folder per new video: research.md, script-english.md, script-telugu.md, production-notes.md
 ```
 
-Coming next: a style breakdown of these videos (research, scripting, story flow, hooks, pacing) and a reusable skill for writing new case-study scripts in the same style.
+To make a new video, give Claude a topic on this branch; the `deepak-breakdown-script` skill handles research and both scripts.
 
 ## Reference videos
 
