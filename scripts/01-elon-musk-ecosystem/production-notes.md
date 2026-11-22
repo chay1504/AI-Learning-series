@@ -18,21 +18,22 @@
 ```
 00:00 Tesla stopped making its famous car?!
 01:20 What we'll learn today
-02:00 Elon's origin story: Zip2, PayPal, 2008
-05:40 Six companies, one man
-06:00 Tesla: cars, robotaxi, flying Roadster, Optimus
-08:30 SpaceX: reusable rockets, Starship catch, Starlink, Moon/Mars
-11:30 Neuralink: Move, Speak, See
-13:00 xAI, Grok and X
-14:15 The Boring Company
-15:15 The twist: none of these are separate
-15:45 Ameerpet Anna's biryani empire (analogy)
-17:15 Proof: how money, data and hardware flow
-18:30 Is this just like Tata? (and the criticism)
-19:15 What it means for India
-20:15 The 2006 master plan + what to watch next
-21:00 What you can learn
-21:45 Genius or hype?
+01:50 Elon's origin story: Zip2, PayPal, 2008
+05:35 Six companies, one man
+05:55 Tesla: cars, robotaxi, FSD v15 "Reality View", flying Roadster, Optimus
+08:50 SpaceX: reusable rockets, Starship catch, Moon/Mars
+10:50 Starlink: 2 of every 3 satellites, 13.6M users
+12:20 Neuralink: Move, Speak, See
+14:00 xAI, Grok and X
+14:55 The Boring Company
+15:45 The twist: none of these are separate
+16:05 Ameerpet Anna's biryani empire (analogy)
+17:00 Proof: how money, data and hardware flow
+18:25 Is this just like Tata? (and the criticism)
+19:25 What it means for India
+20:35 The 2006 master plan + what to watch next
+21:30 What you can learn
+22:05 Genius or hype?
 ```
 
 ## Description draft
@@ -53,6 +54,8 @@
 | B8 Tesla | Model Y #1 car 2023; deliveries 1.81M → 1.64M vs BYD 2.26M; "80% Optimus" quote; FSD 17B miles ≈ 90 Sun round trips; Robotaxi 8 cities; Cybercab; Roadster flip clip; Megapack 14.7 → 46.7 GWh; pay-package milestones |
 | B8 SpaceX | Booster landing; B1067 37 flights; 165 launches / 2.2 days / 51% / >80%; tower catch Oct 2024 and Nov 2026; Starlink "2 of 3" plus subscriber growth; Moon-vs-Mars comparison (10 days / 2 days vs 26 months / 6 months); Q3 AI $7.56B > Starlink $5.25B |
 | B4 | Subscribe animation |
+| B8 Tesla (FSD v15) | Screen capture of FSD v15 "Reality View" (live generated 3D view from above the car); quote card: Musk, "like GTA"; small label "25× = Tesla's own metric" |
+| B8 Starlink | Satellite-count globe ("2 of every 3"); subscriber growth bar 2.3M → 13.6M; $11.4B (~61% of SpaceX) pie; EchoStar ~$17B direct-to-phone card; Cybercab with a Starlink dish icon |
 | B8 Neuralink | Link chip diagram; MOVE / SPEAK / SEE cards; patient counts 21 → ~26 → "30+" |
 | B8 xAI | Colossus 122 days; $1 earned / $2 lost; merger-chain animation |
 | B8 Boring | Tweet card; Vegas Loop map; 127,566 riders in 4 days |

@@ -3,8 +3,8 @@
 | Field | Value |
 |---|---|
 | Format | Case-study breakdown (Deepak Breakdown Arc, DNA §2) |
-| Target runtime | about 20 to 22 minutes (with pauses and B-roll) |
-| Spoken words | about 4,200 (about 210 words a minute) |
+| Target runtime | about 22 to 23 minutes (with pauses and B-roll) |
+| Spoken words | about 4,480 (about 205 words a minute) |
 | Central question | Why would one man stop making his most famous car, let a rocket company own Twitter and run a tunnel company on nothing but his own cars? |
 | Research | [`research.md`](research.md). Every number below is in it, with its source and as-of date (22 Nov 2026) |
 | Twin | [`script-telugu.md`](script-telugu.md) has the same beats, timestamps, numbers and CTAs |
@@ -33,13 +33,13 @@ Watch this video till the end, because in the next 20 minutes I'm going to break
 
 ---
 
-## [01:20–02:00] B6 · Agenda
+## [01:20–01:50] B6 · Agenda
 
 So basically, in this video we need to learn three things.
 
 First: who actually is Elon Musk, and how did he make his first money? PayPal, his old companies, the ones he started, the ones he left, and the one year when he almost lost everything.
 
-Second: what are his companies actually doing right now? Tesla, SpaceX, Neuralink, xAI and the Boring Company, one by one, with the latest numbers.
+Second: what are his companies actually doing right now? Tesla, SpaceX, Starlink, Neuralink, xAI and the Boring Company, one by one, with the latest numbers.
 
 And third, this is the most important part and a lot of people don't know it: how all these companies are secretly connected to each other. Once you understand that third part, you'll never look at Elon Musk the same way again.
 
@@ -47,7 +47,7 @@ And third, this is the most important part and a lot of people don't know it: ho
 
 ---
 
-## [02:00–05:40] B7 · Part 1, the origin story
+## [01:50–05:35] B7 · Part 1, the origin story
 
 So let's go back. Elon Musk was born on June 28, 1971, in Pretoria, South Africa. At just 12 years old he wrote a video game called *Blastar*, and he sold that code to a magazine for 500 dollars. Twelve years old, bro. At 17 he left home and moved to Canada alone, and later he studied physics and economics at the University of Pennsylvania in America.
 
@@ -91,13 +91,13 @@ Now one more small thing, and I really want you to remember this one. In 2006, M
 
 ---
 
-## [05:40–06:00] B9 · The turn
+## [05:35–05:55] B9 · The turn
 
-So till now we've seen one man making money and betting it all again. But from here, the story changes completely. Because with that money, he didn't build one company. He built six companies. And each company is doing something that sounds like science fiction. Let's see one by one.
+So till now we've seen one man making money and betting it all again. But from here, the story changes completely. Because with that money, he didn't build one company. He built six companies: Tesla, SpaceX, Starlink, Neuralink, xAI along with X, and the Boring Company. And each company is doing something that sounds like science fiction. Let's see one by one.
 
 ---
 
-## [06:00–08:30] B8 · Part 2a: Tesla
+## [05:55–08:50] B8 · Part 2a: Tesla
 
 Let's start with **Tesla**. Tesla was actually founded in 2003 by Martin Eberhard and Marc Tarpenning. Musk came in 2004, put in 6.5 million dollars out of 7.5 million, and became chairman. Their first car, the Roadster, came in 2008, and only around 2,450 of them were made. But that small car was step one of the master plan.
 
@@ -115,6 +115,10 @@ And then there's self-driving. Tesla's FSD has already driven more than 17 billi
 
 > On screen: FSD 17B miles ≈ 90 Sun round trips · Robotaxi, 8 cities · Cybercab, no steering wheel
 
+And this is breaking news: just yesterday, on November 21, Tesla started rolling out FSD version 15 to its first customers. The big new feature is called "Reality View". Instead of a simple map, the car's screen now shows a live 3D view of the road, the cars, people and cyclists around you, generated in real time, as if a camera were flying above your car. Musk himself compared it to GTA. Tesla also claims v15 handles risky moments 25 times better, though that's Tesla's own measurement, not an independent test. The wide release is planned for December.
+
+> On screen: FSD v15 · rollout began 21 Nov 2026 · "Reality View": live generated 3D view from a virtual camera above the car · Musk: "like GTA" · Tesla claims 25× better critical-intervention rate (company metric) · wide release planned Dec
+
 And just last month, on October 15, Tesla showed the new Roadster. This car drove up a ramp, went upside down, and literally flew around 21 feet in the air before landing. How? Using cold-gas thrusters from SpaceX, the rocket company. Musk says 0 to 60 in under one second, with production in 2028. Remember this: a Tesla car using SpaceX rocket parts. We'll connect it later.
 
 And one more division people forget: energy. Tesla's giant batteries, called Megapacks, went from 14.7 gigawatt-hours in 2023 to 46.7 gigawatt-hours in 2025, more than 3 times in two years.
@@ -125,7 +129,7 @@ Now this is what's important. Musk's pay package, approved in November 2025, is 
 
 ---
 
-## [08:30–11:00] B8 · Part 2b: SpaceX
+## [08:50–10:50] B8 · Part 2b: SpaceX
 
 Now let's talk about **SpaceX**, and this one is crazy.
 
@@ -141,11 +145,7 @@ And then there's **Starship**, the biggest rocket ever built. In October 2024, t
 
 > On screen: Flight 15, ship caught by the tower (14 Nov 2026)
 
-Why does this matter? Because the cheaper the rocket, the cheaper it is to put things in space. And what did SpaceX put up there? **Starlink**.
-
-Quick quiz. Tell me in your mind: how many working satellites do you think are above us right now, and how many of them belong to just one company? Around 2 out of every 3 working satellites in the sky are Starlink. Around 11,200 Starlink satellites, and 13.6 million subscribers as of September 2026, up from just 2.3 million in 2023. That's almost 6 times in under 3 years.
-
-> On screen: "2 of every 3 working satellites = Starlink" · 2.3M → 13.6M subscribers
+Why does this matter? Because the cheaper the rocket, the cheaper it is to put things in space. And what did SpaceX put up there? That's a whole company in itself, and I'll come to it in a minute.
 
 And the Mars plan? A lot of people don't know this update. In 2025, Musk said Starships would go to Mars at the end of 2026, carrying Optimus robots. But that didn't happen. In February 2026 he changed the plan: first, a "self-growing city on the Moon". His logic was simple: you can launch to the Moon every 10 days and reach it in 2 days, but Mars only comes once every 26 months and takes 6 months to reach. The next Mars window is end of 2028.
 
@@ -155,13 +155,29 @@ And business-wise, SpaceX earned 18.7 billion dollars in revenue in 2025. In the
 
 ---
 
-## [11:00–11:30] B4 · Mid-roll CTA
+## [10:50–11:55] B8 · Part 2c: Starlink
+
+Now the third company: **Starlink**. Technically it's a part of SpaceX, but it has grown so big that it's practically a company of its own. Starlink gives you internet directly from satellites. No cables, no towers, just a small dish that talks to the sky.
+
+Quick quiz. Tell me in your mind: how many working satellites do you think are above us right now, and how many of them belong to just one company? Around 2 out of every 3 working satellites in the sky are Starlink. Around 11,200 Starlink satellites are in orbit. And subscribers? 13.6 million as of September 2026, up from just 2.3 million in 2023. That's almost 6 times in under 3 years, across around 170 markets.
+
+> On screen: "2 of every 3 working satellites = Starlink" · ~11,200 satellites · 2.3M → 13.6M subscribers · ~170 markets
+
+And it's a money machine. In 2025, Starlink made 11.4 billion dollars, around 61% of all of SpaceX's revenue. That's the money that pays for Starship. And it's not stopping at dishes. SpaceX spent around 17 billion dollars buying radio spectrum from a company called EchoStar so that Starlink can connect directly to normal mobile phones. There's even a military version called Starshield for governments.
+
+> On screen: Starlink 2025 revenue $11.4B (~61% of SpaceX) · ~$17B EchoStar spectrum for direct-to-phone · Starshield (military)
+
+And remember the Cybercab I told you about? It has Starlink built in. A Tesla car connected by a SpaceX satellite. One company's product is literally inside another company's product. Keep that in mind for the ecosystem part.
+
+---
+
+## [11:55–12:20] B4 · Mid-roll CTA
 
 Sorry for interrupting in the middle of the video. All of you are watching till here, right? That means you're liking the breakdown. But you know what? Almost 90% of the people who watch our videos don't subscribe. Just take one second, like this video and subscribe, because a video like this takes my team and me almost a week of research and scripting. Your one subscribe tells us to bring more breakdowns like this. Let's continue.
 
 ---
 
-## [11:30–13:00] B8 · Part 2c: Neuralink
+## [12:20–14:00] B8 · Part 2d: Neuralink
 
 Now the third company sounds like a movie: **Neuralink**.
 
@@ -183,7 +199,7 @@ Officially, 21 people had the chip as of January 2026; reports now say around 26
 
 ---
 
-## [13:00–14:15] B8 · Part 2d: xAI, Grok and X
+## [14:00–14:55] B8 · Part 2e: xAI, Grok and X
 
 The fourth company is **xAI**, Musk's AI company, started in July 2023. Their AI is called **Grok**, and it lives inside X, the old Twitter.
 
@@ -199,7 +215,7 @@ Now listen to this chain carefully. In 2022 Musk bought Twitter for 44 billion d
 
 ---
 
-## [14:15–15:15] B8 · Part 2e: The Boring Company
+## [14:55–15:45] B8 · Part 2f: The Boring Company
 
 And the fifth one has a funny name: **The Boring Company**. And it literally started from one angry tweet. In December 2016, Musk tweeted: "Traffic is driving me nuts. Am going to build a tunnel boring machine and just start digging." Hyderabad people, I know you're feeling this tweet.
 
@@ -213,15 +229,15 @@ They claim tunnels at around 10 million dollars a mile, compared with around 1 b
 
 ---
 
-## [15:15–15:45] B9 · The twist
+## [15:45–16:05] B9 · The twist
 
-So till now we've seen five companies: cars and robots, rockets and internet, brain chips, AI, and tunnels. A normal person sees five different businesses.
+So till now we've seen six companies: cars and robots, rockets, internet from space, brain chips, AI, and tunnels. A normal person sees six different businesses.
 
 But here's the real twist. None of these are separate. Every company is buying from, selling to, or feeding data to another Musk company. And to understand that, let me tell you a small Hyderabadi story.
 
 ---
 
-## [15:45–17:15] B11 · The analogy: Ameerpet Anna's biryani empire
+## [16:05–17:00] B11 · The analogy: Ameerpet Anna's biryani empire
 
 Suppose there's an Anna who opens one biryani hotel in Ameerpet. Business is good. But every month he's paying a lot of money to other people: lorry owners to bring rice, the gas agency, the delivery apps, the cooks.
 
@@ -243,7 +259,7 @@ Exactly the same thing is happening with Musk.
 
 ---
 
-## [17:15–18:30] B10 · The proof: how the money, data and hardware flow
+## [17:00–18:25] B10 · The proof: how the money, data and hardware flow
 
 And this isn't just my theory. Let's look at the actual numbers.
 
@@ -281,7 +297,7 @@ Each company is one piece of a civilisation that can run by itself. That's the e
 
 ---
 
-## [18:30–19:15] B13 · Myth correction
+## [18:25–19:25] B13 · Myth correction
 
 Now, a lot of people think, "Okay bro, this is just like Tata or any big group. Tata makes salt, steel, cars and software." But that's not it. In a group like that, the companies mostly share a brand name. In Musk's ecosystem, the companies share inputs. One company's product is the next company's raw material.
 
@@ -293,7 +309,7 @@ And Elon has missed a lot of promises. The Roadster was promised for 2020 and is
 
 ---
 
-## [19:15–20:15] B12 · The India angle
+## [19:25–20:35] B12 · The India angle
 
 Now you might think, "Bro, what's all this got to do with us in India?" A lot, actually.
 
@@ -309,7 +325,7 @@ And to understand the scale: all of Musk's companies together are worth around 3
 
 ---
 
-## [20:15–21:00] B14–B15 · The precedent and the watch-list
+## [20:35–21:30] B14–B15 · The precedent and the watch-list
 
 Remember the 2006 master plan I told you to keep in your brain? "Build a sports car, use that money to build an affordable car, use that money to build an even more affordable car." That small plan worked. The Roadster led to the Model S, then the Model 3 and Model Y, and the Model Y became the world's best-selling car. The ecosystem is the same idea, just at planet size: rocket money funds satellites, satellite money funds AI, AI makes robots smarter, and robots build the next thing. And "don't tell anyone"? Well, now everyone knows.
 
@@ -324,7 +340,7 @@ If these happen, the ecosystem gets stronger. If they slip, you'll know it's "El
 
 ---
 
-## [21:00–21:45] B16 · Viewer takeaway
+## [21:30–22:05] B16 · Viewer takeaway
 
 So what can we learn from all this? Not "become Elon Musk". It's about thinking in systems, not single products. Whatever you're building, whether it's a startup, a YouTube channel or your career, ask yourself once: "Can the one thing I build feed the next thing I build?" A skill you learn today should help the next skill. A project you build should become the base for the next project.
 
@@ -332,12 +348,12 @@ And if you're a student, look at the jobs inside this ecosystem: AI, robotics, b
 
 ---
 
-## [21:45–22:30] B17–B18 · Recap and close
+## [22:05–22:55] B17–B18 · Recap and close
 
 So now you've got clarity, right? We learned:
 - how Elon Musk made his first money with Zip2 and PayPal, and bet it all;
 - the 2008 year when everything almost died;
-- what Tesla, SpaceX, Neuralink, xAI and the Boring Company are doing right now;
+- what Tesla, SpaceX, Starlink, Neuralink, xAI and the Boring Company are doing right now, including the FSD v15 update from yesterday;
 - and most importantly, how all of them are connected into one ecosystem.
 
 So tell me in the comments: is Elon Musk a genius building the future, or is this all just hype and "Elon time"? Genius or hype? What's your opinion? Tell me in the comments.

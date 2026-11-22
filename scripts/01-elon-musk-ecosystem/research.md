@@ -152,6 +152,13 @@ Money, data, hardware and talent move between them. In 2025–26 the legal walls
   - **San Antonio became the 8th city** on 9 Nov 2026.
   - A third-party tracker counts about **666** driverless cars nationwide.
 - **Cybercab** (no steering wheel, no pedals): production started April 2026; paid rides in Austin from **3 Sep 2026**. **It has Starlink built in.**
+- **FSD v15 (added 22 Nov 2026):**
+  - **Rollout:** began **21 Nov 2026** to a first group of customers. Tesla has not said how many or which regions. Musk says a wide release is planned for **December** (Holiday Update) [S].
+  - **"Reality View":** a live overhead display of the drive. Tesla describes it as a real-time generative visualisation streamed from a virtual camera above the car. Users can tap it to tell the car where to go [S].
+  - **Musk** compared it to GTA [S].
+  - **Safety claim:** Tesla says v15 has a **25× better critical-intervention rate**. That is a company metric, not independently tested, and not "25× safer" [S].
+  - Better detection of small animals, debris, potholes and deep water [S].
+  - Sources (search summaries): [Gizmodo](https://gizmodo.com/its-like-gta-musk-touts-video-game-like-update-to-tesla-fsd-2000843584), [Tesla North](https://teslanorth.com/2026/11/21/tesla-fsd-v15-first-rollout-reality-view/), [Digital Trends](https://www.digitaltrends.com/cars/tesla-fsd-v15-rollout/), [Drive Tesla Canada](https://driveteslacanada.ca/news/tesla-reality-view/).
 
 **Optimus**
 - Musk says Optimus will eventually be about **80% of Tesla's value** (Sep 2025).
@@ -197,12 +204,7 @@ Money, data, hardware and talent move between them. In 2025–26 the legal walls
 - The next Mars window is late 2028 / early 2029.
 - NASA: Artemis III is now a 2027 docking test in Earth orbit, and the first landing (Artemis IV) is in 2028. SpaceX competes with Blue Origin for it.
 
-**Starlink**
-- About **11,200 satellites** in orbit, about **2 of every 3 working satellites**.
-- **13.6M subscribers** (30 Sep 2026), up from 2.3M in 2023 (5.9×), across about 170 markets.
-- Starlink revenue was $11.4B in 2025.
-- Phone-to-satellite: bought EchoStar spectrum for about $17B (Sep 2025).
-- Starshield (military) is a smaller detail; skip it in the script.
+**Starlink:** now its own section in the script; see §5.2b below.
 
 **Business**
 - **IPO 12 Jun 2026, $75B**, the largest ever, ticker SPCX. On 21 Nov 2026 the stock was about $128, below the $135 IPO price.
@@ -216,6 +218,19 @@ Money, data, hardware and talent move between them. In 2025–26 the legal walls
 - **There is no official price.** The ₹8,600/month figure seen in Dec 2025 was "dummy test data".
 - SpaceX launched ISRO's **GSAT-N2** (Nov 2024), which was too heavy for LVM3.
 - **Shubhanshu Shukla** flew to the ISS on Falcon 9 and Dragon (Axiom-4, Jun 2025), the first Indian in space in 41 years.
+
+### 5.2b Starlink (brief B; presented as its own company)
+- **Structure:** Starlink is SpaceX's "Connectivity" segment, not a separately listed company. The script says "technically part of SpaceX, but practically a company of its own".
+- **Satellites:** about **11,200** in orbit (19 Nov 2026), about **2 of every 3 working satellites** (about 66%) [V/S].
+- **Subscribers:** **13.6M** (30 Sep 2026), up from 2.3M in 2023, so about **5.9×** in under 3 years. About **170 markets** (174 per the Q3 call) [V].
+- **Revenue:** **$11.4B in 2025, about 61% of SpaceX's revenue**; operating profit ~$4.4B [V]. Q3 2026 Connectivity revenue $5.25B (+69%) [S]. ARPU fell to $69/month [S].
+- **Direct-to-phone:** SpaceX bought EchoStar's AWS-4/H-block spectrum for **about $17B** (Sep 2025). T-Mobile "T-Satellite" texting is live [V/S].
+- **Starshield:** a military/government version, used for NRO spy-satellite missions [S].
+- **Ecosystem links:**
+  - **Starlink is built into the Cybercab** [S].
+  - Starlink profits help fund Starship and xAI's losses inside SpaceX [S].
+  - Grok handles Starlink customer support [S].
+- **India:** licensed but not live; no official price (see SpaceX India above).
 
 ### 5.3 Neuralink (brief D)
 
