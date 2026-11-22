@@ -27,5 +27,6 @@ To make a new video, give Claude a topic on this branch; the `deepak-breakdown-s
 
 | # | Video | Runtime | Files |
 |---|---|---|---|
+| 03 | How does GTA 6 make money? (short) | ~6–7 min | [`scripts/03-how-gta6-makes-money/`](scripts/03-how-gta6-makes-money): `research.md` · `script-english.md` · `script-telugu.md` · `production-notes.md` |
 | 02 | The money behind GTA 6 | ~17 min | [`scripts/02-gta6-money/`](scripts/02-gta6-money): `research.md` · `script-english.md` · `script-telugu.md` · `production-notes.md` · `research-briefs/` |
 | 01 | Elon Musk isn't building companies, he's building an ecosystem | ~20–22 min | [`scripts/01-elon-musk-ecosystem/`](scripts/01-elon-musk-ecosystem): `research.md` · `script-english.md` · `script-telugu.md` · `production-notes.md` · `research-briefs/` |
