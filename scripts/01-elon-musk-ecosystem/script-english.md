@@ -179,7 +179,7 @@ Sorry for interrupting in the middle of the video. All of you are watching till 
 
 ## [12:20–14:00] B8 · Part 2d: Neuralink
 
-Now the third company sounds like a movie: **Neuralink**.
+Now the fourth company sounds like a movie: **Neuralink**.
 
 Neuralink makes a coin-sized chip called the Link. It goes into the skull and sits on top of the brain, and it has 1,024 electrodes on 64 threads, each thread thinner than a human hair. They are so thin that a human surgeon's hand can't put them in, so a robot called R1 sews them into the brain.
 
@@ -201,7 +201,7 @@ Officially, 21 people had the chip as of January 2026; reports now say around 26
 
 ## [14:00–14:55] B8 · Part 2e: xAI, Grok and X
 
-The fourth company is **xAI**, Musk's AI company, started in July 2023. Their AI is called **Grok**, and it lives inside X, the old Twitter.
+The fifth company is **xAI**, Musk's AI company, started in July 2023. Their AI is called **Grok**, and it lives inside X, the old Twitter.
 
 xAI built a supercomputer in Memphis called **Colossus** with 100,000 GPUs in just 122 days. Normally a project like that takes years. Then they doubled it in 92 days. Now Colossus 2 has around 550,000 Nvidia GPUs, and the target is around 1.2 million.
 
@@ -217,7 +217,7 @@ Now listen to this chain carefully. In 2022 Musk bought Twitter for 44 billion d
 
 ## [14:55–15:45] B8 · Part 2f: The Boring Company
 
-And the fifth one has a funny name: **The Boring Company**. And it literally started from one angry tweet. In December 2016, Musk tweeted: "Traffic is driving me nuts. Am going to build a tunnel boring machine and just start digging." Hyderabad people, I know you're feeling this tweet.
+And the sixth one has a funny name: **The Boring Company**. And it literally started from one angry tweet. In December 2016, Musk tweeted: "Traffic is driving me nuts. Am going to build a tunnel boring machine and just start digging." Hyderabad people, I know you're feeling this tweet.
 
 > On screen: tweet card, 17 Dec 2016
 
